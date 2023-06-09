@@ -4,31 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Css -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- End of Css -->
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <!-- End of Favicon -->
+    <!-- Css -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/components/nav.css" />
+    <!-- End of Css -->
+    <!-- Script -->
+    <script defer src="./assets/scripts/signinRedirect.js"></script>
+    <!-- End of Script -->
     <title>Health Trackr</title>
   </head>
   <body>
     <header>
-      <div class="logo">
-        <a href="./index.html">
-          <img
-            width="50px"
-            src="./assets/images/logo-transparent.png"
-            alt="Health Trackr Logo"
-          />
-        </a>
-      </div>
-      <nav>
-        <div class="burger"></div>
+      <div class="burger"></div>
+      <nav class="nav-primary">
+        <div class="logo">
+          <a href="./index.html">
+            <img
+              width="30px"
+              src="./assets/images/logo-transparent.png"
+              alt="Health Trackr Logo"
+            />
+          </a>
+        </div>
+        <button class="signin-btn">Sign in</button>
       </nav>
     </header>
+    <main></main>
+    <footer class="nav-footer">
+      <small>&copy; Health Trackr 2023</small>
+    </footer>
   </body>
 </html>
