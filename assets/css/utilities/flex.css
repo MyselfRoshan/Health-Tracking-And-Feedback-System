@@ -1,0 +1,9 @@
+.d-flex{
+    display: flex;
+    gap: var(--flex-gap,1rem);
+}
+
+.d-grid{
+    display: grid;
+    gap: var(--grid-gap,1rem);
+}
