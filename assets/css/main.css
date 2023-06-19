@@ -1,4 +1,160 @@
-@import "./components/nav.css";
-/* Base */
-@import "./base/reset.css";
-@import "./base/typography.css";
+@import url("https://fonts.cdnfonts.com/css/inter"); /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Remove animations and transition on window resize */
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Global body css */
+body {
+  color: var(--clr-dark-400);
+  font-size: var(--fs-400);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+:root {
+  --fs-900: clamp(5rem, 13.6vw + 1rem, 9.375rem);
+  --fs-800: 3.25rem;
+  --fs-700: 3rem;
+  --fs-600: 1rem;
+  --fs-500: 1rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+}
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
+    --fs-400: 1rem;
+  }
+}
+@media (min-width: 48em) {
+  :root {
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+  }
+}
+
+:root {
+  --clr-primary-100: hsla(170, 100%, 32%, 0.1);
+  --clr-primary-300: hsla(170, 100%, 32%, 0.4);
+  --clr-primary-400: hsl(170, 100%, 32%);
+  --clr-secondary-100: hsla(36, 88%, 53%, 0.1);
+  --clr-secondary-300: hsla(36, 88%, 53%, 0.4);
+  --clr-secondary-400: hsl(36, 88%, 53%);
+  --clr-blue-400: hsl(230, 100%, 41%);
+  --clr-grey-400: hsl(0, 0%, 85%);
+  --clr-white-100: hsla(0, 0%, 100%, 0.1);
+  --clr-white-300: hsla(0, 0%, 100%, 0.4);
+  --clr-white-400: hsl(0, 0%, 100%);
+  --clr-dark-100: hsla(0, 0%, 10%, 0.1);
+  --clr-dark-300: hsla(0, 0%, 10%, 0.4);
+  --clr-dark-400: hsl(0, 0%, 10%);
+}/*# sourceMappingURL=main.css.map */

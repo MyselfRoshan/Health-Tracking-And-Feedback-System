@@ -1,0 +1,27 @@
+// @use "../utilities/color" as *;
+// @use "../utilities/font" as *;
+@use "../abstracts/fontmaps" as *;
+@use "../abstracts/layout-scale" as *;
+@use "../abstracts/mixins" as *;
+
+:root {
+  @each $screensize, $font-sizes in $font-size {
+    @if $screensize == mobile {
+      @each $property, $value in $font-sizes {
+        --fs-#{$property}: #{$value};
+      }
+    } @else if $screensize == tablet {
+      @include mediaquery(tablet) {
+        @each $property, $value in $font-sizes {
+          --fs-#{$property}: #{$value};
+        }
+      }
+    } @else {
+      @include mediaquery(desktop) {
+        @each $property, $value in $font-sizes {
+          --fs-#{$property}: #{$value};
+        }
+      }
+    }
+  }
+}

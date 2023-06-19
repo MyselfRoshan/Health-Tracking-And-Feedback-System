@@ -1,3 +1,4 @@
+@use "../abstracts/fontmaps" as *;
 /* Box sizing rules */
 *,
 *::before,
@@ -23,7 +24,6 @@ ol[class],
 figure,
 blockquote,
 dl,
-
 dd {
   margin: 0;
   font-weight: 400;
@@ -104,4 +104,12 @@ img:not([alt]) {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+/* Global body css */
+body {
+  color: var(--clr-dark-400);
+  font-size: var(--fs-400);
+  font-family: $ff-inter;
+  font-weight: 400;
 }

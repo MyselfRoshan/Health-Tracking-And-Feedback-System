@@ -1,0 +1,9 @@
+@use "../abstracts/colormap" as *;
+
+:root {
+  @each $color, $shades in $colormap {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}

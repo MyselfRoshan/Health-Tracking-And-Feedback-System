@@ -1,0 +1,22 @@
+// Dsplay variable
+
+$property-names: (
+  justify-content: justify-content,
+  align-content: align-content,
+  place-content: place-content,
+  justify-items: justify-items,
+  align-items: align-items,
+  place-items: place-items,
+  justify-self: justify-self,
+  align-self: align-self,
+);
+
+$property-values: (
+  baseline: baseline,
+  start: start,
+  center: center,
+  end: end,
+  space-between: space-between,
+  space-around: space-around,
+  unset: unset,
+);
