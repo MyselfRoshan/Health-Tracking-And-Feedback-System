@@ -1,0 +1,55 @@
+@use "../abstracts/fontmaps" as *;
+
+// Font Family
+.ff-inter {
+  font-family: $ff-inter;
+}
+
+.ff-poppins {
+  font-family: $ff-poppins;
+}
+.ff-expletus {
+  font-family: $ff-expletus;
+}
+
+// Font-size
+@each $screensize, $font-size in $font-sizes {
+  @if $screensize == desktop {
+    @each $property, $value in $font-size {
+      .fs-#{$property} {
+        font-size: var(--fs-#{$property});
+      }
+    }
+  }
+}
+// font-weight
+@each $property, $value in $font-weight {
+  .fw-#{$property} {
+    font-weight: var(--fw-#{$property});
+  }
+}
+
+//text-uppercase
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+// letter spacing
+
+@each $spacing, $value in $letter-spacing {
+  .letter-spacing-#{$spacing} {
+    letter-spacing: #{$value};
+  }
+}
+
+// Line height
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+  line-height: 1.1;
+}
+
+.paragraph-width {
+  max-width: 50ch;
+}

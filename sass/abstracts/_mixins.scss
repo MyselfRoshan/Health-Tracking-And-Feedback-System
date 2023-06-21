@@ -1,0 +1,8 @@
+@use "./layout-scale" as *;
+
+@mixin mediaquery($device) {
+  $screen-size: map-get($breakpoints, $device);
+  @media (min-width: $screen-size) {
+    @content;
+  }
+}
