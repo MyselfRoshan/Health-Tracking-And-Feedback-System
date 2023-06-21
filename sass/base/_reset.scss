@@ -6,27 +6,28 @@
   box-sizing: border-box;
 }
 
-/* Remove default padding */
-ul[class],
-ol[class] {
+/* Reset margin, padding and font-size */
+* {
+  margin: 0;
   padding: 0;
+  font: inherit;
 }
 
-/* Remove default margin */
-body,
+/* Avoid text overflows */
+p,
 h1,
 h2,
 h3,
 h4,
-p,
-ul[class],
-ol[class],
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-  font-weight: 400;
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Allow percentage-based heights in the application */
+html,
+body {
+  height: 100%;
 }
 
 /* Set core root defaults */
@@ -36,7 +37,7 @@ html {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -51,25 +52,17 @@ ol[class] {
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
-
+a.nav-links {
+  text-decoration: none;
+}
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video,
+canvas,
+svg {
   max-width: 100%;
   display: block;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
 }
 
 /* Blur images when they have no alt attribute */
@@ -111,5 +104,4 @@ body {
   color: var(--clr-dark-400);
   font-size: var(--fs-400);
   font-family: $ff-inter;
-  font-weight: 400;
 }

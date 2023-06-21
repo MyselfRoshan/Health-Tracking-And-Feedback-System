@@ -1,7 +1,9 @@
 // Breakpoints
 $breakpoints: (
-  tablet: 35em,
-  desktop: 48em,
+  /* 600px */ small: 37.5em,
+  /* 768px */ medium: 48em,
+  /* 1024px */ large: 64em,
+  /* 1280px */ extra-large: 80em
 );
 
 // Spacing

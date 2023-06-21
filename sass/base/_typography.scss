@@ -5,20 +5,25 @@
 @use "../abstracts/mixins" as *;
 
 :root {
-  @each $screensize, $font-sizes in $font-size {
-    @if $screensize == mobile {
-      @each $property, $value in $font-sizes {
+  @each $screensize, $font-size in $font-sizes {
+    @if $screensize == desktop {
+      /* font-size variables */
+      @each $property, $value in $font-size {
         --fs-#{$property}: #{$value};
       }
+      /* font-weight variables */
+      @each $property, $value in $font-weight {
+        --fw-#{$property}: #{$value};
+      }
     } @else if $screensize == tablet {
-      @include mediaquery(tablet) {
-        @each $property, $value in $font-sizes {
+      @include mediaquery(large) {
+        @each $property, $value in $font-size {
           --fs-#{$property}: #{$value};
         }
       }
     } @else {
-      @include mediaquery(desktop) {
-        @each $property, $value in $font-sizes {
+      @include mediaquery(extra-large) {
+        @each $property, $value in $font-size {
           --fs-#{$property}: #{$value};
         }
       }

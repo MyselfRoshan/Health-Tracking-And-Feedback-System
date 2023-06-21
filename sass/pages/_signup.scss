@@ -1,0 +1,30 @@
+@use "../utilities/color" as *;
+
+.illustration {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  overflow: hidden;
+  > svg {
+    max-height: 39rem;
+    aspect-ratio: 1;
+  }
+}
+
+form {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.name {
+  --flow-gap: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+.terms-and-conditions {
+  margin-inline: auto;
+  width: 43ch;
+  font-size: var(--fs-200);
+  line-height: 1.2;
+  text-align: center;
+}
