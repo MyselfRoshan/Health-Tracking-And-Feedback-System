@@ -21,26 +21,28 @@ $letter-spacing: (
 $font-sizes: (
   desktop: (
     900: clamp(2rem, 3vw, 2.5rem),
+    800: clamp(2rem, 3vw, 2.625rem),
     600: 1.375rem,
     500: 1.125rem,
     400: 1rem,
     300: 0.875rem,
     200: 0.75rem,
-  ),
-  tablet: (
-    800: 5rem,
-    // 700: 2.5rem,
-    600: 1.5rem,
-    500: 1.25rem,
-    400: 1rem,
-  ),
-  mobile: (
-    800: 6.25rem,
-    // 700: 3.5rem,
-    600: 2rem,
-    500: 1.75rem,
-    400: 1.125rem,
-  ),
+  )
+  // ),
+// tablet: (
+//   800: 5rem,
+//   // 700: 2.5rem,
+//   600: 1.5rem,
+//   500: 1.25rem,
+//   400: 1rem,
+// ),
+// mobile: (
+//   800: 6.25rem,
+//   // 700: 3.5rem,
+//   600: 2rem,
+//   500: 1.75rem,
+//   400: 1.125rem,
+// ),,
 );
 
 $font-weight: (
