@@ -7,3 +7,11 @@
     }
   }
 }
+
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-350),
+    var(--clr-secondary-350)
+  );
+}

@@ -1,6 +1,7 @@
 @use "sass:math";
 
-.sign-up-btn {
+.sign-up-btn,
+.sign-in-btn {
   $transition-duration: 500ms;
   $opacity-duration: math.div($transition-duration, 2);
   --flow-gap: 3rem;

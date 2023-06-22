@@ -13,4 +13,6 @@
 @use "./block/inputfield";
 @use "./block/button";
 // pages
+@use "./pages/signin";
 @use "./pages/signup";
+@use "./pages/landingpage";

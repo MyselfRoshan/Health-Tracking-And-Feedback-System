@@ -1,3 +1,5 @@
+@use "../abstracts/layout-scale" as *;
+@use "../abstracts/mixins" as *;
 .container {
   padding-inline: 2em;
   margin-inline: auto;
@@ -15,5 +17,30 @@
     grid-template-columns:
       var(--conter-left-size, minmax(1fr, 30rem))
       var(--conter-right-size, minmax(1.5fr, 45rem));
+  }
+}
+// .container__signin {
+//   @include mediaquery(medium) {
+//     // padding-inline: 2em;
+//     margin-inline: auto;
+//     max-width: 80rem;
+//   }
+// }
+.grid-container__signin {
+  display: grid;
+  place-items: center;
+  max-width: 90rem;
+  // padding-inline: 1rem;
+  margin-inline: auto;
+  row-gap: var(--container-row-gap, 2rem);
+  column-gap: var(--container-column-gap, 2rem);
+
+  @include mediaquery(small) {
+    // grid-template-columns:
+    //   var(--conter-left-size, minmax(1fr, 42rem))42.75
+    //   var(--conter-right-size, minmax(1fr, 38rem));47.25
+    grid-template-columns:
+      var(--conter-right-size, minmax(1fr, 47.25rem))
+      var(--conter-left-size, minmax(1fr, 42.75rem));
   }
 }
