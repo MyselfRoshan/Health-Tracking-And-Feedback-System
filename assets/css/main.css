@@ -982,7 +982,7 @@ body {
   font-size: 14px;
 }
 .input-signup__container .label__text {
-  transition: all 500ms ease-out;
+  transition: all 250ms ease-out;
   color: var(--clr-dark-300);
 }
 .input-signup__container .fa-eye {
