@@ -1,9 +1,12 @@
 @use "../abstracts/layout-scale" as *;
 @use "../abstracts/mixins" as *;
 .container {
-  padding-inline: 2em;
   margin-inline: auto;
-  max-width: 80rem;
+  max-width: 90rem;
+
+  &__landing {
+    padding-inline: 12.5rem;
+  }
 }
 
 .grid-container {

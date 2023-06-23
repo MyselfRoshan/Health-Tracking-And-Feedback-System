@@ -59,18 +59,7 @@
   height: 1.5rem;
   overflow: hidden;
 }
-.generated-on-june {
-  position: absolute;
-  top: 0.13rem;
-  left: 24.42rem;
-  line-height: 1.5rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 13.67rem;
-  height: 1.25rem;
-}
+
 .copyright-container,
 .created-at {
   position: absolute;
@@ -175,11 +164,21 @@
 .section-inspiration {
   top: 236.34rem;
   left: calc(50% - 720px);
-  background-color: var(--color-mediumseagreen);
-  width: 90rem;
-  height: 52.5rem;
-  font-size: var(--font-size-xl);
-  color: var(--text-black);
+  // background-color: var(--color-mediumseagreen);
+  // background-image: radial-gradient(rgb(0, 0, 0) 1px, transparent 1px),
+  //   radial-gradient(rgb(0, 0, 0) 1px, rgb(6, 214, 160) 1px);
+  // width: 90rem;
+  // height: 52.5rem;
+  // font-size: var(--font-size-xl);
+  // color: var(--text-black);
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: radial-gradient(rgb(0, 0, 0) 1px, transparent 1px),
+    radial-gradient(rgb(0, 0, 0) 1px, rgb(6, 214, 160) 1px);
+  background-position: 0 0, 30px 30px;
+  background-size: 60px 60px;
+  border-radius: 0;
 }
 .image-container-icon {
   width: calc(100% - 680px);
@@ -535,7 +534,7 @@
   width: 20.05rem;
   height: 3.56rem;
 }
-.svg-revolution-icon {
+.revolution-icon {
   position: absolute;
   height: calc(100% - 77.59px);
   width: calc(100% - 900px);
@@ -545,6 +544,7 @@
   left: 0;
   max-width: 100%;
   overflow: hidden;
+  background: linear-gradient(135deg, #000 0%, #073b4c 100%);
   max-height: 100%;
 }
 .revolution-heading {
@@ -643,25 +643,23 @@
   top: 2.25rem;
   left: 2.06rem;
   width: 8.5rem;
-  height: 12rem;
+  // height: 12rem;
   object-fit: cover;
 }
-.svg {
-  position: relative;
-  width: 18.75rem;
-  height: 9.38rem;
-  overflow: hidden;
-  flex-shrink: 0;
+.icon {
+  &__circle-icon {
+    position: relative;
+    height: 12.5rem;
+    width: 12.5rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
 }
 .div {
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(135deg, #07efb1, #2ff9c3);
+  inset: 0;
   display: flex;
   flex-direction: row;
   padding: 0 25rem 34.38rem 0;
@@ -692,6 +690,11 @@
   justify-content: center;
   width: 55.44rem;
   height: 22.88rem;
+  flex-direction: column;
+
+  .your-life {
+    font-size: var(--fs-900);
+  }
 }
 .contact,
 .home,
@@ -724,15 +727,12 @@
   font-size: var(--font-size-base);
   font-family: var(--font-inter);
 }
-.landing-page-container,
 .section-hero {
-  position: absolute;
-  top: 0;
-  background-color: var(--color-mediumseagreen);
-  width: 90rem;
+  // position: absolute;
+  // top: 0;
+  background-color: var(--clr-bg-gradient);
+  max-width: 90rem;
   overflow: hidden;
-}
-.section-hero {
   left: calc(50% - 720px);
   height: 50rem;
   text-align: center;
@@ -740,17 +740,10 @@
   color: var(--color-darkslategray);
   font-family: var(--font-expletus-sans);
 }
-.landing-page-container {
-  left: 0;
-  height: 311.21rem;
-}
-.landing-page {
-  position: relative;
-  background-color: var(--primary);
-  width: 100%;
-  height: 50.63rem;
-  text-align: left;
-  font-size: var(--font-size-base);
-  color: var(--color-black);
-  font-family: var(--font-inter);
+
+.nav {
+  &__primary {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
