@@ -1,9 +1,10 @@
 // Breakpoints
 $breakpoints: (
-  /* 600px */ small: 37.5em,
-  /* 768px */ medium: 48em,
-  /* 1024px */ large: 64em,
-  /* 1280px */ extra-large: 80em
+  /* 600px */ s: 37.5em,
+  /* 768px */ m: 48em,
+  /* 1024px */ l: 64em,
+  /* 1280px */ xl: 80em,
+  // /* 1440px */ xxl: 90em
 );
 
 // Spacing

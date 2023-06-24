@@ -1,49 +1,42 @@
 @use "../abstracts/layout-scale" as *;
 @use "../abstracts/mixins" as *;
 .container {
+  // --container-padding-x: 0;
   margin-inline: auto;
-  max-width: 90rem;
-
-  &__landing {
-    padding-inline: 12.5rem;
+  // padding-inline: var(--container-padding-x);
+  width: 100%;
+  @include mediaquery(xl) {
+    max-width: 62.5rem;
   }
 }
 
 .grid-container {
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
-  row-gap: var(--container-row-gap, 2rem);
-  column-gap: var(--container-column-gap, 2rem);
+  &__signup {
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+    row-gap: var(--container-row-gap, 2rem);
+    column-gap: var(--container-column-gap, 2rem);
 
-  @media (min-width: 48em) {
-    grid-template-columns:
-      var(--conter-left-size, minmax(1fr, 30rem))
-      var(--conter-right-size, minmax(1.5fr, 45rem));
+    @include mediaquery(s) {
+      grid-template-columns:
+        var(--conter-left-size, minmax(1fr, 30rem))
+        var(--conter-right-size, minmax(1.5fr, 45rem));
+    }
   }
-}
-// .container__signin {
-//   @include mediaquery(medium) {
-//     // padding-inline: 2em;
-//     margin-inline: auto;
-//     max-width: 80rem;
-//   }
-// }
-.grid-container__signin {
-  display: grid;
-  place-items: center;
-  max-width: 90rem;
-  // padding-inline: 1rem;
-  margin-inline: auto;
-  row-gap: var(--container-row-gap, 2rem);
-  column-gap: var(--container-column-gap, 2rem);
 
-  @include mediaquery(small) {
-    // grid-template-columns:
-    //   var(--conter-left-size, minmax(1fr, 42rem))42.75
-    //   var(--conter-right-size, minmax(1fr, 38rem));47.25
-    grid-template-columns:
-      var(--conter-right-size, minmax(1fr, 47.25rem))
-      var(--conter-left-size, minmax(1fr, 42.75rem));
+  &__signin {
+    display: grid;
+    place-items: center;
+    max-width: 90rem;
+    margin-inline: auto;
+    row-gap: var(--container-row-gap, 2rem);
+    column-gap: var(--container-column-gap, 2rem);
+
+    @include mediaquery(s) {
+      grid-template-columns:
+        var(--conter-right-size, minmax(1fr, 47.25rem))
+        var(--conter-left-size, minmax(1fr, 42.75rem));
+    }
   }
 }
