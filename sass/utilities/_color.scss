@@ -8,6 +8,14 @@
   }
 }
 
+// background utilities
+@each $color, $shades in $colormap {
+  @each $shade, $value in $shades {
+    .bg-#{$color}-#{$shade} {
+      background-color: #{$value};
+    }
+  }
+}
 .bg-gradient {
   background: linear-gradient(
     135deg,
@@ -28,7 +36,7 @@
       ),
       radial-gradient(ellipse at top, var(--clr-primary-350), transparent),
       // url("https://images.unsplash.com/photo-1485527172732-c00ba1bf8929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"),
-      url("https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=806&q=80"),
-      no-repeat center;
+      url("https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=806&q=80")
+        no-repeat center cover;
   }
 }
