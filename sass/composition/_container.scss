@@ -7,30 +7,11 @@
 * make container more useful
 */
 .container {
-  // --cpx: 0;
   margin-inline: auto;
-  // padding-inline: var(--container-padding-x);
-  width: 100%;
-  padding-inline: var(--cpx, 0.75rem);
-  padding-block: var(--cpy, 6rem);
-  @include mediaquery(s) {
-    padding-block: var(--cpy, 6rem);
-    padding-inline: var(--cpx, 1rem);
-  }
-  @include mediaquery(m) {
-    padding-block: var(--cpy, 4.5rem);
-    padding-inline: unset;
-    max-width: 45rem;
-  }
-  @include mediaquery(l) {
-    padding-block: var(--cpy, 5.25rem);
-    padding-inline: unset;
-    max-width: 52.5rem;
-  }
-  @include mediaquery(xl) {
-    padding-block: var(--cpy, 6.25rem);
-    padding-inline: unset;
-    max-width: 62.5rem;
+  max-width: 90rem;
+
+  &__landing {
+    padding-inline: 12.5rem;
   }
 }
 
