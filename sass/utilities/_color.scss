@@ -1,21 +1,35 @@
 @use "../abstracts/colormap" as *;
 
-:root {
-  @each $color, $shades in $colormap {
-    @each $shade, $value in $shades {
-      --clr-#{$color}-#{$shade}: #{$value};
+// background utilities
+@each $color, $shades in $colormap {
+  @each $shade, $value in $shades {
+    @if $shade == "" {
+      .bg-#{$color} {
+        background-color: #{$value};
+      }
+      .text-#{$color} {
+        color: #{$value};
+      }
+    } @else {
+      .bg-#{$color}-#{$shade} {
+        background-color: #{$value};
+      }
+
+      .text-#{$color}-#{$shade} {
+        color: #{$value};
+      }
     }
   }
 }
 
-// background utilities
-@each $color, $shades in $colormap {
-  @each $shade, $value in $shades {
-    .bg-#{$color}-#{$shade} {
-      background-color: #{$value};
-    }
-  }
+.bg-dot-pattern {
+  background-color: transparent;
+  background-image: radial-gradient(var(--clr-dark) 1px, transparent 1px),
+    radial-gradient(var(--clr-dark) 1px, var(--clr-tertiary) 1px);
+  background-position: 0 0, 30px 30px;
+  background-size: 60px 60px;
 }
+
 .bg-gradient {
   background: linear-gradient(
     135deg,
