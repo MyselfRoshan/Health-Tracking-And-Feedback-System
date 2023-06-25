@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -17,28 +16,260 @@
     <script defer src="./assets/scripts/signinRedirect.js"></script>
     <!-- End of Script -->
     <title>Health Trackr</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=League Gothic:wght@400&display=swap"
+    />
   </head>
   <body>
-    <header>
-      <div class="burger"></div>
-      <nav class="nav-primary">
-        <div class="logo">
-          <a href="./index.html">
-            <img
-              width="30px"
-              src="./assets/images/logo-transparent.png"
-              alt="Health Trackr Logo"
-            />
-          </a>
+    <main>
+      <section class="hero bg-dot-pattern">
+        <div class="container col-12">
+          <div class="hero__icon bg-primary">
+            <img class="hero__icon-img" alt="" src="../assets/icons/logo.png" />
+          </div>
+          <h1 class="hero__heading fs-mega ff-expletus fw-700 text-accent">
+            Achieve Greatness
+          </h1>
+          <p class="hero__txt fs-600 text-accent">
+            Ready to take the first step towards a healthier, happier, and more
+            energetic life? Start tracking your fitness journey now and dominate
+            your goals.
+          </p>
+          <button class="btn btn__sign-up fs-500 fw-500 text-accent">
+            <span></span>
+            Sign up
+            <span></span>
+          </button>
         </div>
-        <button class="signin-btn">Sign in</button>
-        <button class="signup-btn">Sign up</button>
-        <a href="./Track Your Health.html"></a>
-      </nav>
-    </header>
-    <main></main>
-    <footer class="nav-footer">
-      <small>&copy; Health Trackr 2023</small>
-    </footer>
+        <!-- <div class="navigation">
+          <b class="home">Home</b>
+          <b class="services">Services</b>
+          <b class="contact">Contact</b>
+        </div> -->
+      </section>
+
+      <section class="register bg-primary">
+        <article class="register__article container col-12">
+          <div class="register__icon">
+            <img
+              class="register__icon-svg"
+              alt=""
+              src="../assets/icons/svg__register.svg"
+            />
+          </div>
+          <h2 class="register__heading ff-leauge-gothic fs-900 text-accent">
+            Register & Unleash Your Potential
+          </h2>
+          <p class="register__txt fs-500 text-dark">
+            Say goodbye to mediocre health tracking and hello to a revolutionary
+            approach! Create an account to unlock a world of personalized
+            guidance and actionable insights.
+          </p>
+          <p class="register__txt fs-500 text-dark">
+            Join our community of health enthusiasts and take control of your
+            well-being with our easy-to-use platform. No more excuses—it’s time
+            to invest n yourself.
+          </p>
+        </article>
+      </section>
+      <section class="revolution">
+        <article class="revolution__article container col-12">
+          <div class="revolution__icon"></div>
+          <h2 class="revolution__heading ff-leauge-gothic fs-900 text-accent">
+            Revolutionize Your Health
+          </h2>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Seamless Tracking
+            </h3>
+            <p class="fw-500 text-dark">
+              Effortlessly log meals, exercise, and more
+            </p>
+          </div>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Data Analysis
+            </h3>
+            <p class="fw-500 text-dark">
+              Uncover patterns, trends, and correlations
+            </p>
+          </div>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Personalized Feedback
+            </h3>
+            <p class="fw-500 text-dark">
+              Tailored recommendations based on your data
+            </p>
+          </div>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Email Guidance
+            </h3>
+            <p class="fw-500 text-dark">
+              Receive helpful tips straight to your inbox
+            </p>
+          </div>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Goal Setting
+            </h3>
+            <p class="fw-500 text-dark">
+              Set, track, and smash your health goals
+            </p>
+          </div>
+          <div class="revolution__feature">
+            <h3 class="revolution__subheading fw-600 text-accent fs-500">
+              Continuous Progress
+            </h3>
+            <p class="fw-500 text-dark">
+              Consistently improve and reach new heights
+            </p>
+          </div>
+        </article>
+      </section>
+      <div class="get-started bg-tertiary">
+        <div class="container col-12">
+          <div class="get-started__icon">
+            <img
+              class="svg-get-started-icon"
+              alt=""
+              src="../assets/icons/svg__get-started.svg"
+            />
+          </div>
+          <h2 class="get-started__heading ff-leauge-gothic fs-900 text-accent">
+            Set Goals
+          </h2>
+          <p class="get-started__txt fw-500 text-dark">
+            Transform your well-being by setting measurable goals and tracking
+            your progress like a champ. It's time to unlock your full health
+            potential!
+          </p>
+          <!-- <h2 class="get-started__heading ff-leauge-gothic fs-900 text-accent">
+            Get Started
+          </h2>
+          <p class="get-started__txt fw-500 text-dark">
+            What are you waiting for? Join now and let’s embark on this
+            incredible journey towards optimal health together.
+          </p> -->
+          <div class="get-started__btn-container">
+            <button class="btn btn__sign-up fs-300 fw-700 text-accent">
+              Sign Up
+            </button>
+            <button class="btn btn__learn-more fs-300 fw-700 text-dark">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+      <section class="sucess bg-yellow">
+        <div class="container col-12">
+          <h2 class="sucess__heading ff-leauge-gothic fs-900 text-accent">
+            Our Success Stories
+          </h2>
+          <div class="sucess__image-container">
+            <img
+              class="image-container-icon"
+              alt=""
+              src="../assets/images/index/exercise.png"
+            />
+          </div>
+          <div class="sucess__image-container">
+            <img
+              class="yoga-icon"
+              alt=""
+              src="../assets/images/index/yoga.png"
+            />
+          </div>
+          <div class="sucess__image-container">
+            <img
+              class="image-container-icon1"
+              alt=""
+              src="../assets/images/index/jodgging.png"
+            />
+          </div>
+          <div class="sucess__image-container">
+            <img
+              class="yoga-icon"
+              alt=""
+              src="../assets/images/index/food.png"
+            />
+          </div>
+          <div class="sucess__image-container">
+            <img
+              class="image-container-icon2"
+              alt=""
+              src="../assets/images/index/nature.png"
+            />
+          </div>
+          <div class="sucess__image-container">
+            <img
+              class="yoga-icon"
+              alt=""
+              src="../assets/images/index/buildings.png"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="inspiration bg-dot-pattern">
+        <!-- <div class="container col-12"> -->
+        <article class="inspiration__article container col-12">
+          <h2 class="inspiration__heading ff-leauge-gothic fs-900 text-accent">
+            Revitalize Your Life
+          </h2>
+          <div class="inspiration__txt-container">
+            <p class="inspiration__txt fs-500 text-dark">
+              No more living life on autopilot. Our platform offers a holistic
+              approach to well-being, helping you develop a deeper understanding
+              of your body and its unique needs.
+            </p>
+            <p class="inspiration__txt fs-500 text-dark">
+              Reignite your passion for health and wellness by discovering new
+              ways to transform your daily habits. Embrace a meaningful
+              lifestyle change and watch as your life unfolds in unimaginable
+              ways.
+            </p>
+            <p class="inspiration__txt fs-500 text-dark">
+              The world is waiting for the best version of you. Get ready to
+              unlock your full potential and unleash your inner wellness
+              warrior!
+            </p>
+          </div>
+          <div class="inspiration__icon">
+            <img
+              class="divmask-group-icon"
+              alt=""
+              src="../assets/icons/div_mask-group.svg"
+            />
+
+            <img
+              class="divmask-group-icon"
+              alt=""
+              src="../assets/icons/div_mask-group1.svg"
+            />
+          </div>
+        </article>
+      </div>
+      <footer class="footer bg-primary">
+        <div class="container col-12">
+          <div class="footer__icon">
+            <img src="../assets/icons/footer.svg" alt="" />
+          </div>
+          <p class="footer__copyright text-dark">© 2023 Health Trackr</p>
+          <p class="footer__created-at">Generated on June 22, 2023</p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      var btnSignUp = document.getElementById("btnSignUp");
+      if (btnSignUp) {
+        btnSignUp.addEventListener("click", function (e) {
+          // Please sync "Sign up" to the project
+        });
+      }
+    </script>
   </body>
 </html>

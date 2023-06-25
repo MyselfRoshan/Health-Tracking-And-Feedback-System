@@ -1,15 +1,25 @@
 @use "../abstracts/layout-scale" as *;
 @use "../abstracts/mixins" as *;
+
+/*
+* change the name of col-12 to grid-layout or something fancy
+* make grid responsive with 8 columns for tablet and 4 columns for mobile
+* make container more useful
+*/
 .container {
-  // --container-padding-x: 0;
   margin-inline: auto;
-  // padding-inline: var(--container-padding-x);
-  width: 100%;
-  @include mediaquery(xl) {
-    max-width: 62.5rem;
+  max-width: 90rem;
+
+  &__landing {
+    padding-inline: 12.5rem;
   }
 }
 
+.col-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
 .grid-container {
   &__signup {
     display: grid;

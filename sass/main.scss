@@ -1,6 +1,6 @@
 // base
 @use "./base/reset";
-@use "./base/typography";
+@use "./base/root";
 
 //utilities
 @use "./utilities/color";
@@ -13,6 +13,6 @@
 @use "./block/inputfield";
 @use "./block/button";
 // pages
+@use "./pages/index";
 @use "./pages/signin";
 @use "./pages/signup";
-@use "./pages/landingpage";

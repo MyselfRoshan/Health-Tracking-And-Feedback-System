@@ -1,81 +1,98 @@
 @use "sass:math";
+/*
+* Add btn sizes small,medium and big
+* Provide animation and transtion on hover,focus-visible and active state
+*
+*
+*/
 
+// some animation variable
 $transition-duration: 500ms;
 $opacity-duration: math.div($transition-duration, 2);
-.sign-up-btn,
-.sign-in-btn {
-  --flow-gap: 3rem;
 
+.btn {
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  width: 420px;
-  height: 3rem;
-  border-radius: 0.5rem;
-  color: var(--clr-white-400);
-  background: var(--clr-primary-400);
-  box-shadow: 0px 4px 4px var(--clr-dark-100);
-  transition: background $transition-duration;
+  padding-block: var(--py, 0.75em);
+  padding-inline: var(--px, 1.5em);
+  border-radius: var(--border-radius, 0.75rem);
+  background: var(--bg, var(--clr-primary));
+  $bg: var(--bg);
 
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background: var(--clr-primary-500);
-    width: 10%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    inset: 0;
-    margin: auto;
-    opacity: 0;
-
-    transition: scale $transition-duration math.div($opacity-duration, 1.5),
-      opacity $opacity-duration;
-  }
-
-  &:active::before {
-    scale: 20;
-    opacity: 1;
-  }
   &:is(:hover, :focus-visible) {
-    box-shadow: 0 4px 4px 1px var(--clr-primary-300);
-  }
-
-  > span {
-    z-index: -1;
-    width: calc(100% / 3);
-    height: 100%;
-    background: transparent;
-    position: absolute;
-  }
-
-  > :first-child {
-    left: 0;
-    top: 0;
-  }
-  &:has(:first-child:active)::before {
-    margin-left: 0;
-    transition: scale math.div($transition-duration, 2),
-      opacity math.div($opacity-duration, 2);
-  }
-
-  > :last-child {
-    --flow-gap: none;
-
-    right: 0;
-    top: 0;
-  }
-
-  &:has(:last-child:active)::before {
-    margin-right: 0;
-    transition: scale math.div($transition-duration, 2),
-      opacity math.div($opacity-duration, 2);
+    box-shadow: 0 4px 4px 1px var(--clr-primary-400);
   }
 }
+// .sign-up-btn,
+// .sign-in-btn {
+//   --flow-gap: 3rem;
+
+//   width: 420px;
+//   height: 3rem;
+//   border-radius: 0.5rem;
+//   color: var(--clr-white-400);
+//   background: var(--clr-primary-400);
+//   box-shadow: 0px 4px 4px var(--clr-dark-100);
+//   transition: background $transition-duration;
+
+//   position: relative;
+//   isolation: isolate;
+//   overflow: hidden;
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     background: var(--clr-primary-500);
+//     width: 10%;
+//     aspect-ratio: 1;
+//     border-radius: 50%;
+//     inset: 0;
+//     margin: auto;
+//     opacity: 0;
+
+//     transition: scale $transition-duration math.div($opacity-duration, 1.5),
+//       opacity $opacity-duration;
+//   }
+
+//   &:active::before {
+//     scale: 20;
+//     opacity: 1;
+//   }
+//   &:is(:hover, :focus-visible) {
+//     box-shadow: 0 4px 4px 1px var(--clr-primary-300);
+//   }
+
+//   > span {
+//     z-index: -1;
+//     width: calc(100% / 3);
+//     height: 100%;
+//     background: transparent;
+//     position: absolute;
+//   }
+
+//   > :first-child {
+//     left: 0;
+//     top: 0;
+//   }
+//   &:has(:first-child:active)::before {
+//     margin-left: 0;
+//     transition: scale math.div($transition-duration, 2),
+//       opacity math.div($opacity-duration, 2);
+//   }
+
+//   > :last-child {
+//     --flow-gap: none;
+
+//     right: 0;
+//     top: 0;
+//   }
+
+//   &:has(:last-child:active)::before {
+//     margin-right: 0;
+//     transition: scale math.div($transition-duration, 2),
+//       opacity math.div($opacity-duration, 2);
+//   }
+// }

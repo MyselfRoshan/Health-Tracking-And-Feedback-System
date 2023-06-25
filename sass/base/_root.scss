@@ -1,0 +1,42 @@
+@use "../abstracts/colormap" as *;
+@use "../abstracts/fontmaps" as *;
+@use "../abstracts/layout-scale" as *;
+@use "../abstracts/mixins" as *;
+
+:root {
+  // color custom properties
+  @each $color, $shades in $colormap {
+    @each $shade, $value in $shades {
+      @if $shade == "" {
+        --clr-#{$color}: #{$value};
+      } @else {
+        --clr-#{$color}-#{$shade}: #{$value};
+      }
+    }
+  }
+  // font custom properties
+  @each $screensize, $font-size in $font-sizes {
+    @if $screensize == mobile {
+      /* font-size variables */
+      @each $property, $value in $font-size {
+        --fs-#{$property}: #{$value};
+      }
+      /* font-weight variables */
+      @each $property, $value in $font-weight {
+        --fw-#{$property}: #{$value};
+      }
+    } @else if $screensize == tablet {
+      @include mediaquery(s) {
+        @each $property, $value in $font-size {
+          --fs-#{$property}: #{$value};
+        }
+      }
+    } @else {
+      @include mediaquery(l) {
+        @each $property, $value in $font-size {
+          --fs-#{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
