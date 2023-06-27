@@ -2,23 +2,56 @@
 @use "../abstracts/mixins" as *;
 
 /*
-* change the name of col-12 to grid-layout or something fancy
+* change the name of grid-layout to grid-layout or something fancy
 * make grid responsive with 8 columns for tablet and 4 columns for mobile
 * make container more useful
 */
 .container {
   margin-inline: auto;
+  width: 100%;
   max-width: 90rem;
-
-  &__landing {
-    padding-inline: 12.5rem;
+  padding-inline: 0.75rem;
+  @include mediaquery(s) {
+    padding-block: var(--cpy, 2rem);
+    padding-inline: 1rem;
+  }
+  @include mediaquery(s) {
+    padding-inline: 2rem;
+    padding-block: var(--cpy, 2rem);
+    // max-width: ;
+  }
+  @include mediaquery(m) {
+    padding-block: var(--cpy, 4.5rem);
+    // max-width: 45rem;
+  }
+  @include mediaquery(l) {
+    padding: var(--cpy, 5.25rem) var(--cpx, 0);
+    // max-width: 52.5rem;
+    max-width: clamp(52.5rem, 80vw, 55rem);
+  }
+  @include mediaquery(xl) {
+    padding-inline: var(--cpx, clamp(11.25rem, 12vw, 12.5rem));
+    padding-block: var(--cpy, 6.25rem);
+    max-width: unset;
+  }
+  @include mediaquery(xxl) {
+    padding: var(--cpy, 6.25rem) var(--cpx, 0);
+    max-width: 62.5rem;
   }
 }
 
-.col-12 {
+.grid-layout {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  @include mediaquery(s) {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 16px;
+  }
+  @include mediaquery(l) {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
 }
 .grid-container {
   &__signup {
