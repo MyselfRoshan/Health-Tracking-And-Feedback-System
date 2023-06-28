@@ -1,32 +1,37 @@
 @use "../utilities/color" as *;
 
-.illustration {
-  &__signup {
-    grid-column: 2;
-    grid-row: 1;
+.signup {
+  // container padding top 4rem and bottom 0
+  --cpy: 5rem 0;
+  &__illustration {
+    grid-column: 7/13;
     justify-self: end;
+    align-self: flex-start;
     overflow: hidden;
     > svg {
-      max-height: 39rem;
-      aspect-ratio: 1;
+      max-height: 38rem;
+      max-width: 36.018957345971565rem;
+      // aspect-ratio: 1.0551948051948052;
     }
   }
 }
 
 form {
-  grid-column: 1;
-  grid-row: 1;
+  grid-column: 1/6;
+  // grid-row: 1;
 }
 
 .name {
   --flow-gap: 1.25rem;
   display: flex;
   justify-content: space-between;
+  min-width: 100%;
+  // max-width: 25rem;
 }
 .terms-and-conditions {
   margin-inline: auto;
   width: 43ch;
   font-size: var(--fs-200);
-  line-height: 1.2;
+  line-height: 1.3;
   text-align: center;
 }
