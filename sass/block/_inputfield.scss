@@ -2,21 +2,21 @@
   // .input-signup
   &-signup {
     height: 48px;
-    width: 200px;
-    border: 1px solid var(--clr-grey-400);
-    background-color: var(--clr-white-400);
+    width: 180px;
+    border: 1px solid var(--clr-grey);
+    background-color: var(--clr-white);
     border-radius: 8px;
     padding: 0.75rem 1rem;
     box-shadow: 0px 4px 4px var(--clr-dark-100);
 
     &:focus {
       outline: none;
-      border: 2px solid var(--clr-primary-400);
-      background-color: var(--clr-white-400);
+      border: 2px solid var(--clr-primary);
+      background-color: var(--clr-white);
       box-shadow: 0px 4px 4px var(--clr-primary-100);
     }
     &:not(#fname, #lname) {
-      width: 420px;
+      width: 400px;
     }
     // .input-signup__container
     &__container {
@@ -35,7 +35,7 @@
 
         &__text {
           transition: all 250ms ease-out;
-          color: var(--clr-dark-300);
+          color: var(--clr-dark-400);
         }
       }
 
@@ -45,7 +45,7 @@
       &:focus-within {
         .label__text,
         #toggle-password {
-          color: var(--clr-primary-400);
+          color: var(--clr-primary);
         }
       }
     }
@@ -69,7 +69,7 @@
 }
 
 :not(.input-signup[value=""]) + .far {
-  color: var(--clr-dark-300);
+  color: var(--clr-dark-400);
 }
 
 .label,

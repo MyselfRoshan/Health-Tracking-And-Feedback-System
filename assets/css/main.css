@@ -123,6 +123,7 @@ body {
   --clr-secondary-400: hsla(36, 88%, 53%, 0.4);
   --clr-secondary-600: hsla(36, 88%, 53%, 0.6);
   --clr-secondary: hsl(36, 88%, 53%);
+  --clr-tertiary-400: hsla(164, 95%, 43%, 0.4);
   --clr-tertiary: hsl(164, 95%, 43%);
   --clr-accent: hsl(195, 83%, 16%);
   --clr-blue: hsl(230, 100%, 41%);
@@ -225,6 +226,14 @@ body {
 
 .text-secondary {
   color: hsl(36, 88%, 53%);
+}
+
+.bg-tertiary-400 {
+  background-color: hsla(164, 95%, 43%, 0.4);
+}
+
+.text-tertiary-400 {
+  color: hsla(164, 95%, 43%, 0.4);
 }
 
 .bg-tertiary {
@@ -1195,21 +1204,21 @@ body {
 
 .input-signup {
   height: 48px;
-  width: 200px;
-  border: 1px solid var(--clr-grey-400);
-  background-color: var(--clr-white-400);
+  width: 180px;
+  border: 1px solid var(--clr-grey);
+  background-color: var(--clr-white);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   box-shadow: 0px 4px 4px var(--clr-dark-100);
 }
 .input-signup:focus {
   outline: none;
-  border: 2px solid var(--clr-primary-400);
-  background-color: var(--clr-white-400);
+  border: 2px solid var(--clr-primary);
+  background-color: var(--clr-white);
   box-shadow: 0px 4px 4px var(--clr-primary-100);
 }
 .input-signup:not(#fname, #lname) {
-  width: 420px;
+  width: 400px;
 }
 .input-signup__container {
   --flow-gap: 1rem;
@@ -1227,14 +1236,14 @@ body {
 }
 .input-signup__container .label__text {
   transition: all 250ms ease-out;
-  color: var(--clr-dark-300);
+  color: var(--clr-dark-400);
 }
 .input-signup__container .fa-eye {
   display: none;
 }
 .input-signup__container:focus-within .label__text,
 .input-signup__container:focus-within #toggle-password {
-  color: var(--clr-primary-400);
+  color: var(--clr-primary);
 }
 
 .input-signup__container:focus-within .label__text,
@@ -1255,7 +1264,7 @@ body {
 }
 
 :not(.input-signup[value=""]) + .far {
-  color: var(--clr-dark-300);
+  color: var(--clr-dark-400);
 }
 
 .label,
@@ -1282,6 +1291,62 @@ body {
 }
 .btn:is(:hover, :focus-visible) {
   box-shadow: 0 4px 4px 1px var(--clr-primary-400);
+}
+.btn__sign-up, .btn__sign-up {
+  --flow-gap: 3rem;
+  width: 25rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  color: var(--clr-light);
+  box-shadow: 0px 4px 4px var(--clr-dark-100);
+  transition: background 500ms;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn__sign-up::before, .btn__sign-up::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--clr-primary-800);
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
+  transition: scale 500ms 166.6666666667ms, opacity 250ms;
+}
+.btn__sign-up:active::before, .btn__sign-up:active::before {
+  scale: 20;
+  opacity: 1;
+}
+.btn__sign-up:is(:hover, :focus-visible), .btn__sign-up:is(:hover, :focus-visible) {
+  box-shadow: 0 4px 4px var(--clr-tertiary-400);
+}
+.btn__sign-up > span, .btn__sign-up > span {
+  z-index: -1;
+  width: 33.3333333333%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+}
+.btn__sign-up > :first-child, .btn__sign-up > :first-child {
+  left: 0;
+  top: 0;
+}
+.btn__sign-up:has(:first-child:active)::before, .btn__sign-up:has(:first-child:active)::before {
+  margin-left: 0;
+  transition: scale 250ms, opacity 125ms;
+}
+.btn__sign-up > :last-child, .btn__sign-up > :last-child {
+  --flow-gap: none;
+  right: 0;
+  top: 0;
+}
+.btn__sign-up:has(:last-child:active)::before, .btn__sign-up:has(:last-child:active)::before {
+  margin-right: 0;
+  transition: scale 250ms, opacity 125ms;
 }
 
 .hero {
@@ -1485,32 +1550,35 @@ ion-icon {
   justify-self: flex-end;
 }
 
-.illustration__signup {
-  grid-column: 2;
-  grid-row: 1;
+.signup {
+  --cpy: 5rem 0;
+}
+.signup__illustration {
+  grid-column: 7/13;
   justify-self: end;
+  align-self: flex-start;
   overflow: hidden;
 }
-.illustration__signup > svg {
-  max-height: 39rem;
-  aspect-ratio: 1;
+.signup__illustration > svg {
+  max-height: 38rem;
+  max-width: 36.018957346rem;
 }
 
 form {
-  grid-column: 1;
-  grid-row: 1;
+  grid-column: 1/6;
 }
 
 .name {
   --flow-gap: 1.25rem;
   display: flex;
   justify-content: space-between;
+  min-width: 100%;
 }
 
 .terms-and-conditions {
   margin-inline: auto;
   width: 43ch;
   font-size: var(--fs-200);
-  line-height: 1.2;
+  line-height: 1.3;
   text-align: center;
 }/*# sourceMappingURL=main.css.map */
