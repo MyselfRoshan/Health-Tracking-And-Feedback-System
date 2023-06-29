@@ -108,7 +108,8 @@ img:not([alt]) {
 
 /* Global body css */
 body {
-  color: var(--clr-dark-400);
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
   font-size: var(--fs-400);
   font-family: "Inter", sans-serif;
 }
@@ -127,7 +128,9 @@ body {
   --clr-tertiary: hsl(164, 95%, 43%);
   --clr-accent: hsl(195, 83%, 16%);
   --clr-blue: hsl(230, 100%, 41%);
-  --clr-cream: hsl(0, 0%, 85%);
+  --clr-ash-100: hsla(0, 0%, 85%, 0.1);
+  --clr-ash-400: hsla(0, 0%, 85%, 0.4);
+  --clr-ash: hsl(0, 0%, 85%);
   --clr-light-100: hsla(0, 0%, 100%, 0.1);
   --clr-light-400: hsla(0, 0%, 100%, 0.4);
   --clr-light: hsl(0, 0%, 100%);
@@ -260,11 +263,27 @@ body {
   color: hsl(230, 100%, 41%);
 }
 
-.bg-cream {
+.bg-ash-100 {
+  background-color: hsla(0, 0%, 85%, 0.1);
+}
+
+.text-ash-100 {
+  color: hsla(0, 0%, 85%, 0.1);
+}
+
+.bg-ash-400 {
+  background-color: hsla(0, 0%, 85%, 0.4);
+}
+
+.text-ash-400 {
+  color: hsla(0, 0%, 85%, 0.4);
+}
+
+.bg-ash {
   background-color: hsl(0, 0%, 85%);
 }
 
-.text-cream {
+.text-ash {
   color: hsl(0, 0%, 85%);
 }
 
@@ -332,7 +351,7 @@ body {
 }
 
 .bg-gradient {
-  background: linear-gradient(135deg, var(--clr-primary-350), var(--clr-secondary-350));
+  background: linear-gradient(135deg, var(--clr-primary-800), var(--clr-secondary-600));
 }
 
 .ff-inter {
@@ -1205,8 +1224,7 @@ body {
 .input-signup {
   height: 48px;
   width: 180px;
-  border: 1px solid var(--clr-grey);
-  background-color: var(--clr-white);
+  border: 1px solid var(--clr-dark-100);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   box-shadow: 0px 4px 4px var(--clr-dark-100);
@@ -1214,7 +1232,6 @@ body {
 .input-signup:focus {
   outline: none;
   border: 2px solid var(--clr-primary);
-  background-color: var(--clr-white);
   box-shadow: 0px 4px 4px var(--clr-primary-100);
 }
 .input-signup:not(#fname, #lname) {
@@ -1288,11 +1305,31 @@ body {
   padding-inline: var(--px, 1.5em);
   border-radius: var(--border-radius, 0.75rem);
   background: var(--bg, var(--clr-primary));
+  box-shadow: 0 4px 4px var(--clr-primary-400);
 }
 .btn:is(:hover, :focus-visible) {
-  box-shadow: 0 4px 4px 1px var(--clr-primary-400);
+  box-shadow: 0 4px 4px var(--clr-tertiary-400);
 }
-.btn__sign-up, .btn__sign-up {
+.btn__sign-in__google {
+  --bg: var(--clr-ash);
+  width: 25rem;
+  box-shadow: 0 4px 4px var(--clr-dark-100);
+  padding-left: 0.75rem;
+}
+.btn__sign-in__google .icon__google {
+  --size: 1.25rem;
+  width: var(--size);
+  height: var(--size);
+  -webkit-margin-end: 0.75rem;
+          margin-inline-end: 0.75rem;
+}
+.btn__sign-in__google .icon__google svg {
+  height: var(--size);
+}
+.btn__sign-in__google:is(:hover, :focus-visible) {
+  box-shadow: 0 4px 4px var(--clr-ash-100);
+}
+.btn__sign-up, .btn__sign-in {
   --flow-gap: 3rem;
   width: 25rem;
   height: 3rem;
@@ -1304,7 +1341,7 @@ body {
   isolation: isolate;
   overflow: hidden;
 }
-.btn__sign-up::before, .btn__sign-up::before {
+.btn__sign-up::before, .btn__sign-in::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -1317,34 +1354,34 @@ body {
   opacity: 0;
   transition: scale 500ms 166.6666666667ms, opacity 250ms;
 }
-.btn__sign-up:active::before, .btn__sign-up:active::before {
+.btn__sign-up:active::before, .btn__sign-in:active::before {
   scale: 20;
   opacity: 1;
 }
-.btn__sign-up:is(:hover, :focus-visible), .btn__sign-up:is(:hover, :focus-visible) {
-  box-shadow: 0 4px 4px var(--clr-tertiary-400);
+.btn__sign-up:is(:hover, :focus-visible), .btn__sign-in:is(:hover, :focus-visible) {
+  box-shadow: 0 4px 4px var(--clr-primary-400);
 }
-.btn__sign-up > span, .btn__sign-up > span {
+.btn__sign-up > span, .btn__sign-in > span {
   z-index: -1;
   width: 33.3333333333%;
   height: 100%;
   background: transparent;
   position: absolute;
 }
-.btn__sign-up > :first-child, .btn__sign-up > :first-child {
+.btn__sign-up > :first-child, .btn__sign-in > :first-child {
   left: 0;
   top: 0;
 }
-.btn__sign-up:has(:first-child:active)::before, .btn__sign-up:has(:first-child:active)::before {
+.btn__sign-up:has(:first-child:active)::before, .btn__sign-in:has(:first-child:active)::before {
   margin-left: 0;
   transition: scale 250ms, opacity 125ms;
 }
-.btn__sign-up > :last-child, .btn__sign-up > :last-child {
+.btn__sign-up > :last-child, .btn__sign-in > :last-child {
   --flow-gap: none;
   right: 0;
   top: 0;
 }
-.btn__sign-up:has(:last-child:active)::before, .btn__sign-up:has(:last-child:active)::before {
+.btn__sign-up:has(:last-child:active)::before, .btn__sign-in:has(:last-child:active)::before {
   margin-right: 0;
   transition: scale 250ms, opacity 125ms;
 }
@@ -1440,8 +1477,8 @@ body {
 .get-started .btn__sign-up {
   --bg: var(--clr-secondary);
 }
-.get-started__btn-learn-more {
-  --bg: var(--clr-cream);
+.get-started .btn__learn-more {
+  --bg: var(--clr-ash);
 }
 
 .sucess__heading {
@@ -1505,7 +1542,7 @@ body {
 }
 .form__signin hr {
   height: 3px;
-  color: var(--clr-white-400);
+  color: var(--clr-ash);
   width: 100%;
 }
 
@@ -1520,19 +1557,28 @@ ion-icon {
   left: 1.3125rem;
   font-size: 1.5rem;
   text-align: center;
-  color: var(--clr-secondary-400);
+  color: var(--clr-secondary);
 }
 
 .input-signin {
   --flow-gap: none;
   height: 48px;
-  width: 420px;
-  border: none;
-  background-color: var(--clr-white-400);
-  border-radius: 8px;
+  width: 400px;
   padding: 0.75rem 1.3125rem;
-  box-shadow: 0px 4px 4px var(--clr-dark-100);
+  border: none;
+  border-radius: 8px;
+  outline: 1px solid var(--clr-primary-100);
+  color: var(--clr-light);
+  background: var(--clr-light-100);
+  box-shadow: 4px 4px var(--clr-primary-100);
   text-indent: 2.0625rem;
+}
+.input-signin:is(:focus-visible) {
+  outline: none;
+  color: var(--clr-dark);
+  background-color: var(--clr-light-400);
+  box-shadow: 0px 4px 4px var(--clr-dark-100);
+  outline: 2px solid var(--clr-tertiary);
 }
 .input-signin__container {
   position: relative;

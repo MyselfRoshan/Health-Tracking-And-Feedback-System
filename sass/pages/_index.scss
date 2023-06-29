@@ -92,11 +92,14 @@
     justify-content: center;
     gap: 0.75rem;
   }
-  .btn__sign-up {
-    --bg: var(--clr-secondary);
-  }
-  &__btn-learn-more {
-    --bg: var(--clr-cream);
+
+  .btn {
+    &__sign-up {
+      --bg: var(--clr-secondary);
+    }
+    &__learn-more {
+      --bg: var(--clr-ash);
+    }
   }
 }
 
