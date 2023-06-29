@@ -101,7 +101,8 @@ img:not([alt]) {
 
 /* Global body css */
 body {
-  color: var(--clr-dark-400);
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
   font-size: var(--fs-400);
   font-family: $ff-inter;
 }

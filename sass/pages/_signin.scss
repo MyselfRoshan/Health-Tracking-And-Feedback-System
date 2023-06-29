@@ -25,7 +25,7 @@
 
     hr {
       height: 3px;
-      color: var(--clr-white-400);
+      color: var(--clr-ash);
       width: 100%;
     }
   }
@@ -42,7 +42,7 @@ ion-icon {
   left: 1.3125rem;
   font-size: 1.5rem;
   text-align: center;
-  color: var(--clr-secondary-400);
+  color: var(--clr-secondary);
 }
 
 .input {
@@ -51,14 +51,23 @@ ion-icon {
     --flow-gap: none;
 
     height: 48px;
-    width: 420px;
-    // border: 1px solid var(--clr-grey-400);
-    border: none;
-    background-color: var(--clr-white-400);
-    border-radius: 8px;
+    width: 400px;
     padding: 0.75rem 1.3125rem;
-    box-shadow: 0px 4px 4px var(--clr-dark-100);
+    border: none;
+    border-radius: 8px;
+    outline: 1px solid var(--clr-primary-100);
+    color: var(--clr-light);
+    background: var(--clr-light-100);
+    box-shadow: 4px 4px var(--clr-primary-100);
     text-indent: 2.0625rem;
+
+    &:is(:focus-visible) {
+      outline: none;
+      color: var(--clr-dark);
+      background-color: var(--clr-light-400);
+      box-shadow: 0px 4px 4px var(--clr-dark-100);
+      outline: 2px solid var(--clr-tertiary);
+    }
 
     &__container {
       position: relative;

@@ -19,17 +19,41 @@ $opacity-duration: math.div($transition-duration, 2);
   padding-inline: var(--px, 1.5em);
   border-radius: var(--border-radius, 0.75rem);
   background: var(--bg, var(--clr-primary));
+  box-shadow: 0 4px 4px var(--clr-primary-400);
   $bg: var(--bg);
 
   &:is(:hover, :focus-visible) {
-    box-shadow: 0 4px 4px 1px var(--clr-primary-400);
+    box-shadow: 0 4px 4px var(--clr-tertiary-400);
   }
 
+  &__sign-in {
+    &__google {
+      --bg: var(--clr-ash);
+      width: 25rem;
+      box-shadow: 0 4px 4px var(--clr-dark-100);
+      padding-left: 0.75rem;
+
+      .icon__google {
+        --size: 1.25rem;
+        width: var(--size);
+        height: var(--size);
+        margin-inline-end: 0.75rem;
+
+        svg {
+          height: var(--size);
+        }
+      }
+      &:is(:hover, :focus-visible) {
+        box-shadow: 0 4px 4px var(--clr-ash-100);
+        // box-shadow: 0 4px 4px var(--clr-tertiary-400);
+      }
+    }
+  }
   &__sign-up,
-  &__sign-up {
+  &__sign-in {
     --flow-gap: 3rem;
 
-    // width: 420px;
+    // width: 400px
     width: 25rem;
     height: 3rem;
     border-radius: 0.5rem;
@@ -62,7 +86,7 @@ $opacity-duration: math.div($transition-duration, 2);
       opacity: 1;
     }
     &:is(:hover, :focus-visible) {
-      box-shadow: 0 4px 4px var(--clr-tertiary-400);
+      box-shadow: 0 4px 4px var(--clr-primary-400);
     }
 
     > span {
