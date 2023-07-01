@@ -1,7 +1,6 @@
-.illustration {
-  &__signin {
-    grid-column: 1;
-    grid-row: 1;
+.signin {
+  &__illustration {
+    grid-column: span 6;
     justify-self: flex-start;
     overflow: hidden;
     > svg {
@@ -11,17 +10,17 @@
   }
 }
 
-.form {
-  &__signin {
-    height: 100%;
-    grid-column: 2;
-    grid-row: 1;
+.signin {
+  &__form {
+    // height: 100%;
+    grid-column: 8/-1;
+    // grid-row: 1;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 7.25rem;
+    // padding: 0 7.25rem;
 
     hr {
       height: 3px;
