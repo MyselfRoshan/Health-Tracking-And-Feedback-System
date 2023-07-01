@@ -15,15 +15,27 @@ $opacity-duration: math.div($transition-duration, 2);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--py, 0.75em);
-  padding-inline: var(--px, 1.5em);
-  border-radius: var(--border-radius, 0.75rem);
+  border-radius: var(--br, 0.75rem);
   background: var(--bg, var(--clr-primary));
-  box-shadow: 0 4px 4px var(--clr-primary-400);
-  $bg: var(--bg);
-
+  box-shadow: 0 4px 4px var(--bs, var(--clr-primary-400));
+  transition: scale 500ms ease-in-out;
   &:is(:hover, :focus-visible) {
-    box-shadow: 0 4px 4px var(--clr-tertiary-400);
+    scale: 1.005;
+    box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
+  }
+  // btn sizes .btn-s, .btn-m, .btn-l
+  &-s {
+    padding-inline: var(--px, 1em);
+    height: 2.5rem;
+  }
+
+  &-m {
+    padding-inline: var(--px, 1.5rem);
+    height: 3rem;
+  }
+  &-l {
+    padding-inline: var(--px, 2rem);
+    height: 4rem;
   }
 
   &__sign-in {
@@ -45,20 +57,16 @@ $opacity-duration: math.div($transition-duration, 2);
       }
       &:is(:hover, :focus-visible) {
         box-shadow: 0 4px 4px var(--clr-ash-100);
-        // box-shadow: 0 4px 4px var(--clr-tertiary-400);
       }
     }
   }
-  &__sign-up,
-  &__sign-in {
+  &__active-effect {
     --flow-gap: 3rem;
 
     // width: 400px
+    --bs: var(--clr-dark-100);
     width: 25rem;
-    height: 3rem;
-    border-radius: 0.5rem;
-    color: var(--clr-light);
-    box-shadow: 0px 4px 4px var(--clr-dark-100);
+    // box-shadow: 0px 4px 4px var(--clr-dark-100);
     transition: background $transition-duration;
 
     position: relative;
@@ -67,15 +75,15 @@ $opacity-duration: math.div($transition-duration, 2);
 
     &::before {
       content: "";
+      width: 10%;
+      margin: auto;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      opacity: 0;
       position: absolute;
+      inset: 0;
       z-index: -1;
       background: var(--clr-primary-800);
-      width: 10%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      inset: 0;
-      margin: auto;
-      opacity: 0;
 
       transition: scale $transition-duration math.div($opacity-duration, 1.5),
         opacity $opacity-duration;

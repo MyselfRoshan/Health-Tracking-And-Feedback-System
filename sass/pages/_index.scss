@@ -19,8 +19,10 @@
     margin: 2.5rem auto;
   }
 
-  .btn__sign-up {
+  .btn {
     --bg: var(--clr-secondary);
+    --bs: var(--clr-dark-400);
+    --hbs: var(--clr-secondary-600);
     grid-column: 6/8;
   }
 }
@@ -94,11 +96,16 @@
   }
 
   .btn {
-    &__sign-up {
+    &:first-of-type {
       --bg: var(--clr-secondary);
+      --bs: var(--clr-dark-400);
+      --hbs: var(--clr-secondary-400);
     }
-    &__learn-more {
+
+    &:last-of-type {
       --bg: var(--clr-ash);
+      --bs: var(--clr-dark-400);
+      --hbs: var(--clr-ash-400);
     }
   }
 }

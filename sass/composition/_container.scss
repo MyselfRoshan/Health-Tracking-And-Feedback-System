@@ -49,6 +49,7 @@
     gap: 16px;
   }
   @include mediaquery(l) {
+    max-width: map-get($breakpoints, xxl);
     grid-template-columns: repeat(12, 1fr);
     gap: 20px;
   }
