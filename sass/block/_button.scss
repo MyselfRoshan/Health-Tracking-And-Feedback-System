@@ -18,9 +18,8 @@ $opacity-duration: math.div($transition-duration, 2);
   border-radius: var(--br, 0.75rem);
   background: var(--bg, var(--clr-primary));
   box-shadow: 0 4px 4px var(--bs, var(--clr-primary-400));
-  transition: scale 500ms ease-in-out;
+  transition: box-shadow 500ms ease-in-out;
   &:is(:hover, :focus-visible) {
-    scale: 1.005;
     box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
   }
   // btn sizes .btn-s, .btn-m, .btn-l
@@ -38,35 +37,11 @@ $opacity-duration: math.div($transition-duration, 2);
     height: 4rem;
   }
 
-  &__sign-in {
-    &__google {
-      --bg: var(--clr-ash);
-      width: 25rem;
-      box-shadow: 0 4px 4px var(--clr-dark-100);
-      padding-left: 0.75rem;
-
-      .icon__google {
-        --size: 1.25rem;
-        width: var(--size);
-        height: var(--size);
-        margin-inline-end: 0.75rem;
-
-        svg {
-          height: var(--size);
-        }
-      }
-      &:is(:hover, :focus-visible) {
-        box-shadow: 0 4px 4px var(--clr-ash-100);
-      }
-    }
-  }
-  &__active-effect {
+  &__hover-effect {
     --flow-gap: 3rem;
 
     // width: 400px
-    --bs: var(--clr-dark-100);
     width: 25rem;
-    // box-shadow: 0px 4px 4px var(--clr-dark-100);
     transition: background $transition-duration;
 
     position: relative;
@@ -83,21 +58,18 @@ $opacity-duration: math.div($transition-duration, 2);
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: var(--clr-primary-800);
+      background: var(--hbg, var(--clr-tertiary));
 
       transition: scale $transition-duration math.div($opacity-duration, 1.5),
         opacity $opacity-duration;
     }
 
-    &:active::before {
+    &:is(:hover, :focus-visible)::before {
       scale: 20;
       opacity: 1;
     }
-    &:is(:hover, :focus-visible) {
-      box-shadow: 0 4px 4px var(--clr-primary-400);
-    }
 
-    > span {
+    > span:is(:first-of-type, :last-of-type) {
       z-index: -1;
       width: calc(100% / 3);
       height: 100%;
@@ -109,7 +81,7 @@ $opacity-duration: math.div($transition-duration, 2);
       left: 0;
       top: 0;
     }
-    &:has(:first-child:active)::before {
+    &:has(:first-child:is(:hover, :focus-visible))::before {
       margin-left: 0;
       transition: scale math.div($transition-duration, 2),
         opacity math.div($opacity-duration, 2);
@@ -122,7 +94,7 @@ $opacity-duration: math.div($transition-duration, 2);
       top: 0;
     }
 
-    &:has(:last-child:active)::before {
+    &:has(:last-child:is(:hover, :focus-visible))::before {
       margin-right: 0;
       transition: scale math.div($transition-duration, 2),
         opacity math.div($opacity-duration, 2);
