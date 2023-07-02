@@ -135,6 +135,7 @@ body {
   --clr-light-400: hsla(0, 0%, 100%, 0.4);
   --clr-light: hsl(0, 0%, 100%);
   --clr-dark-100: hsla(0, 0%, 10%, 0.1);
+  --clr-dark-200: hsla(0, 0%, 10%, 0.2);
   --clr-dark-400: hsla(0, 0%, 10%, 0.4);
   --clr-dark: hsl(0, 0%, 10%);
   --clr-yellow: hsl(42, 100%, 70%);
@@ -317,6 +318,14 @@ body {
 
 .text-dark-100 {
   color: hsla(0, 0%, 10%, 0.1);
+}
+
+.bg-dark-200 {
+  background-color: hsla(0, 0%, 10%, 0.2);
+}
+
+.text-dark-200 {
+  color: hsla(0, 0%, 10%, 0.2);
 }
 
 .bg-dark-400 {
@@ -1313,10 +1322,9 @@ body {
   border-radius: var(--br, 0.75rem);
   background: var(--bg, var(--clr-primary));
   box-shadow: 0 4px 4px var(--bs, var(--clr-primary-400));
-  transition: scale 500ms ease-in-out;
+  transition: box-shadow 500ms ease-in-out;
 }
 .btn:is(:hover, :focus-visible) {
-  scale: 1.005;
   box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
 }
 .btn-s {
@@ -1331,35 +1339,15 @@ body {
   padding-inline: var(--px, 2rem);
   height: 4rem;
 }
-.btn__sign-in__google {
-  --bg: var(--clr-ash);
-  width: 25rem;
-  box-shadow: 0 4px 4px var(--clr-dark-100);
-  padding-left: 0.75rem;
-}
-.btn__sign-in__google .icon__google {
-  --size: 1.25rem;
-  width: var(--size);
-  height: var(--size);
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
-}
-.btn__sign-in__google .icon__google svg {
-  height: var(--size);
-}
-.btn__sign-in__google:is(:hover, :focus-visible) {
-  box-shadow: 0 4px 4px var(--clr-ash-100);
-}
-.btn__active-effect {
+.btn__hover-effect {
   --flow-gap: 3rem;
-  --bs: var(--clr-dark-100);
   width: 25rem;
   transition: background 500ms;
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
-.btn__active-effect::before {
+.btn__hover-effect::before {
   content: "";
   width: 10%;
   margin: auto;
@@ -1369,37 +1357,34 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--clr-primary-800);
+  background: var(--hbg, var(--clr-tertiary));
   transition: scale 500ms 166.6666666667ms, opacity 250ms;
 }
-.btn__active-effect:active::before {
+.btn__hover-effect:is(:hover, :focus-visible)::before {
   scale: 20;
   opacity: 1;
 }
-.btn__active-effect:is(:hover, :focus-visible) {
-  box-shadow: 0 4px 4px var(--clr-primary-400);
-}
-.btn__active-effect > span {
+.btn__hover-effect > span:is(:first-of-type, :last-of-type) {
   z-index: -1;
   width: 33.3333333333%;
   height: 100%;
   background: transparent;
   position: absolute;
 }
-.btn__active-effect > :first-child {
+.btn__hover-effect > :first-child {
   left: 0;
   top: 0;
 }
-.btn__active-effect:has(:first-child:active)::before {
+.btn__hover-effect:has(:first-child:is(:hover, :focus-visible))::before {
   margin-left: 0;
   transition: scale 250ms, opacity 125ms;
 }
-.btn__active-effect > :last-child {
+.btn__hover-effect > :last-child {
   --flow-gap: none;
   right: 0;
   top: 0;
 }
-.btn__active-effect:has(:last-child:active)::before {
+.btn__hover-effect:has(:last-child:is(:hover, :focus-visible))::before {
   margin-right: 0;
   transition: scale 250ms, opacity 125ms;
 }
@@ -1428,7 +1413,7 @@ body {
 .hero .btn {
   --bg: var(--clr-secondary);
   --bs: var(--clr-dark-400);
-  --hbs: var(--clr-secondary-600);
+  --hbs: var(--clr-secondary-400);
   grid-column: 6/8;
 }
 
@@ -1552,8 +1537,15 @@ body {
   max-height: 39rem;
   aspect-ratio: 1;
 }
-
+.signin__logo {
+  --width: 130px;
+  width: var(--width);
+  height: calc(0.7415137615 * var(--width));
+  max-height: 218px;
+  max-width: 161.65px;
+}
 .signin__form {
+  --flow: 1.5rem;
   grid-column: 8/-1;
   display: flex;
   flex-direction: column;
@@ -1564,6 +1556,32 @@ body {
   height: 3px;
   color: var(--clr-ash);
   width: 100%;
+}
+.signin__form .btn:first-of-type {
+  --bg: var(--clr-primary);
+  --bs: var(--clr-dark-200);
+  --hbs: var(--clr-tertiary-400);
+}
+.signin__form .btn:last-of-type {
+  --bg: var(--clr-ash);
+  --bs: var(--clr-dark-100);
+  --hbs: var(--clr-light-100);
+  --hbg: var(--clr-light);
+}
+.signin__form .btn:last-of-type span:nth-of-type(2) {
+  --flow-gap: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.signin__form .btn:last-of-type .icon__google {
+  --size: 1.25rem;
+  width: var(--size);
+  height: var(--size);
+}
+.signin__form .btn:last-of-type .icon__google svg {
+  height: var(--size);
 }
 
 #usrname-email::before {
@@ -1604,14 +1622,6 @@ ion-icon {
   position: relative;
 }
 
-.signin__logo {
-  --width: 130px;
-  width: var(--width);
-  height: calc(0.7415137615 * var(--width));
-  max-height: 218px;
-  max-width: 161.65px;
-}
-
 .no-account {
   justify-self: flex-end;
 }
@@ -1629,19 +1639,21 @@ ion-icon {
   max-height: 38rem;
   max-width: 36.018957346rem;
 }
-
-form {
+.signup__form {
   grid-column: 1/6;
 }
-
-.name {
+.signup__form .btn {
+  --bg: var(--clr-primary);
+  --bs: var(--clr-dark-200);
+  --hbs: var(--clr-tertiary-400);
+}
+.signup__form .name {
   --flow-gap: 1.25rem;
   display: flex;
   justify-content: space-between;
   min-width: 100%;
 }
-
-.terms-and-conditions {
+.signup__form .terms-and-conditions {
   margin-inline: auto;
   width: 43ch;
   font-size: var(--fs-200);

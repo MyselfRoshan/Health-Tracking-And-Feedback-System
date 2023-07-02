@@ -8,24 +8,58 @@
       aspect-ratio: 1;
     }
   }
-}
-
-.signin {
+  &__logo {
+    // make use of clamp instead of width and max-width
+    --width: 130px;
+    width: var(--width);
+    height: calc(0.7415137614678899 * var(--width));
+    max-height: 218px;
+    max-width: 161.65px;
+  }
   &__form {
-    // height: 100%;
+    --flow: 1.5rem;
     grid-column: 8/-1;
-    // grid-row: 1;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // padding: 0 7.25rem;
 
     hr {
       height: 3px;
       color: var(--clr-ash);
       width: 100%;
+    }
+    .btn {
+      &:first-of-type {
+        --bg: var(--clr-primary);
+        --bs: var(--clr-dark-200);
+        --hbs: var(--clr-tertiary-400);
+      }
+
+      &:last-of-type {
+        --bg: var(--clr-ash);
+        --bs: var(--clr-dark-100);
+        --hbs: var(--clr-light-100);
+        --hbg: var(--clr-light);
+
+        span:nth-of-type(2) {
+          --flow-gap: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+        }
+        .icon__google {
+          --size: 1.25rem;
+          width: var(--size);
+          height: var(--size);
+
+          svg {
+            height: var(--size);
+          }
+        }
+      }
     }
   }
 }
@@ -74,17 +108,18 @@ ion-icon {
   }
 }
 
-.signin {
-  &__logo {
-    // make use of clamp instead of width and max-width
-    --width: 130px;
-    width: var(--width);
-    height: calc(0.7415137614678899 * var(--width));
-    max-height: 218px;
-    max-width: 161.65px;
-  }
-}
-
 .no-account {
   justify-self: flex-end;
 }
+
+// &__sign-in {
+//   &__google {
+// width: 25rem;
+// box-shadow: 0 4px 4px var(--clr-dark-100);
+// padding-left: 0.75rem;
+
+// &:is(:hover, :focus-visible) {
+//   box-shadow: 0 4px 4px var(--clr-ash-100);
+// }
+//   }
+// }
