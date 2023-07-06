@@ -21,7 +21,8 @@
   <body>
     <!-- <section class="container__signin grid-container__signin"> -->
     <section class="signin">
-      <div class="grid-layout mx-auto">
+      <!-- <div class="grid-layout mx-auto"> -->
+      <div class="container grid-signin">
         <div class="signin__illustration">
           <svg
             width="718"
@@ -806,7 +807,7 @@
             </g>
           </svg>
         </div>
-        <form action="post" class="signin__form flow bg-gradient">
+        <form action="post" class="signin__form flow d-flex bg-gradient">
           <div class="logo">
             <img
               src="../assets/images/illustrations/logo.svg"
@@ -842,6 +843,23 @@
               aria-placeholder="Password"
             />
             <i class="far fa-eye" id="toggle-password"></i>
+          </div>
+          <div class="signin__action d-flex">
+            <div class="input-signin__container">
+              <input
+                type="checkbox"
+                name="remember-me"
+                id="remember-me"
+                class="remember-me"
+              />
+              <label
+                for="remember-me"
+                id="label__remember-me"
+                class="label text-primary"
+                >Remember me</label
+              >
+            </div>
+            <a href="" class="forgot-password">Forgot password?</a>
           </div>
           <button class="btn btn-m btn__hover-effect text-light">
             <span></span>
@@ -886,7 +904,7 @@
             </span>
             <span></span>
           </button>
-          <p class="no-account">
+          <p class="no-account mt-auto">
             Don't have an account yet?
             <a href="./signup.html">Register here</a>
           </p>

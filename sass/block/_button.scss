@@ -38,8 +38,6 @@ $opacity-duration: math.div($transition-duration, 2);
   }
 
   &__hover-effect {
-    --flow-gap: 3rem;
-
     // width: 400px
     width: 25rem;
     transition: background $transition-duration;

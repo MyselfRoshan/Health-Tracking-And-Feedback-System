@@ -5,6 +5,7 @@
 //utilities
 @use "./utilities/color";
 @use "./utilities/font";
+@use "./utilities/layout";
 @use "./utilities/spacing";
 
 // composition
@@ -16,3 +17,4 @@
 @use "./pages/index";
 @use "./pages/signin";
 @use "./pages/signup";
+@use "./pages/dashboard";
