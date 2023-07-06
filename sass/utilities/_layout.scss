@@ -1,0 +1,11 @@
+.d-flex {
+  display: flex;
+  align-items: var(--align-items, center);
+  justify-content: var(--justify-content, center);
+  flex-direction: var(--flex-direction, row);
+}
+.d-grid {
+  display: grid;
+  align-items: var(--align-items, center);
+  justify-items: var(--justify-items, center);
+}

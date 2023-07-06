@@ -1,6 +1,31 @@
+@use "../abstracts/layout-scale" as *;
+@use "../abstracts/mixins" as *;
 .signin {
+  // change container property
+  .container {
+    --cpy: 0;
+    --cpx: 0;
+    min-height: 56.25rem;
+  }
+  @include mediaquery(s) {
+    --cmw: 100%;
+    --cpx: 0;
+  }
+  @include mediaquery(m) {
+  }
+  @include mediaquery(l) {
+  }
+  @include mediaquery(xl) {
+  }
+  @include mediaquery(xxl) {
+    --cmw: 90rem;
+  }
   &__illustration {
-    grid-column: span 6;
+    display: none;
+    @include mediaquery(s) {
+      display: block;
+    }
+    grid-column: 1/2;
     justify-self: flex-start;
     overflow: hidden;
     > svg {
@@ -17,27 +42,32 @@
     max-width: 161.65px;
   }
   &__form {
-    --flow: 1.5rem;
-    grid-column: 8/-1;
+    --flow-gap: 1.5rem;
+    --flex-direction: column;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    grid-column: 2/-1;
+    max-width: 39rem;
+    // padding-inline: 7rem;
 
     hr {
+      --flow-gap: 2rem;
+
       height: 3px;
       color: var(--clr-ash);
       width: 100%;
     }
     .btn {
       &:first-of-type {
+        --flow-gap: 3rem;
+
         --bg: var(--clr-primary);
         --bs: var(--clr-dark-200);
         --hbs: var(--clr-tertiary-400);
       }
 
       &:last-of-type {
+        --flow-gap: 2rem;
+
         --bg: var(--clr-ash);
         --bs: var(--clr-dark-100);
         --hbs: var(--clr-light-100);
@@ -62,13 +92,16 @@
       }
     }
   }
-}
+  &__action {
+    --flex-direction: row;
+    --justify-content: space-between;
+    width: 25rem;
+  }
 
-#usrname-email::before {
-  src: url("../../assets/icons/key.svg");
-  content: "";
+  .forgot-password {
+    --flow-gap: none;
+  }
 }
-
 ion-icon {
   position: absolute;
   top: 0.75rem;
@@ -101,25 +134,14 @@ ion-icon {
       box-shadow: 0px 4px 4px var(--clr-dark-100);
       outline: 2px solid var(--clr-tertiary);
     }
-
     &__container {
+      --flow-gap: 1.5rem;
       position: relative;
     }
   }
 }
 
 .no-account {
-  justify-self: flex-end;
+  // justify-self: flex-end;
+  margin-top: auto;
 }
-
-// &__sign-in {
-//   &__google {
-// width: 25rem;
-// box-shadow: 0 4px 4px var(--clr-dark-100);
-// padding-left: 0.75rem;
-
-// &:is(:hover, :focus-visible) {
-//   box-shadow: 0 4px 4px var(--clr-ash-100);
-// }
-//   }
-// }
