@@ -5,28 +5,32 @@
   .container {
     --cpy: 0;
     --cpx: 0;
-    min-height: 56.25rem;
-  }
-  @include mediaquery(s) {
     --cmw: 100%;
-    --cpx: 0;
+
+    min-height: 56.25rem;
+    @include mediaquery(s) {
+      --cpx: 0;
+    }
+    @include mediaquery(m) {
+    }
+    @include mediaquery(l) {
+    }
+    @include mediaquery(xl) {
+    }
+    @include mediaquery(xxl) {
+      --cmw: 90rem;
+    }
   }
-  @include mediaquery(m) {
-  }
-  @include mediaquery(l) {
-  }
-  @include mediaquery(xl) {
-  }
-  @include mediaquery(xxl) {
-    --cmw: 90rem;
-  }
+
   &__illustration {
     display: none;
     @include mediaquery(s) {
       display: block;
     }
     grid-column: 1/2;
-    justify-self: flex-start;
+    // justify-self: flex-start;
+    justify-self: center;
+    align-self: center;
     overflow: hidden;
     > svg {
       max-height: 39rem;
@@ -35,11 +39,16 @@
   }
   &__logo {
     // make use of clamp instead of width and max-width
-    --width: 130px;
+    // --width: 130px;
+    --width: clamp(100px, 15vw, 161.65px);
     width: var(--width);
-    height: calc(0.7415137614678899 * var(--width));
+    height: calc(1.3485926384163316 * var(--width));
     max-height: 218px;
     max-width: 161.65px;
+  }
+
+  .ff-expletus {
+    --flow-gap: 2.5rem;
   }
   &__form {
     --flow-gap: 1.5rem;
@@ -49,17 +58,8 @@
     max-width: 39rem;
     // padding-inline: 7rem;
 
-    hr {
-      --flow-gap: 2rem;
-
-      height: 3px;
-      color: var(--clr-ash);
-      width: 100%;
-    }
     .btn {
       &:first-of-type {
-        --flow-gap: 3rem;
-
         --bg: var(--clr-primary);
         --bs: var(--clr-dark-200);
         --hbs: var(--clr-tertiary-400);
@@ -91,6 +91,14 @@
         }
       }
     }
+
+    hr {
+      --flow-gap: 2rem;
+
+      height: 3px;
+      color: var(--clr-ash);
+      width: 100%;
+    }
   }
   &__action {
     --flex-direction: row;
@@ -102,41 +110,45 @@
     --flow-gap: none;
   }
 }
-ion-icon {
-  position: absolute;
-  top: 0.75rem;
-  left: 1.3125rem;
-  font-size: 1.5rem;
-  text-align: center;
-  color: var(--clr-secondary);
-}
 
 .input {
   // .input-signup
   &-signin {
     --flow-gap: none;
 
-    height: 48px;
-    width: 400px;
-    padding: 0.75rem 1.3125rem;
-    border: none;
-    border-radius: 8px;
-    outline: 1px solid var(--clr-primary-100);
-    color: var(--clr-light);
-    background: var(--clr-light-100);
-    box-shadow: 4px 4px var(--clr-primary-100);
+    --c: var(--clr-light);
+    --bg: var(--clr-light-100);
+    --oc: var(--clr-primary-100);
+    --bs: var(--clr-primary-100);
+    // focus
+    --fc: var(--clr-dark);
+    --fbg: var(--clr-light-400);
+    --foc: var(--clr-primary);
+    --fbs: var(--clr-tertiary-200);
+
     text-indent: 2.0625rem;
 
-    &:is(:focus-visible) {
-      outline: none;
-      color: var(--clr-dark);
-      background-color: var(--clr-light-400);
-      box-shadow: 0px 4px 4px var(--clr-dark-100);
-      outline: 2px solid var(--clr-tertiary);
+    &:focus {
+      #toggle-password {
+        color: var(--clr-dark);
+        cursor: pointer;
+      }
     }
     &__container {
-      --flow-gap: 1.5rem;
       position: relative;
+      // password container gap
+      &:nth-child(2) {
+        --flow-gap: 2rem;
+      }
+      // email container gap
+      &:nth-last-of-type(3) {
+        --flow-gap: 3rem;
+      }
+
+      ion-icon {
+        position: absolute;
+        inset: 0;
+      }
     }
   }
 }

@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <!-- End of Font Awesome -->
+    <!-- IonIcons -->
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- End of IonIcons -->
+
     <link rel="stylesheet" href="../assets/css/main.css" />
     <script defer src="../assets/scripts/input.js"></script>
   </head>
@@ -23,26 +30,34 @@
               <input
                 type="text"
                 id="fname"
-                class="input-signup"
+                class="input-text input-signup"
                 name="fname"
                 value=""
                 aria-labelledby="label-fname"
               />
-              <label class="label" for="fname" id="label-fname">
-                <span class="label__text">First Name</span>
+              <label
+                class="label fs-300 fw-500 d-flex"
+                for="fname"
+                id="label-fname"
+              >
+                <span class="label__text text-dark-400">First Name</span>
               </label>
             </div>
             <div class="input-signup__container">
               <input
                 type="text"
                 id="lname"
-                class="input-signup"
+                class="input-text input-signup"
                 name="lname"
                 value=""
                 aria-labelledby="label-lname"
               />
-              <label class="label" for="lname" id="label-lname">
-                <span class="label__text">Last Name</span>
+              <label
+                class="label fs-300 fw-500 d-flex"
+                for="lname"
+                id="label-lname"
+              >
+                <span class="label__text text-dark-400">Last Name</span>
               </label>
             </div>
           </div>
@@ -50,51 +65,67 @@
             <input
               type="text"
               id="username"
-              class="input-signup"
+              class="input-text input-signup"
               name="username"
               value=""
               aria-labelledby="label-username"
             />
-            <label class="label" for="username" id="label__username">
-              <span class="label__text">Username</span>
+            <label
+              class="label fs-300 fw-500 d-flex"
+              for="username"
+              id="label__username"
+            >
+              <span class="label__text text-dark-400">Username</span>
             </label>
           </div>
           <div class="input-signup__container">
             <input
               type="email"
               id="email"
-              class="input-signup"
+              class="input-text input-signup"
               name="email"
               value=""
               aria-labelledby="label-email"
             />
-            <label class="label" for="email" id="label-email">
-              <span class="label__text">Email</span>
+            <label
+              class="label fs-300 fw-500 d-flex"
+              for="email"
+              id="label-email"
+            >
+              <span class="label__text text-dark-400">Email</span>
             </label>
           </div>
           <div class="input-signup__container">
             <input
               type="password"
               id="password"
-              class="input-signup"
+              class="input-text input-signup"
               name="password"
               value=""
               aria-labelledby="label-password"
             />
-            <label class="label" for="password" id="label-password">
-              <span class="label__text">Password</span>
+            <label
+              class="label fs-300 fw-500 d-flex"
+              for="password"
+              id="label-password"
+            >
+              <span class="label__text text-dark-400">Password</span>
             </label>
-            <i class="far fa-eye" id="toggle-password"></i>
+            <ion-icon
+              name="eye-outline"
+              id="toggle-password"
+              class="fs-600 text-dark-400 my-auto ms-auto me-6"
+            ></ion-icon>
           </div>
           <button class="btn btn-m btn__hover-effect text-light">
             <span></span>
             Sign up
             <span></span>
           </button>
-          <p class="terms-and-conditions">
+          <p class="terms-and-conditions mx-auto fs-300">
             By clicking on Sign up, you agree to our
-            <a href="http://">Terms of service</a> and
-            <a href="http://">Privacy policy.</a>
+            <a href="#">Terms of service</a> and
+            <a href="#">Privacy policy.</a>
           </p>
         </form>
         <div class="signup__illustration">
