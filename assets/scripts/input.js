@@ -21,7 +21,12 @@ const password = document.querySelector("#password");
 togglePassword.addEventListener("click", () => {
   const pskType =
     password.getAttribute("type") === "password" ? "text" : "password";
+  const iconType =
+    togglePassword.getAttribute("name") === "eye-outline"
+      ? "eye-off-outline"
+      : "eye-outline";
   password.setAttribute("type", pskType);
-  togglePassword.classList.toggle("fa-eye-slash");
-  togglePassword.classList.toggle("fa-eye");
+  togglePassword.setAttribute("name", iconType);
+  // togglePassword.setAttribute("name", "eye-off-outline");
+  // togglePassword.classList.toggle("fa-eye");
 });

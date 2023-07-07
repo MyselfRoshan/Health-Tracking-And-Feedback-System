@@ -1,83 +1,19 @@
 .input {
-  height: 48px;
-  width: 400px;
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--clr-dark-100);
-  box-shadow: 0px 4px 4px var(--clr-dark-100);
-  // .input-signup
-  &-signup {
-    height: 48px;
-    width: 180px;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--clr-dark-100);
-    box-shadow: 0px 4px 4px var(--clr-dark-100);
+  &-text {
+    border: none;
+    // width:400px
+    width: var(--iw, 25rem);
+    padding: var(--py, 0.75rem) var(--px, 1.5rem);
+    color: var(--c, inherit);
+    background-color: var(--bg, inherit);
+    border-radius: var(--br, 0.5rem);
+    outline: var(--ow, 1px) solid var(--oc, var(--clr-dark-100));
+    box-shadow: 0px 4px 4px var(--bs, var(--clr-dark-100));
 
     &:focus {
-      outline: none;
-      border: 2px solid var(--clr-primary);
-      box-shadow: 0px 4px 4px var(--clr-primary-100);
-    }
-    &:not(#fname, #lname) {
-      width: 400px;
-    }
-    // .input-signup__container
-    &__container {
-      --flow-gap: 1rem;
-      position: relative;
-
-      .label {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 1rem;
-        display: flex;
-        align-items: center;
-        pointer-events: none;
-        font-size: 14px;
-
-        &__text {
-          transition: all 250ms ease-out;
-          color: var(--clr-dark-400);
-        }
-      }
-
-      .fa-eye {
-        display: none;
-      }
-      &:focus-within {
-        .label__text,
-        #toggle-password {
-          color: var(--clr-primary);
-        }
-      }
+      color: var(--fc, inherit);
+      outline: var(--fow, 2px) solid var(--foc, var(--clr-dark-100));
+      box-shadow: 0 4px 4px var(--fbs, var(--clr-primary-150));
     }
   }
-}
-
-.input-signup__container:focus-within .label__text,
-:not(.input-signup[value=""]) + .label .label__text {
-  font-size: 12px;
-  transform: translate(0, -150%);
-  background-color: white;
-  padding-inline: 8px;
-}
-.input-signup__container:focus-within .far,
-:not(.input-signup[value=""]) + #toggle-password {
-  display: block;
-  right: 1rem;
-  position: absolute;
-  top: 1rem;
-  cursor: pointer;
-}
-
-:not(.input-signup[value=""]) + .far {
-  color: var(--clr-dark-400);
-}
-
-.label,
-.input-signup__container:has(#lname),
-#toggle-password {
-  --flow-gap: none;
 }

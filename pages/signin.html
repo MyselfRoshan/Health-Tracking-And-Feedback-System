@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Health Trackr</title>
+    <!-- IonIcons -->
     <script
       defer
       type="module"
@@ -16,6 +17,7 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <!-- End of IonIcons -->
   </head>
 
   <body>
@@ -807,7 +809,10 @@
             </g>
           </svg>
         </div>
-        <form action="post" class="signin__form flow d-flex bg-gradient">
+        <form
+          action="post"
+          class="signin__form flow d-flex bg-gradient pt-16 pb-12"
+        >
           <div class="logo">
             <img
               src="../assets/images/illustrations/logo.svg"
@@ -818,12 +823,16 @@
           </div>
           <h2 class="ff-expletus fs-900 fw-700 text-light">Signin</h2>
           <div class="input-signin__container">
-            <ion-icon name="person" aria-label="Email or Password"></ion-icon>
-            <!-- <ion-icon name="mail" aria-label="Email or Password"></ion-icon> -->
+            <ion-icon
+              name="person"
+              aria-label="Email or Password"
+              class="my-auto ms-5 fs-600 text-secondary"
+            ></ion-icon>
+            <!-- <ion-icon name="mail" aria-label="Email or Password" class="text-secondary"></ion-icon> -->
             <input
               type="text"
               id="usrname-email"
-              class="input-signin"
+              class="input-text input-signin"
               name="usrname-email"
               value=""
               placeholder="Email or Username"
@@ -832,17 +841,25 @@
           </div>
 
           <div class="input-signin__container">
-            <ion-icon name="lock-closed" aria-label="Password"></ion-icon>
+            <ion-icon
+              name="lock-closed"
+              aria-label="Password"
+              class="my-auto ms-5 fs-600 text-secondary"
+            ></ion-icon>
             <input
               type="password"
               id="password"
-              class="input-signin"
+              class="input-text input-signin"
               name="password"
               value=""
               placeholder="Password"
               aria-placeholder="Password"
             />
-            <i class="far fa-eye" id="toggle-password"></i>
+            <ion-icon
+              name="eye-outline"
+              id="toggle-password"
+              class="my-auto ms-auto me-5 fs-600 text-light"
+            ></ion-icon>
           </div>
           <div class="signin__action d-flex">
             <div class="input-signin__container">

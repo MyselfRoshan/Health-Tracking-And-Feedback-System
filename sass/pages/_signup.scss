@@ -14,26 +14,87 @@
       // aspect-ratio: 1.0551948051948052;
     }
   }
+
   &__form {
+    --flow-gap: 1.5rem;
+
     grid-column: 1/6;
 
+    .name {
+      --flow-gap: 2rem;
+      display: flex;
+      justify-content: space-between;
+      min-width: var(--iw);
+    }
+
     .btn {
+      --flow-gap: 3rem;
+
       --bg: var(--clr-primary);
       --bs: var(--clr-dark-200);
       --hbs: var(--clr-tertiary-400);
     }
-    .name {
-      --flow-gap: 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      min-width: 100%;
-    }
+
     .terms-and-conditions {
-      margin-inline: auto;
       width: 43ch;
-      font-size: var(--fs-200);
       line-height: 1.3;
       text-align: center;
     }
   }
+}
+
+.input {
+  // .input-signup
+  &-signup {
+    // focus
+    --foc: var(--clr-primary);
+
+    &:is(#fname, #lname) {
+      // width: 200px;
+      --iw: 11.25rem;
+    }
+    // .input-signup__container
+    &__container {
+      position: relative;
+
+      .label {
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 1rem;
+        pointer-events: none;
+
+        &__text {
+          transition: all 250ms ease-out;
+        }
+      }
+
+      #toggle-password {
+        // --icon-clr: var(--clr-dark-400);
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        inset: 0;
+      }
+      &:focus-within {
+        .label__text,
+        #toggle-password {
+          color: var(--clr-primary);
+        }
+      }
+    }
+  }
+}
+
+.input-signup__container:focus-within .label__text,
+:not(.input-signup[value=""]) + .label .label__text {
+  font-size: 12px;
+  transform: translate(0, -150%);
+  background-color: white;
+  padding-inline: 8px;
+}
+
+.label,
+.input-signup__container:has(#lname),
+#toggle-password {
+  --flow-gap: none;
 }

@@ -4,64 +4,57 @@
 .flow * + * {
   margin-top: var(--flow-gap, 1rem);
 }
-.ms-auto {
-  margin-inline-start: auto;
-}
-.mx-auto {
-  margin-inline: auto;
-}
 
-// $space={10,1,2,3,4,5,6,auto}
-// $value={0,0.25,0.5,1,1.25,1.5,2,auto}rem
-// $scaping is sass map
 @each $space, $value in $spacing {
   // Padding utility classes
-  .p-#{$space} {
-    padding: #{$value} !important;
-  }
-  .px-#{$space} {
-    padding-left: #{$value} !important;
-    padding-right: #{$value} !important;
-  }
-  .py-#{$space} {
-    padding-top: #{$value} !important;
-    padding-bottom: #{$value} !important;
-  }
-  .ps-#{$space} {
-    padding-left: #{$value} !important;
-  }
-  .pt-#{$space} {
-    padding-top: #{$value} !important;
-  }
-  .pe-#{$space} {
-    padding-right: #{$value} !important;
-  }
-  .pb-#{$space} {
-    padding-bottom: #{$value} !important;
+  @if $space != "auto" {
+    .p-#{$space} {
+      padding: #{$value} !important;
+    }
+    .px-#{$space} {
+      padding-left: #{$value} !important;
+      padding-right: #{$value} !important;
+    }
+    .py-#{$space} {
+      padding-top: #{$value} !important;
+      padding-bottom: #{$value} !important;
+    }
+    .ps-#{$space} {
+      padding-left: #{$value} !important;
+    }
+    .pt-#{$space} {
+      padding-top: #{$value} !important;
+    }
+    .pe-#{$space} {
+      padding-right: #{$value} !important;
+    }
+    .pb-#{$space} {
+      padding-bottom: #{$value} !important;
+    }
   }
 
   // Margin utility classes
   .m-#{$space} {
-    padding: #{$value} !important;
+    margin: #{$value} !important;
   }
   .mx-#{$space} {
-    padding-left: #{$value} !important;
-    padding-right: #{$value} !important;
+    margin-left: #{$value} !important;
+    margin-right: #{$value} !important;
   }
   .my-#{$space} {
-    padding-top: #{$value} !important;
-    padding-bottom: #{$value} !important;
+    margin-top: #{$value} !important;
+    margin-bottom: #{$value} !important;
   }
   .ms-#{$space} {
-    padding-left: #{$value} !important;
+    margin-left: #{$value} !important;
   }
   .mt-#{$space} {
-    padding-top: #{$value} !important;
+    margin-top: #{$value} !important;
   }
   .me-#{$space} {
-    padding-right: #{$value} !important;
+    margin-right: #{$value} !important;
   }
   .mb-#{$space} {
-    padding-bottom: #{$value} !important;
+    margin-bottom: #{$value} !important;
   }
 }

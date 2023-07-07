@@ -55,6 +55,12 @@ a:not([class]) {
 a.nav-links {
   text-decoration: none;
 }
+
+/* Make label have default font-family */
+label {
+  font-family: $ff-inter;
+}
+
 /* Make images easier to work with */
 img,
 picture,
