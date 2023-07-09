@@ -1,4 +1,4 @@
-const signinBtn = document.querySelector(".btn-sign-in");
+const signinBtn = document.querySelector("#btn__sign-in");
 const signupBtns = document.querySelectorAll(".btn__sign-up");
 
 signupBtns.forEach((signupBtn) => {
@@ -8,5 +8,5 @@ signupBtns.forEach((signupBtn) => {
   });
 });
 signinBtn.addEventListener("click", () => {
-  window.location.href = "./pages/signin.html";
+  window.location.href = "./pages/dashboard.html";
 });

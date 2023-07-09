@@ -2165,234 +2165,97 @@ body {
   --flow-gap: none;
 }
 
-body {
-  background: #fff;
-  font-family: "Heebo", sans-serif;
-  font-weight: 300;
+}
+.input-signup:is(#fname, #lname) {
+  --iw: 11.25rem;
+}
+.input-signup__container {
+  position: relative;
+}
+.input-signup__container .label {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 1rem;
+  pointer-events: none;
+}
+.input-signup__container .label__text {
+  transition: all 250ms ease-out;
+}
+.input-signup__container #toggle-password {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.input-signup__container:focus-within .label__text,
+.input-signup__container:focus-within #toggle-password {
+  color: var(--clr-primary);
 }
 
-* {
-  box-sizing: border-box;
+.input-signup__container:focus-within .label__text,
+:not(.input-signup[value=""]) + .label .label__text {
+  font-size: 12px;
+  transform: translate(0, -150%);
+  background-color: white;
+  padding-inline: 8px;
 }
 
-strong {
-  font-weight: 500;
+.label,
+.input-signup__container:has(#lname),
+#toggle-password {
+  --flow-gap: none;
 }
 
-aside.context {
-  text-align: center;
-  color: #333;
-  line-height: 1.7;
-}
-aside.context a {
-  text-decoration: none;
-  color: #333;
-  padding: 3px 0;
-  border-bottom: 1px dashed;
-}
-aside.context a:hover {
-  border-bottom: 1px solid;
-}
-aside.context .explanation {
-  max-width: 700px;
-  margin: 6em auto 0;
-}
-
-main.main-content {
-  background: linear-gradient(to bottom, rgb(142, 158, 171), rgb(238, 242, 243));
-  padding: 5em 2em 3em;
-  border-radius: 120px 120px/50% 50% 10% 10%;
-  width: 980px;
-  margin: 5em auto;
-}
-
-.inflight {
+.dashboard {
   display: grid;
   grid: 60px 1fr/60px calc(100% - 60px);
   transition: 0.3s ease;
-  font-family: "Heebo", sans-serif;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  background: #fff;
 }
-.inflight__menu-button {
-  background: #923671;
-  align-items: center;
-  display: grid;
+.dashboard ion-icon {
+  font-size: var(--fs-600);
+  color: var(--clr-accent);
 }
-.inflight__menu-list {
-  background: linear-gradient(to top right, rgb(100, 43, 115), rgb(198, 66, 110));
+.dashboard__menu-list {
+  --flex-direction: column;
+  --align-items: flex-start;
   grid-column: 1;
   overflow: hidden;
-  display: grid;
-  grid: repeat(8, 60px)/100%;
+  height: 100dvh;
 }
-.inflight__settings-list {
-  display: grid;
-  grid: 100%/60px 120px 1fr repeat(3, 50px);
-  justify-content: center;
-  align-items: center;
-  grid-gap: 1px;
-  text-align: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+.dashboard__menu-list .active {
+  --ibr: 0.75rem;
+  --ibg: var(--clr-tertiary);
 }
-.inflight__settings-list svg {
-  fill: #923671;
-  max-width: 35px;
-}
-.inflight.menu-open {
+.dashboard.menu-open {
   grid: 60px 1fr/160px calc(100% - 160px);
-}
-.inflight__wrapper {
-  background: radial-gradient(#444, #222);
-  padding: 30px;
-  max-width: 840px;
-  margin: auto;
-  border-radius: 20px;
-}
-
-.content__menu {
-  display: grid;
-  grid: 60px 1fr/60px 90px 1fr;
-  height: 60px;
-  align-items: center;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-.content__menu svg {
-  fill: #923671;
-  max-width: 30px;
-  margin: auto;
-}
-.content__shows {
-  display: grid;
-  padding: 3px;
-  grid: repeat(2, 200px)/repeat(8, 150px);
-  grid-gap: 3px;
-  grid-auto-flow: column;
-  width: calc(100% - 4px);
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.content__shows div {
-  position: relative;
-  overflow: hidden;
-}
-.content__shows div:hover img {
-  transform: scale(1.15);
-}
-.content__shows div .title-box {
-  content: "";
-  height: 100px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0));
-  width: 100%;
-  z-index: 1;
-}
-.content__shows div img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
-  transition: 0.3s ease;
-}
-.content__shows div .name {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  color: #fff;
-  padding: 10px;
-  z-index: 10;
-  cursor: default;
-}
-.content__shows div:nth-child(4n+1) {
-  grid-column: span 2;
-  font-size: 20px;
-}
-.content__shows div:nth-child(1) {
-  grid-column: span 2;
-  grid-row: span 2;
-  font-size: 20px;
-}
-.content__menu-type {
-  border-left: 1px solid #ddd;
-  height: 100%;
-  color: #999;
-  font-size: 18px;
-  text-align: left;
-  display: flex;
-  align-items: flex-end;
-  padding: 16px;
-}
-.content__menu-tabs {
-  text-align: left;
-  display: flex;
-  font-size: 18px;
-  align-items: flex-end;
-  height: 100%;
-}
-.content__menu-tabs > li {
-  margin-right: 20px;
-  position: relative;
-  padding-bottom: 16px;
-}
-.content__menu-tabs > li.active {
-  background: -webkit-linear-gradient(#642b73, #c6426e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.content__menu-tabs > li.active:before {
-  content: "";
-  position: absolute;
-  height: 6px;
-  background: linear-gradient(to bottom right, #642b73, #c6426e);
-  width: 100%;
-  bottom: 0;
-  left: 0;
 }
 
 .menu-item {
+  --flow-gap: 0.5rem;
   display: grid;
+  align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
-  align-items: center;
 }
 .menu-item__icon {
+  width: 3rem;
+  aspect-ratio: 1;
   display: grid;
+  border-radius: var(--ibr, 50%);
+  background-color: var(--ibg, var(--clr-primary-400));
   place-items: center;
 }
-.menu-item__icon svg {
-  max-width: 30px;
-  fill: #f9f9f9;
-}
 .menu-item__desc {
-  font-size: 20px;
+  --flow-gap: 0;
+  font-size: var(--fs-400);
   color: #fff;
   margin-top: 3px;
 }
-.menu-item:not(:last-child) {
-  border-bottom: 1px solid #f9f9f9;
-}
-.menu-item.active {
-  background: #333;
-}
-
-.time {
-  text-align: left;
-  color: #444;
-}
-
-.logo {
-  font: 32px "Audiowide", cursive;
-  text-transform: uppercase;
-  background: -webkit-linear-gradient(#642b73, #c6426e);
-  -webkit-background-clip: text;
-  background-clip: texy;
-  -webkit-text-fill-color: transparent;
+.menu-item:last-child {
+  margin-top: auto;
 }
 
 ::-webkit-scrollbar {
