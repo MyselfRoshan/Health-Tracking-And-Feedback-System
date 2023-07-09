@@ -2165,6 +2165,47 @@ body {
   --flow-gap: none;
 }
 
+}
+.input-signup:is(#fname, #lname) {
+  --iw: 11.25rem;
+}
+.input-signup__container {
+  position: relative;
+}
+.input-signup__container .label {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 1rem;
+  pointer-events: none;
+}
+.input-signup__container .label__text {
+  transition: all 250ms ease-out;
+}
+.input-signup__container #toggle-password {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.input-signup__container:focus-within .label__text,
+.input-signup__container:focus-within #toggle-password {
+  color: var(--clr-primary);
+}
+
+.input-signup__container:focus-within .label__text,
+:not(.input-signup[value=""]) + .label .label__text {
+  font-size: 12px;
+  transform: translate(0, -150%);
+  background-color: white;
+  padding-inline: 8px;
+}
+
+.label,
+.input-signup__container:has(#lname),
+#toggle-password {
+  --flow-gap: none;
+}
+
 .dashboard {
   display: grid;
   grid: 60px 1fr/60px calc(100% - 60px);
