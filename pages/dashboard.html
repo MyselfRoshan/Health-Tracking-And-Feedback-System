@@ -20,51 +20,51 @@
   </head>
   <body>
     <div class="dashboard">
-      <div class="dashboard__menu-list bg-primary">
+      <div class="dashboard__menu-list bg-primary-800 d-flex flow">
         <div class="menu-item js-nav">
           <div class="menu-item__icon">
             <ion-icon name="menu"></ion-icon>
           </div>
-          <div class="logo">
+          <!-- <div class="logo">
             <img src="../assets/images/logo-only.png" alt="logo" srcset="" />
-          </div>
+          </div> -->
         </div>
         <div class="menu-item">
           <div class="menu-item__icon">
             <ion-icon name="add-outline"></ion-icon>
           </div>
-          <span class="menu-item__desc">Add</span>
+          <span class="menu-item__desc" hidden hidden>Add</span>
         </div>
         <div class="menu-item">
           <div class="menu-item__icon">
             <ion-icon name="grid-outline"></ion-icon>
           </div>
-          <span class="menu-item__desc">Overview</span>
+          <span class="menu-item__desc" hidden>Overview</span>
         </div>
 
         <div class="menu-item">
           <div class="menu-item__icon">
             <ion-icon name="calendar-clear-outline"></ion-icon>
           </div>
-          <span class="menu-item__desc">Reminder</span>
+          <span class="menu-item__desc" hidden>Reminder</span>
         </div>
         <div class="menu-item">
           <div class="menu-item__icon">
             <ion-icon name="flag-outline"></ion-icon>
           </div>
-          <span class="menu-item__desc">Goal</span>
+          <span class="menu-item__desc" hidden>Goal</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item account">
           <div class="menu-item__icon">
             <ion-icon name="person-circle-outline" class="profile"></ion-icon>
           </div>
-          <span class="menu-item__desc">Profile</span>
-        </div>
-        <div class="menu-item">
+          <span class="menu-item__desc" hidden
+            ><span class="username">Prabin</span>
+            <span class="role">Admin</span></span
+          >
           <div class="menu-item__icon">
-            <ion-icon name="log-out-outline" class="profile"></ion-icon>
+            <ion-icon name="log-out-outline"></ion-icon>
           </div>
-          <span class="menu-item__desc">Log out</span>
         </div>
       </div>
       <div class="dashboard__content"></div>
@@ -72,9 +72,35 @@
   </body>
   <script>
     const jsNav = document.querySelector(".js-nav");
+    const menuItems = document.querySelectorAll(".menu-item");
+    const menuItemsDesc = document.querySelectorAll(".menu-item__desc");
+    const menuItemsIcon = document.querySelectorAll(
+      ".menu-item__icon > ion-icon",
+    );
     const dashboard = document.querySelector(".dashboard");
     jsNav.addEventListener("click", () => {
       dashboard.classList.toggle("menu-open");
+      menuItemsDesc.forEach((menuItemDesc) => {
+        menuItemDesc.toggleAttribute("hidden");
+      });
+    });
+    menuItemsIcon.forEach((menuItemIcon) => {
+      menuItemIcon.addEventListener("click", () => {
+        iconType = menuItemIcon.getAttribute("name");
+        console.log(iconType);
+        menuItems.forEach((menuItem) => {
+          menuItem.classList.remove("active");
+          if (!iconType.includes("-outline"))
+            menuItem.setAttribute("name", iconType.concat("-outline"));
+        });
+        if (iconType.includes("-outline")) {
+          menuItemIcon.setAttribute("name", iconType.replace("-outline", ""));
+          menuItemIcon.parentElement.classList.add("active");
+        } else {
+          menuItemIcon.setAttribute("name", iconType.concat("-outline"));
+          menuItemIcon.parentElement.classList.add("active");
+        }
+      });
     });
   </script>
 </html>

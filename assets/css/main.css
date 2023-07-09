@@ -2174,56 +2174,47 @@ body {
           user-select: none;
 }
 .dashboard ion-icon {
-  font-size: var(--fs-700);
+  font-size: var(--fs-600);
   color: var(--clr-accent);
 }
 .dashboard__menu-list {
+  --flex-direction: column;
+  --align-items: flex-start;
   grid-column: 1;
-  overflow-x: hidden;
-  display: grid;
-  grid: repeat(12, 60px)/100%;
+  overflow: hidden;
   height: 100dvh;
 }
-.dashboard__nav {
-  grid: 100%/60px 120px 1fr repeat(3, 50px);
-  text-align: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+.dashboard__menu-list .active {
+  --ibr: 0.75rem;
+  --ibg: var(--clr-tertiary);
 }
 .dashboard.menu-open {
   grid: 60px 1fr/160px calc(100% - 160px);
 }
-.dashboard__wrapper {
-  background: radial-gradient(#444, #222);
-  padding: 30px;
-  max-width: 840px;
-  margin: auto;
-  border-radius: 20px;
-}
 
 .menu-item {
+  --flow-gap: 0.5rem;
   display: grid;
+  align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
-  align-items: center;
 }
 .menu-item__icon {
+  width: 3rem;
+  aspect-ratio: 1;
   display: grid;
+  border-radius: var(--ibr, 50%);
+  background-color: var(--ibg, var(--clr-primary-400));
   place-items: center;
 }
-.menu-item__icon svg {
-  max-width: 30px;
-  fill: #f9f9f9;
-}
 .menu-item__desc {
-  font-size: 20px;
+  --flow-gap: 0;
+  font-size: var(--fs-400);
   color: #fff;
   margin-top: 3px;
 }
-.menu-item:not(:last-child) {
-  border-bottom: 1px solid #f9f9f9;
-}
-.menu-item.active {
-  background: #333;
+.menu-item:last-child {
+  margin-top: auto;
 }
 
 ::-webkit-scrollbar {
