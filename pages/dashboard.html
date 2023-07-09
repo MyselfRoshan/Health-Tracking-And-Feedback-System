@@ -89,6 +89,7 @@
         iconType = menuItemIcon.getAttribute("name");
         console.log(iconType);
         menuItems.forEach((menuItem) => {
+          // Remove active fom menu-item &outline from active icon
           menuItem.classList.remove("active");
           if (!iconType.includes("-outline"))
             menuItem.setAttribute("name", iconType.concat("-outline"));
