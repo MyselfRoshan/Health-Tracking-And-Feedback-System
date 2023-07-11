@@ -1,41 +1,44 @@
+@use "sass:math";
+$menu-width: 80px;
+$menu-width-extended: $menu-width + 200px;
+$menu-padding-inline: math.div(($menu-width - 48px), 2);
 .dashboard {
+  --menu-width: #{$menu-width};
+
   display: grid;
-  grid: 60px 1fr / 60px calc(100% - 60px);
+  grid-template-columns: var(--menu-width) calc(100% - var(--menu-width));
   transition: 0.3s ease;
   user-select: none;
 
-  ion-icon {
-    font-size: var(--fs-600);
-    // color: var(--clr-primary);
-    color: var(--clr-accent);
-    // color: var(--clr-secondary);
+  &.menu-open {
+    --menu-width: #{$menu-width-extended};
   }
+
   &__menu-list {
     --flex-direction: column;
     --align-items: flex-start;
+    --flex-gap: 1rem;
 
     grid-column: 1;
     overflow: hidden;
     height: 100dvh;
+    padding: 1.5rem $menu-padding-inline;
 
     .active {
       --ibr: 0.75rem;
+      &:not(:last-child) {
+      }
       --ibg: var(--clr-tertiary);
     }
-  }
-
-  &.menu-open {
-    grid: 60px 1fr / 160px calc(100% - 160px);
   }
 }
 
 .menu-item {
-  --flow-gap: 0.5rem;
-
   display: grid;
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
+  width: 100%;
 
   &__icon {
     width: 3rem;
@@ -45,15 +48,31 @@
     background-color: var(--ibg, var(--clr-primary-400));
     place-items: center;
   }
-  &__desc {
-    --flow-gap: 0;
-    // font-size: 20px;
-    font-size: var(--fs-400);
-    color: #fff;
-    margin-top: 3px;
+
+  ion-icon {
+    font-size: var(--fs-600);
+    // color: var(--clr-primary);
+    color: var(--clr-accent);
+    // color: var(--clr-secondary);
+
+    &.profile-pic {
+      font-size: var(--fs-700);
+    }
   }
+
+  &__desc {
+    color: var(--clr-ash);
+    font-size: var(--fs-400);
+
+    // for last menu-item__desc of .profile class
+    --flex-gap: 0;
+  }
+
+  // Profile section
   &:last-child {
     margin-top: auto;
+    background: var(--clr-primary);
+    border-radius: 24px;
   }
 }
 

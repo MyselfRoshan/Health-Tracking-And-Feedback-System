@@ -479,6 +479,7 @@ body {
 
 .d-flex {
   display: flex;
+  gap: var(--flex-gap, 0);
   align-items: var(--align-items, center);
   justify-content: var(--justify-content, center);
   flex-direction: var(--flex-direction, row);
@@ -486,6 +487,7 @@ body {
 
 .d-grid {
   display: grid;
+  gap: var(--grid-gap, 0);
   align-items: var(--align-items, center);
   justify-items: var(--justify-items, center);
 }
@@ -1744,12 +1746,6 @@ body {
   box-shadow: 0 4px 4px var(--fbs, var(--clr-primary-150));
 }
 
-/*
-* Add btn sizes small,medium and big
-* Provide animation and transtion on hover,focus-visible and active state
-*
-*
-*/
 .btn {
   border: none;
   display: flex;
@@ -2166,38 +2162,36 @@ body {
 }
 
 .dashboard {
+  --menu-width: 80px;
   display: grid;
-  grid: 60px 1fr/60px calc(100% - 60px);
+  grid-template-columns: var(--menu-width) calc(100% - var(--menu-width));
   transition: 0.3s ease;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
 }
-.dashboard ion-icon {
-  font-size: var(--fs-600);
-  color: var(--clr-accent);
+.dashboard.menu-open {
+  --menu-width: 280px;
 }
 .dashboard__menu-list {
   --flex-direction: column;
   --align-items: flex-start;
+  --flex-gap: 1rem;
   grid-column: 1;
   overflow: hidden;
   height: 100dvh;
+  padding: 1.5rem 16px;
 }
 .dashboard__menu-list .active {
   --ibr: 0.75rem;
   --ibg: var(--clr-tertiary);
 }
-.dashboard.menu-open {
-  grid: 60px 1fr/160px calc(100% - 160px);
-}
-
 .menu-item {
-  --flow-gap: 0.5rem;
   display: grid;
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
+  width: 100%;
 }
 .menu-item__icon {
   width: 3rem;
@@ -2207,14 +2201,22 @@ body {
   background-color: var(--ibg, var(--clr-primary-400));
   place-items: center;
 }
+.menu-item ion-icon {
+  font-size: var(--fs-600);
+  color: var(--clr-accent);
+}
+.menu-item ion-icon.profile-pic {
+  font-size: var(--fs-700);
+}
 .menu-item__desc {
-  --flow-gap: 0;
+  color: var(--clr-ash);
   font-size: var(--fs-400);
-  color: #fff;
-  margin-top: 3px;
+  --flex-gap: 0;
 }
 .menu-item:last-child {
   margin-top: auto;
+  background: var(--clr-primary);
+  border-radius: 24px;
 }
 
 ::-webkit-scrollbar {
