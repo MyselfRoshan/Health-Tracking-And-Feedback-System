@@ -1,16 +1,24 @@
 // Font
-@import url("https://fonts.cdnfonts.com/css/inter");
-// ! Use @font-face  and local font see Kevin-Powell video
-
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Variable_wght.woff2") format("woff2");
+  font-weight: 100 900;
+}
 @font-face {
   font-family: "Expletus Sans";
-  src: url("../../assets/fonts/Expletus_Sans/ExpletusSans-VariableFont_wght.woff2");
+  src: url("/assets/fonts/ExpletusSans/Variable_wght.woff2") format("woff2");
   font-weight: 400 700;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("/assets/fonts/LeagueGothic/Regular.woff") format("woff2"),
+    url("/assets/fonts/LeagueGothic/Regular.woff2") format("woff");
+  font-weight: 400;
 }
 
 $ff-inter: "Inter", sans-serif;
 $ff-expletus: "Expletus Sans", sans-serif;
-$ff-league-gothic: "League Gothic", sans-serif;
 $ff-league-gothic: "League Gothic", sans-serif;
 
 // Font size

@@ -1,11 +1,13 @@
 .d-flex {
   display: flex;
+  gap: var(--flex-gap, 0);
   align-items: var(--align-items, center);
   justify-content: var(--justify-content, center);
   flex-direction: var(--flex-direction, row);
 }
 .d-grid {
   display: grid;
+  gap: var(--grid-gap, 0);
   align-items: var(--align-items, center);
   justify-items: var(--justify-items, center);
 }

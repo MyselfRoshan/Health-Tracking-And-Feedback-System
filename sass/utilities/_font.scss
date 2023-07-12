@@ -18,7 +18,7 @@
   @if $screensize == mobile {
     @each $property, $value in $font-size {
       .fs-#{$property} {
-        font-size: var(--fs-#{$property});
+        font-size: var(--fs-#{$property}) !important;
       }
     }
   }

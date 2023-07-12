@@ -2,8 +2,10 @@
   &-text {
     border: none;
     // width:400px
+    // width: var(--iw, 25rem);
     width: var(--iw, 25rem);
     padding: var(--py, 0.75rem) var(--px, 1.5rem);
+    font-weight: 430;
     color: var(--c, inherit);
     background-color: var(--bg, inherit);
     border-radius: var(--br, 0.5rem);
@@ -14,6 +16,7 @@
       color: var(--fc, inherit);
       outline: var(--fow, 2px) solid var(--foc, var(--clr-dark-100));
       box-shadow: 0 4px 4px var(--fbs, var(--clr-primary-150));
+      background-color: var(--fbg, inherit);
     }
   }
 }
