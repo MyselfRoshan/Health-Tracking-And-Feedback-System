@@ -5,21 +5,9 @@
   .container {
     --cpy: 0;
     --cpx: 0;
-    --cmw: 100%;
+    --cw: min(100%, 90rem);
 
-    min-height: 56.25rem;
-    @include mediaquery(s) {
-      --cpx: 0;
-    }
-    @include mediaquery(m) {
-    }
-    @include mediaquery(l) {
-    }
-    @include mediaquery(xl) {
-    }
-    @include mediaquery(xxl) {
-      --cmw: 90rem;
-    }
+    height: min(100dvh, 56.25rem);
   }
 
   &__illustration {
@@ -39,24 +27,35 @@
   }
   &__logo {
     // make use of clamp instead of width and max-width
-    // --width: 130px;
-    --width: clamp(100px, 15vw, 161.65px);
+    --width: clamp(100px, 10vw, 140px);
     width: var(--width);
     height: calc(1.3485926384163316 * var(--width));
-    max-height: 218px;
-    max-width: 161.65px;
+    // max-height: 218px;
+    // max-width: 161.65px;
   }
 
   .ff-expletus {
-    --flow-gap: 2.5rem;
+    @include mediaquery(xl) {
+      --flow-gap: 2rem;
+    }
   }
   &__form {
-    --flow-gap: 1.5rem;
     --flex-direction: column;
+    @include mediaquery(l) {
+      --flow-gap: 1rem;
+      padding-block: 2rem;
+    }
+    @include mediaquery(xl) {
+      --flow-gap: 1.25rem;
+      padding-block: 3rem;
+    }
+    @include mediaquery(xxl) {
+      --flow-gap: 1.5rem;
+      padding-block: 3.25rem;
+    }
 
     grid-column: 2/-1;
     max-width: 39rem;
-    // padding-inline: 7rem;
 
     .btn {
       &:first-of-type {
@@ -95,9 +94,9 @@
     hr {
       --flow-gap: 2rem;
 
-      height: 3px;
-      color: var(--clr-ash);
-      width: 100%;
+      height: 4px;
+      color: var(--clr-light);
+      width: min(400px, 100%);
     }
   }
   &__action {
@@ -122,15 +121,17 @@
     --bs: var(--clr-primary-100);
     // focus
     --fc: var(--clr-dark);
-    --fbg: var(--clr-light-400);
+    --fc: var(--clr-primary);
+    --fbg: var(--clr-light-300);
     --foc: var(--clr-primary);
     --fbs: var(--clr-tertiary-200);
 
     text-indent: 2.0625rem;
 
     &:focus {
-      #toggle-password {
-        color: var(--clr-dark);
+      // background-color: rebeccapurple !important;
+      + #toggle-password {
+        color: var(--clr-primary);
         cursor: pointer;
       }
     }
@@ -138,11 +139,21 @@
       position: relative;
       // password container gap
       &:nth-child(2) {
-        --flow-gap: 2rem;
+        @include mediaquery(xxl) {
+          --flow-gap: 1.75rem;
+        }
+        @include mediaquery(xxl) {
+          --flow-gap: 2rem;
+        }
       }
       // email container gap
       &:nth-last-of-type(3) {
-        --flow-gap: 3rem;
+        @include mediaquery(xl) {
+          --flow-gap: 2.5rem;
+        }
+        @include mediaquery(xxl) {
+          --flow-gap: 3rem;
+        }
       }
 
       ion-icon {
@@ -154,6 +165,8 @@
 }
 
 .no-account {
-  // justify-self: flex-end;
-  margin-top: auto;
+  --flow-gap: auto;
+  @include mediaquery(l) {
+    --flow-gap: 6rem;
+  }
 }

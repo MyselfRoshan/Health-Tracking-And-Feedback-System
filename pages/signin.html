@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Health Trackr</title>
     <script defer src="../assets/scripts/signinRedirect.js"></script>
+    <script defer src="../assets/scripts/input.js"></script>
     <!-- IonIcons -->
     <script
       defer
@@ -810,10 +811,7 @@
             </g>
           </svg>
         </div>
-        <form
-          action="post"
-          class="signin__form flow d-flex bg-gradient pt-16 pb-12"
-        >
+        <form action="post" class="signin__form flow d-flex bg-gradient">
           <div class="logo">
             <img
               src="../assets/images/illustrations/logo.svg"
@@ -829,7 +827,6 @@
               aria-label="Email or Password"
               class="my-auto ms-5 fs-600 text-secondary"
             ></ion-icon>
-            <!-- <ion-icon name="mail" aria-label="Email or Password" class="text-secondary"></ion-icon> -->
             <input
               type="text"
               id="usrname-email"
@@ -926,7 +923,7 @@
             </span>
             <span></span>
           </button>
-          <p class="no-account mt-auto">
+          <p class="no-account">
             Don't have an account yet?
             <a href="./signup.html">Register here</a>
           </p>

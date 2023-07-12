@@ -1,8 +1,17 @@
-@import url("https://fonts.cdnfonts.com/css/inter");
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Variable_wght.woff2") format("woff2");
+  font-weight: 100 900;
+}
 @font-face {
   font-family: "Expletus Sans";
-  src: url("../../assets/fonts/Expletus_Sans/ExpletusSans-VariableFont_wght.woff2");
+  src: url("/assets/fonts/ExpletusSans/Variable_wght.woff2") format("woff2");
   font-weight: 400 700;
+}
+@font-face {
+  font-family: "League Gothic";
+  src: url("/assets/fonts/LeagueGothic/Regular.woff") format("woff2"), url("/assets/fonts/LeagueGothic/Regular.woff2") format("woff");
+  font-weight: 400;
 }
 /* Box sizing rules */
 *,
@@ -116,6 +125,7 @@ body {
   color: var(--clr-dark);
   background-color: var(--clr-light);
   font-size: var(--fs-400);
+  font-weight: var(--fs-400);
   font-family: "Inter", sans-serif;
 }
 
@@ -138,6 +148,7 @@ body {
   --clr-ash-400: hsla(0, 0%, 85%, 0.4);
   --clr-ash: hsl(0, 0%, 85%);
   --clr-light-100: hsla(0, 0%, 100%, 0.1);
+  --clr-light-300: hsla(0, 0%, 100%, 0.3);
   --clr-light-400: hsla(0, 0%, 100%, 0.4);
   --clr-light: hsl(0, 0%, 100%);
   --clr-dark-100: hsla(0, 0%, 10%, 0.1);
@@ -310,6 +321,14 @@ body {
   color: hsla(0, 0%, 100%, 0.1);
 }
 
+.bg-light-300 {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+.text-light-300 {
+  color: hsla(0, 0%, 100%, 0.3);
+}
+
 .bg-light-400 {
   background-color: hsla(0, 0%, 100%, 0.4);
 }
@@ -390,43 +409,43 @@ body {
 }
 
 .fs-mega {
-  font-size: var(--fs-mega);
+  font-size: var(--fs-mega) !important;
 }
 
 .fs-1000 {
-  font-size: var(--fs-1000);
+  font-size: var(--fs-1000) !important;
 }
 
 .fs-900 {
-  font-size: var(--fs-900);
+  font-size: var(--fs-900) !important;
 }
 
 .fs-800 {
-  font-size: var(--fs-800);
+  font-size: var(--fs-800) !important;
 }
 
 .fs-700 {
-  font-size: var(--fs-700);
+  font-size: var(--fs-700) !important;
 }
 
 .fs-600 {
-  font-size: var(--fs-600);
+  font-size: var(--fs-600) !important;
 }
 
 .fs-500 {
-  font-size: var(--fs-500);
+  font-size: var(--fs-500) !important;
 }
 
 .fs-400 {
-  font-size: var(--fs-400);
+  font-size: var(--fs-400) !important;
 }
 
 .fs-300 {
-  font-size: var(--fs-300);
+  font-size: var(--fs-300) !important;
 }
 
 .fs-200 {
-  font-size: var(--fs-200);
+  font-size: var(--fs-200) !important;
 }
 
 .fw-100 {
@@ -1684,25 +1703,27 @@ body {
 @media (min-width: 48em) {
   .container {
     padding: var(--cpy, 4.5rem) var(--cpx, 0);
-    max-width: unset;
+    width: unset;
   }
 }
 @media (min-width: 64em) {
   .container {
     padding: var(--cpy, 5.25rem) var(--cpx, 0);
-    max-width: var(--cmw, clamp(52.5rem, 80vw, 55rem));
+    width: var(--cw, clamp(52.5rem, 80vw, 55rem));
   }
 }
 @media (min-width: 80em) {
   .container {
-    padding: var(--cpy, 6.25rem) var(--cpx, clamp(11.25rem, 12vw, 12.5rem));
-    max-width: unset;
+    padding-block: var(--cpy, 6.25rem);
+    padding-inline: var(--cpx, clamp(10rem, 12vw, 12.5rem));
+    width: 100%;
   }
 }
 @media (min-width: 90em) {
   .container {
-    padding: var(--cpy, 6.25rem) var(--cpx, 0);
-    max-width: var(--cmw, 62.5rem);
+    padding-block: var(--cpy, 6.25rem);
+    padding-inline: var(--cpx, 0);
+    width: var(--cw, 62.5rem);
   }
 }
 
@@ -1734,6 +1755,7 @@ body {
   border: none;
   width: var(--iw, 25rem);
   padding: var(--py, 0.75rem) var(--px, 1.5rem);
+  font-weight: 430;
   color: var(--c, inherit);
   background-color: var(--bg, inherit);
   border-radius: var(--br, 0.5rem);
@@ -1744,6 +1766,7 @@ body {
   color: var(--fc, inherit);
   outline: var(--fow, 2px) solid var(--foc, var(--clr-dark-100));
   box-shadow: 0 4px 4px var(--fbs, var(--clr-primary-150));
+  background-color: var(--fbg, inherit);
 }
 
 .btn {
@@ -1962,18 +1985,8 @@ body {
 .signin .container {
   --cpy: 0;
   --cpx: 0;
-  --cmw: 100%;
-  min-height: 56.25rem;
-}
-@media (min-width: 37.5em) {
-  .signin .container {
-    --cpx: 0;
-  }
-}
-@media (min-width: 90em) {
-  .signin .container {
-    --cmw: 90rem;
-  }
+  --cw: min(100%, 90rem);
+  height: min(100dvh, 56.25rem);
 }
 .signin__illustration {
   display: none;
@@ -1992,20 +2005,37 @@ body {
   aspect-ratio: 1;
 }
 .signin__logo {
-  --width: clamp(100px, 15vw, 161.65px);
+  --width: clamp(100px, 10vw, 140px);
   width: var(--width);
   height: calc(1.3485926384 * var(--width));
-  max-height: 218px;
-  max-width: 161.65px;
 }
-.signin .ff-expletus {
-  --flow-gap: 2.5rem;
+@media (min-width: 80em) {
+  .signin .ff-expletus {
+    --flow-gap: 2rem;
+  }
 }
 .signin__form {
-  --flow-gap: 1.5rem;
   --flex-direction: column;
   grid-column: 2/-1;
   max-width: 39rem;
+}
+@media (min-width: 64em) {
+  .signin__form {
+    --flow-gap: 1rem;
+    padding-block: 2rem;
+  }
+}
+@media (min-width: 80em) {
+  .signin__form {
+    --flow-gap: 1.25rem;
+    padding-block: 3rem;
+  }
+}
+@media (min-width: 90em) {
+  .signin__form {
+    --flow-gap: 1.5rem;
+    padding-block: 3.25rem;
+  }
 }
 .signin__form .btn:first-of-type {
   --bg: var(--clr-primary);
@@ -2036,9 +2066,9 @@ body {
 }
 .signin__form hr {
   --flow-gap: 2rem;
-  height: 3px;
-  color: var(--clr-ash);
-  width: 100%;
+  height: 4px;
+  color: var(--clr-light);
+  width: min(400px, 100%);
 }
 .signin__action {
   --flex-direction: row;
@@ -2056,23 +2086,38 @@ body {
   --oc: var(--clr-primary-100);
   --bs: var(--clr-primary-100);
   --fc: var(--clr-dark);
-  --fbg: var(--clr-light-400);
+  --fc: var(--clr-primary);
+  --fbg: var(--clr-light-300);
   --foc: var(--clr-primary);
   --fbs: var(--clr-tertiary-200);
   text-indent: 2.0625rem;
 }
-.input-signin:focus #toggle-password {
-  color: var(--clr-dark);
+.input-signin:focus + #toggle-password {
+  color: var(--clr-primary);
   cursor: pointer;
 }
 .input-signin__container {
   position: relative;
 }
-.input-signin__container:nth-child(2) {
-  --flow-gap: 2rem;
+@media (min-width: 90em) {
+  .input-signin__container:nth-child(2) {
+    --flow-gap: 1.75rem;
+  }
 }
-.input-signin__container:nth-last-of-type(3) {
-  --flow-gap: 3rem;
+@media (min-width: 90em) {
+  .input-signin__container:nth-child(2) {
+    --flow-gap: 2rem;
+  }
+}
+@media (min-width: 80em) {
+  .input-signin__container:nth-last-of-type(3) {
+    --flow-gap: 2.5rem;
+  }
+}
+@media (min-width: 90em) {
+  .input-signin__container:nth-last-of-type(3) {
+    --flow-gap: 3rem;
+  }
 }
 .input-signin__container ion-icon {
   position: absolute;
@@ -2080,11 +2125,29 @@ body {
 }
 
 .no-account {
-  margin-top: auto;
+  --flow-gap: auto;
+}
+@media (min-width: 64em) {
+  .no-account {
+    --flow-gap: 6rem;
+  }
 }
 
-.signup {
-  --cpy: 5rem 0;
+@media (min-width: 64em) {
+  .signup {
+    --cw: clamp(55rem, 80vw, 65rem);
+  }
+}
+@media (min-width: 80em) {
+  .signup {
+    --cpy: min(6.25rem, 0vw);
+    --cpx: clamp(11.125rem, 13.9vw, 12.5rem);
+  }
+}
+@media (min-width: 90em) {
+  .signup {
+    --cw: min(100%, 72.5rem);
+  }
 }
 .signup__illustration {
   grid-column: 7/13;
@@ -2094,17 +2157,28 @@ body {
 }
 .signup__illustration > svg {
   max-height: 38rem;
-  max-width: 36.018957346rem;
+  max-width: min(36.018957346rem, 100%);
 }
 .signup__form {
   --flow-gap: 1.5rem;
   grid-column: 1/6;
+  justify-self: center;
+  max-width: 25rem;
+  align-self: flex-start;
+}
+@media (min-width: 80em) {
+  .signup__form {
+    align-self: center;
+  }
 }
 .signup__form .name {
   --flow-gap: 2rem;
   display: flex;
   justify-content: space-between;
-  min-width: var(--iw);
+  width: min(25rem, 100%);
+}
+.signup__form .name > :nth-child(n) {
+  width: 11.25rem;
 }
 .signup__form .btn {
   --flow-gap: 3rem;
@@ -2113,18 +2187,20 @@ body {
   --hbs: var(--clr-tertiary-400);
 }
 .signup__form .terms-and-conditions {
-  width: 43ch;
+  width: min(43ch, 25rem, 100%);
   line-height: 1.3;
   text-align: center;
 }
 
 .input-signup {
   --foc: var(--clr-primary);
+  --iw: min(25rem, 100%);
 }
 .input-signup:is(#fname, #lname) {
   --iw: 11.25rem;
 }
 .input-signup__container {
+  max-width: 25rem;
   position: relative;
 }
 .input-signup__container .label {
@@ -2186,6 +2262,20 @@ body {
   --ibr: 0.75rem;
   --ibg: var(--clr-tertiary);
 }
+.dashboard__menu-list .active.profile {
+  --ibr: 50%;
+  position: relative;
+}
+.dashboard__menu-list .active.profile > .menu-item__icon:last-of-type {
+  background: var(--clr-primary);
+  transition: background 1000ms ease-in-out;
+}
+.dashboard__menu-list .active.profile > .menu-item__icon:last-of-type:active {
+  inset: 0;
+  position: absolute;
+  --ibg: var(--clr-tertiary);
+}
+
 .menu-item {
   display: grid;
   align-items: center;
@@ -2205,15 +2295,12 @@ body {
   font-size: var(--fs-600);
   color: var(--clr-accent);
 }
-.menu-item ion-icon.profile-pic {
-  font-size: var(--fs-700);
-}
 .menu-item__desc {
   color: var(--clr-ash);
   font-size: var(--fs-400);
   --flex-gap: 0;
 }
-.menu-item:last-child {
+.menu-item.profile {
   margin-top: auto;
   background: var(--clr-primary);
   border-radius: 24px;

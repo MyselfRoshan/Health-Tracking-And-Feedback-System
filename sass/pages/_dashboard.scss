@@ -25,10 +25,24 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
     padding: 1.5rem $menu-padding-inline;
 
     .active {
+      // change icon custom properties when active
       --ibr: 0.75rem;
-      &:not(:last-child) {
-      }
       --ibg: var(--clr-tertiary);
+      &.profile {
+        --ibr: 50%;
+        position: relative;
+
+        > .menu-item__icon:last-of-type {
+          background: var(--clr-primary);
+          transition: background 1000ms ease-in-out;
+
+          &:active {
+            inset: 0;
+            position: absolute;
+            --ibg: var(--clr-tertiary);
+          }
+        }
+      }
     }
   }
 }
@@ -54,10 +68,6 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
     // color: var(--clr-primary);
     color: var(--clr-accent);
     // color: var(--clr-secondary);
-
-    &.profile-pic {
-      font-size: var(--fs-700);
-    }
   }
 
   &__desc {
@@ -69,13 +79,12 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
   }
 
   // Profile section
-  &:last-child {
+  &.profile {
     margin-top: auto;
     background: var(--clr-primary);
     border-radius: 24px;
   }
 }
-
 ::-webkit-scrollbar {
   height: 8px;
 }

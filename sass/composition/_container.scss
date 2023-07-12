@@ -15,21 +15,23 @@
   }
   @include mediaquery(m) {
     padding: var(--cpy, 4.5rem) var(--cpx, 0);
-    max-width: unset;
-    // max-width: 45rem;
+    width: unset;
+    // width: 45rem;
   }
   @include mediaquery(l) {
     padding: var(--cpy, 5.25rem) var(--cpx, 0);
-    // max-width: 52.5rem;
-    max-width: var(--cmw, clamp(52.5rem, 80vw, 55rem));
+    // width: 52.5rem;
+    width: var(--cw, clamp(52.5rem, 80vw, 55rem));
   }
   @include mediaquery(xl) {
-    padding: var(--cpy, 6.25rem) var(--cpx, clamp(11.25rem, 12vw, 12.5rem));
-    max-width: unset;
+    padding-block: var(--cpy, 6.25rem);
+    padding-inline: var(--cpx, clamp(10rem, 12vw, 12.5rem));
+    width: 100%;
   }
   @include mediaquery(xxl) {
-    padding: var(--cpy, 6.25rem) var(--cpx, 0);
-    max-width: var(--cmw, 62.5rem);
+    padding-block: var(--cpy, 6.25rem);
+    padding-inline: var(--cpx, 0);
+    width: var(--cw, 62.5rem);
   }
 }
 
@@ -53,33 +55,3 @@
     grid-template-columns: 0.5666666666666667fr 0.43333333333333335fr;
   }
 }
-// .grid-container {
-//   &__signup {
-//     display: grid;
-//     place-items: center;
-//     padding-inline: 1rem;
-//     row-gap: var(--container-row-gap, 2rem);
-//     column-gap: var(--container-column-gap, 2rem);
-
-//     @include mediaquery(s) {
-//       grid-template-columns:
-//         var(--conter-left-size, minmax(1fr, 30rem))
-//         var(--conter-right-size, minmax(1.5fr, 45rem));
-//     }
-//   }
-
-//   &__signin {
-//     display: grid;
-//     place-items: center;
-//     max-width: 90rem;
-//     margin-inline: auto;
-//     row-gap: var(--container-row-gap, 2rem);
-//     column-gap: var(--container-column-gap, 2rem);
-
-//     @include mediaquery(s) {
-//       grid-template-columns:
-//         var(--conter-right-size, minmax(1fr, 47.25rem))
-//         var(--conter-left-size, minmax(1fr, 42.75rem));
-//     }
-//   }
-// }

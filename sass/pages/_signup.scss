@@ -1,8 +1,24 @@
+@use "../abstracts/layout-scale" as *;
+@use "../abstracts/mixins" as *;
 @use "../utilities/color" as *;
-
 .signup {
   // container padding top 4rem and bottom 0
-  --cpy: 5rem 0;
+  @include mediaquery(s) {
+    // --cpx: 0;
+  }
+  @include mediaquery(m) {
+  }
+  @include mediaquery(l) {
+    --cw: clamp(55rem, 80vw, 65rem);
+  }
+  @include mediaquery(xl) {
+    --cpy: min(6.25rem, 0vw);
+    --cpx: clamp(11.125rem, 13.9vw, 12.5rem);
+  }
+  @include mediaquery(xxl) {
+    --cw: min(100%, 72.5rem);
+  }
+  // --cpy: 5rem 0;
   &__illustration {
     grid-column: 7/13;
     justify-self: end;
@@ -10,7 +26,7 @@
     overflow: hidden;
     > svg {
       max-height: 38rem;
-      max-width: 36.018957345971565rem;
+      max-width: min(36.018957345971565rem, 100%);
       // aspect-ratio: 1.0551948051948052;
     }
   }
@@ -19,12 +35,21 @@
     --flow-gap: 1.5rem;
 
     grid-column: 1/6;
+    justify-self: center;
+    max-width: 25rem;
+    align-self: flex-start;
+    @include mediaquery(xl) {
+      align-self: center;
+    }
 
     .name {
+      > :nth-child(n) {
+        width: 11.25rem;
+      }
       --flow-gap: 2rem;
       display: flex;
       justify-content: space-between;
-      min-width: var(--iw);
+      width: min(25rem, 100%);
     }
 
     .btn {
@@ -36,7 +61,7 @@
     }
 
     .terms-and-conditions {
-      width: 43ch;
+      width: min(43ch, 25rem, 100%);
       line-height: 1.3;
       text-align: center;
     }
@@ -49,12 +74,14 @@
     // focus
     --foc: var(--clr-primary);
 
+    --iw: min(25rem, 100%);
     &:is(#fname, #lname) {
       // width: 200px;
       --iw: 11.25rem;
     }
     // .input-signup__container
     &__container {
+      max-width: 25rem;
       position: relative;
 
       .label {
