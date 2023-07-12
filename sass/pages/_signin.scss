@@ -6,7 +6,6 @@
     --cpy: 0;
     --cpx: 0;
     --cw: min(100%, 90rem);
-
     height: min(100dvh, 56.25rem);
   }
 
@@ -38,6 +37,10 @@
     @include mediaquery(xl) {
       --flow-gap: 2rem;
     }
+  }
+
+  .ff-expletus {
+    --flow-gap: 2.5rem;
   }
   &__form {
     --flex-direction: column;
@@ -129,7 +132,6 @@
     text-indent: 2.0625rem;
 
     &:focus {
-      // background-color: rebeccapurple !important;
       + #toggle-password {
         color: var(--clr-primary);
         cursor: pointer;

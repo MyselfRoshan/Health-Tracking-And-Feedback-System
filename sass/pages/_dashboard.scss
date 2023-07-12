@@ -48,6 +48,8 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
 }
 
 .menu-item {
+  --flow-gap: 0.5rem;
+
   display: grid;
   align-items: center;
   grid-auto-flow: column;

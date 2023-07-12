@@ -52,6 +52,13 @@
       width: min(25rem, 100%);
     }
 
+    .name {
+      --flow-gap: 2rem;
+      display: flex;
+      justify-content: space-between;
+      min-width: var(--iw);
+    }
+
     .btn {
       --flow-gap: 3rem;
 
@@ -73,8 +80,8 @@
   &-signup {
     // focus
     --foc: var(--clr-primary);
-
     --iw: min(25rem, 100%);
+    
     &:is(#fname, #lname) {
       // width: 200px;
       --iw: 11.25rem;
