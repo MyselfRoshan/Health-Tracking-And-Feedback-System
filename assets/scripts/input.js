@@ -27,6 +27,4 @@ togglePassword.addEventListener("click", () => {
       : "eye-outline";
   password.setAttribute("type", pskType);
   togglePassword.setAttribute("name", iconType);
-  // togglePassword.setAttribute("name", "eye-off-outline");
-  // togglePassword.classList.toggle("fa-eye");
 });

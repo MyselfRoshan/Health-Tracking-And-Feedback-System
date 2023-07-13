@@ -1,5 +1,6 @@
-const signinBtn = document.querySelector("#btn__sign-in");
-const signupBtns = document.querySelectorAll(".btn__sign-up");
+const signinBtn = document.querySelector("[aria-labelledby='Signin btn']");
+const signupBtns = document.querySelectorAll("[aria-labelledby='Signup btn']");
+// const signupBtns = document.querySelectorAll(".btn__sign-up");
 
 signupBtns.forEach((signupBtn) => {
   signupBtn.addEventListener("click", () => {
