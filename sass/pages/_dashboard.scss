@@ -1,17 +1,33 @@
 @use "sass:math";
 $menu-width: 80px;
 $menu-width-extended: $menu-width + 200px;
-$menu-padding-inline: math.div(($menu-width - 48px), 2);
+$menu-margin-inline: math.div(($menu-width - 48px), 2);
 .dashboard {
   --menu-width: #{$menu-width};
 
+  max-width: 90rem;
   display: grid;
   grid-template-columns: var(--menu-width) calc(100% - var(--menu-width));
   transition: 0.3s ease;
   user-select: none;
 
+  .menu-item,
+  .menu-toggle {
+    margin-inline: $menu-margin-inline;
+    // margin-inline: auto;
+  }
   &.menu-open {
     --menu-width: #{$menu-width-extended};
+
+    .profile {
+      --ibr: 50%;
+      position: relative;
+      width: calc(100% - #{$menu-margin-inline});
+
+      &__logout {
+        transition: background 1000ms ease-in-out;
+      }
+    }
   }
 
   &__menu-list {
@@ -21,27 +37,55 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
 
     grid-column: 1;
     overflow: hidden;
-    height: 100dvh;
-    padding: 1.5rem $menu-padding-inline;
+    // height: 100dvh;
+    height: 100%;
+    padding-block: 1.5rem;
 
-    .active {
-      // change icon custom properties when active
-      --ibr: 0.75rem;
-      --ibg: var(--clr-tertiary);
-      &.profile {
-        --ibr: 50%;
-        position: relative;
+    // Profile section
+    .profile {
+      --flow-gap: 0.5rem;
+      --flex-gap: 0;
 
-        > .menu-item__icon:last-of-type {
-          background: var(--clr-primary);
-          transition: background 1000ms ease-in-out;
-
-          &:active {
-            inset: 0;
-            position: absolute;
-            --ibg: var(--clr-tertiary);
-          }
+      width: 64px;
+      // width: #{100% - math.div($menu-margin-inline, 2)};
+      margin-inline: auto;
+      margin-top: auto;
+      display: grid;
+      gap: 0.75rem;
+      align-items: center;
+      grid-auto-flow: column;
+      grid-template-columns: 60px 1fr;
+      border-radius: 50px;
+      background: linear-gradient(
+        120deg,
+        var(--clr-secondary) 0%,
+        var(--clr-yellow) 100%
+      );
+      &__pic {
+        width: 64px;
+        > img {
+          width: 64px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          outline: 3px solid var(--clr-secondary);
         }
+      }
+      &__logout {
+        background: transparent;
+        width: 3rem;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+
+        > ion-icon {
+          font-size: var(--fs-500);
+          // color: var(--clr-);
+        }
+      }
+
+      &.active {
+        box-shadow: 0px 0px 10px 5px var(--clr-yellow);
+        // box-shadow: 0px 0px 30px red;
       }
     }
   }
@@ -50,11 +94,18 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
 .menu-item {
   --flow-gap: 0.5rem;
 
+  width: 100%;
   display: grid;
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
-  width: 100%;
+
+  &.active {
+    // change icon custom properties when active
+    --ibr: 0.75rem;
+    --ibg: var(--clr-tertiary);
+    // --io: 2px solid var(--clr-primary-400);
+  }
 
   &__icon {
     width: 3rem;
@@ -63,6 +114,7 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
     border-radius: var(--ibr, 50%);
     background-color: var(--ibg, var(--clr-primary-400));
     place-items: center;
+    outline: var(--io, none);
   }
 
   ion-icon {
@@ -73,18 +125,8 @@ $menu-padding-inline: math.div(($menu-width - 48px), 2);
   }
 
   &__desc {
-    color: var(--clr-ash);
+    color: var(--clr-light);
     font-size: var(--fs-400);
-
-    // for last menu-item__desc of .profile class
-    --flex-gap: 0;
-  }
-
-  // Profile section
-  &.profile {
-    margin-top: auto;
-    background: var(--clr-primary);
-    border-radius: 24px;
   }
 }
 ::-webkit-scrollbar {

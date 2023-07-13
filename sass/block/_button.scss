@@ -33,7 +33,7 @@ $opacity-duration: math.div($transition-duration, 2);
 
   &__hover-effect {
     // width: 400px
-    width: 25rem;
+    width: var(--hew, 25rem);
     transition: background $transition-duration;
 
     position: relative;
