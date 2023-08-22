@@ -14,6 +14,10 @@
       }
     }
   }
+  // font families
+  --ff-expletus: #{$ff-expletus};
+  --ff-inter: #{$ff-inter};
+  --ff-league-gothic: #{$ff-league-gothic};
   // font custom properties
   @each $screensize, $font-size in $font-sizes {
     @if $screensize == mobile {

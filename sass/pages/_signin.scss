@@ -15,7 +15,6 @@
       display: block;
     }
     grid-column: 1/2;
-    // justify-self: flex-start;
     justify-self: center;
     align-self: center;
     overflow: hidden;
@@ -27,6 +26,7 @@
   &__logo {
     // make use of clamp instead of width and max-width
     --width: clamp(100px, 10vw, 140px);
+    // --width: clamp(60px, 6vw, 100px);
     width: var(--width);
     height: calc(1.3485926384163316 * var(--width));
     // max-height: 218px;
@@ -61,46 +61,44 @@
     max-width: 39rem;
 
     .btn {
-      &:first-of-type {
-        --bg: var(--clr-primary);
-        --bs: var(--clr-dark-200);
-        --hbs: var(--clr-tertiary-400);
-      }
+      --bg: var(--clr-primary);
+      --bs: var(--clr-dark-200);
+      --hbs: var(--clr-tertiary-400);
 
-      &:last-of-type {
-        --flow-gap: 2rem;
+      // &:last-of-type {
+      //   --flow-gap: 2rem;
 
-        --bg: var(--clr-ash);
-        --bs: var(--clr-dark-100);
-        --hbs: var(--clr-light-100);
-        --hbg: var(--clr-light);
+      //   --bg: var(--clr-ash);
+      //   --bs: var(--clr-dark-100);
+      //   --hbs: var(--clr-light-100);
+      //   --hbg: var(--clr-light);
 
-        span:nth-of-type(2) {
-          --flow-gap: none;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.75rem;
-        }
-        .icon__google {
-          --size: 1.25rem;
-          width: var(--size);
-          height: var(--size);
+      //   span:nth-of-type(2) {
+      //     --flow-gap: none;
+      //     display: inline-flex;
+      //     align-items: center;
+      //     justify-content: center;
+      //     gap: 0.75rem;
+      //   }
+      //   .icon__google {
+      //     --size: 1.25rem;
+      //     width: var(--size);
+      //     height: var(--size);
 
-          svg {
-            height: var(--size);
-          }
-        }
-      }
+      //     svg {
+      //       height: var(--size);
+      //     }
+      //   }
+      // }
     }
 
-    hr {
-      --flow-gap: 2rem;
+    // hr {
+    //   --flow-gap: 2rem;
 
-      height: 4px;
-      color: var(--clr-light);
-      width: min(400px, 100%);
-    }
+    //   height: 4px;
+    //   color: var(--clr-light);
+    //   width: min(400px, 100%);
+    // }
   }
   &__action {
     --flex-direction: row;
@@ -129,7 +127,8 @@
     --foc: var(--clr-primary);
     --fbs: var(--clr-tertiary-200);
 
-    text-indent: 2.0625rem;
+    // padding
+    --px:3rem;
 
     &:focus {
       + #toggle-password {
@@ -152,6 +151,10 @@
       &:nth-last-of-type(3) {
         @include mediaquery(xl) {
           --flow-gap: 2.5rem;
+          
+          .validation-alerts {
+            --flow-gap: 1rem;
+          }
         }
         @include mediaquery(xxl) {
           --flow-gap: 3rem;

@@ -1,5 +1,20 @@
 .profile {
   &__section {
+    // --bg-label-focus: transparent;
+    // --foc: var(--clr-primary);
+    // #label-lname {
+    //   --bg-label-focus: rgb(247, 178, 59);
+    // }
+    // --bg-label-focus: linear-gradient(
+    //   120deg,
+    //   var(--clr-secondary) 0%,
+    //   var(--clr-yellow) 1000%
+    // );
+    --bg-label-focus: linear-gradient(
+      120deg,
+      var(--clr-secondary) -90%,
+      var(--clr-yellow) 450%
+    );
     padding: 6rem;
     background: linear-gradient(
       120deg,
@@ -13,20 +28,73 @@
     box-shadow: 0px 0px 15px 5px var(--clr-yellow);
   }
   &__pic {
-    width: auto;
-    > img {
+    width: fit-content;
+    position: relative;
+
+    .round-left {
+      left: 0;
+      background-color: hsl(0, 100%, 50%);
+
+      &:hover {
+        background-color: hsl(0, 90%, 55%);
+        scale: 1.05;
+      }
+
+      ion-icon {
+        color: var(--clr-light);
+      }
+    }
+    .round-right {
+      right: 0;
+      background-color: var(--clr-primary);
+
+      &:hover {
+        background-color: var(--clr-tertiary);
+        scale: 1.05;
+      }
+
+      ion-icon {
+        color: var(--clr-accent);
+      }
+    }
+    .round-left,
+    .round-right {
+      --size: 2.5rem;
+
+      cursor: pointer;
+      border: none;
+      position: absolute;
+      bottom: 0;
+      width: var(--size);
+      height: var(--size);
       border-radius: 50%;
-      width: 8rem;
+      line-height: 2rem;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+      transition: scale 500ms ease;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        scale: 3;
+        z-index: 1;
+      }
+
+      ion-icon {
+        font-size: 1.4rem;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+      }
+    }
+
+    > img {
+      border: 3px solid var(--clr-light);
+      border-radius: 50%;
+      width: 10rem;
       aspect-ratio: 1;
-    }
-    &__section {
-      //   --flex-direction: column;
-      //   --align-items: flex-start;
-      --justify-content: flex-start;
-      --flex-gap: 1rem;
-    }
-    &-btns {
-      --hew: 7rem;
     }
   }
 

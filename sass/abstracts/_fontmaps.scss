@@ -17,6 +17,23 @@
   font-weight: 400;
 }
 
+// @font-face {
+//   font-family: "Inter";
+//   src: url("/resources/fonts/Inter/Variable_wght.woff2") format("woff2");
+//   font-weight: 100 900;
+// }
+// @font-face {
+//   font-family: "Expletus Sans";
+//   src: url("/resources/fonts/ExpletusSans/Variable_wght.woff2") format("woff2");
+//   font-weight: 400 700;
+// }
+// @font-face {
+//   font-family: "League Gothic";
+//   src: url("/resources/fonts/LeagueGothic/Regular.woff") format("woff2"),
+//     url("/resources/fonts/LeagueGothic/Regular.woff2") format("woff");
+//   font-weight: 400;
+// }
+
 $ff-inter: "Inter", sans-serif;
 $ff-expletus: "Expletus Sans", sans-serif;
 $ff-league-gothic: "League Gothic", sans-serif;
