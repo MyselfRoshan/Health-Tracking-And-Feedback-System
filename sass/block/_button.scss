@@ -5,17 +5,24 @@ $transition-duration: 500ms;
 $opacity-duration: math.div($transition-duration, 2);
 
 .btn {
+  font-family: var(--ff-expletus);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--br, 0.75rem);
+  text-decoration: none;
   background: var(--bg, var(--clr-primary));
   box-shadow: 0 4px 4px var(--bs, var(--clr-primary-400));
   transition: box-shadow 500ms ease-in-out;
   &:is(:hover, :focus-visible) {
     box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
   }
+
+  a{
+    text-decoration: none;
+  }
+
   // btn sizes .btn-s, .btn-m, .btn-l
   &-s {
     padding-inline: var(--px, 1em);
@@ -90,6 +97,28 @@ $opacity-duration: math.div($transition-duration, 2);
       margin-right: 0;
       transition: scale math.div($transition-duration, 2),
         opacity math.div($opacity-duration, 2);
+    }
+  }
+
+  &__outline {
+    --bs: hsla(0, 100%, 50%, 0.4);
+    --hbs: hsla(0, 100%, 50%, 0.4);
+    --bg: transparent;
+
+    border: 2px solid red;
+    color: hsl(0, 100%, 50%);
+    transition: background 500ms ease-in-out, color 500ms ease-in;
+    ion-icon {
+      color: hsl(0, 100%, 50%);
+    }
+    &:is(:hover, :focus-visible) {
+      --bg: red;
+      --hc: var(--clr-light);
+
+      color: var(--hc);
+      ion-icon {
+        color: var(--hc);
+      }
     }
   }
 }

@@ -4,6 +4,7 @@ $menu-width-extended: $menu-width + 200px;
 $menu-margin-inline: math.div(($menu-width - 48px), 2);
 .dashboard {
   --menu-width: #{$menu-width};
+  height: 100%;
 
   max-width: 90rem;
   display: grid;
@@ -37,7 +38,7 @@ $menu-margin-inline: math.div(($menu-width - 48px), 2);
 
     grid-column: 1;
     overflow: hidden;
-    // height: 100dvh;
+    height: 100dvh;
     height: 100%;
     padding-block: 1.5rem;
 
@@ -71,6 +72,8 @@ $menu-margin-inline: math.div(($menu-width - 48px), 2);
         }
       }
       &__logout {
+        cursor: pointer;
+        border: none;
         background: transparent;
         width: 3rem;
         aspect-ratio: 1;

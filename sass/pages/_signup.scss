@@ -12,7 +12,7 @@
     --cw: clamp(55rem, 80vw, 65rem);
   }
   @include mediaquery(xl) {
-    --cpy: min(6.25rem, 0vw);
+    --cpy: min(6.25rem, 3vw);
     --cpx: clamp(11.125rem, 13.9vw, 12.5rem);
   }
   @include mediaquery(xxl) {
@@ -81,7 +81,7 @@
     // focus
     --foc: var(--clr-primary);
     --iw: min(25rem, 100%);
-    
+
     &:is(#fname, #lname) {
       // width: 200px;
       --iw: 11.25rem;
@@ -91,15 +91,20 @@
       max-width: 25rem;
       position: relative;
 
+      .validation-alerts{
+        --flow-gap:0.5rem;
+      }
+
       .label {
         position: absolute;
-        inset-block: 0;
+        inset-block-start: 1rem;
         inset-inline-start: 1rem;
         pointer-events: none;
 
         &__text {
           transition: all 250ms ease-out;
         }
+
       }
 
       #toggle-password {
@@ -120,10 +125,10 @@
 }
 
 .input-signup__container:focus-within .label__text,
-:not(.input-signup[value=""]) + .label .label__text {
+.signup :not(.input-signup[value=""]) + .label .label__text {
   font-size: 12px;
   transform: translate(0, -150%);
-  background-color: white;
+  background: var(--bg-label-focus, white);
   padding-inline: 8px;
 }
 
@@ -132,3 +137,8 @@
 #toggle-password {
   --flow-gap: none;
 }
+
+.account {
+  text-align: center;
+    --flow-gap: 2rem;
+   }

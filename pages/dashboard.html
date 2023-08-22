@@ -31,7 +31,8 @@
 
     <!-- Scripts -->
     <script defer src="/assets/scripts/dashboardSidebar.js"></script>
-    <script defer src="/assets/scripts/input.js"></script>
+    <script defer src="/assets/scripts/dropdown.js"></script>
+    <script defer src="/assets/scripts/timezone.js"></script>
     <!-- End of Scripts -->
   </head>
 
@@ -89,137 +90,275 @@
         </div>
       </div>
       <div class="dashboard__content">
-        <div class="wrapper m-16">
-          <section id="profile-section" class="profile__section">
-            <header class="profile__header mb-14">
-              <h2 class="mb-1 ff-expletus fw-600 fs-900 text-accent">
-                My Profile
-              </h2>
-              <p class="text-light">Manage your profile Settings</p>
-              <div class="profile__pic__section d-flex mt-6">
-                <div class="profile__pic">
-                  <img src="/assets/icons/profile.png" alt="" />
-                </div>
-                <div class="profile__pic-btns">
-                  <button class="btn btn-s btn__hover-effect mb-3">
-                    <span></span>
-                    Update Picture
-                    <span></span>
-                  </button>
-                  <button class="btn btn-s btn__hover-effect">
-                    <span></span>
-                    <span>
-                      <ion-icon name="trash"></ion-icon>
-                      Delete
-                    </span>
-                    <span></span>
-                  </button>
-                </div>
-              </div>
+        <header class="mx-16 mt-16">
+          <h2 class="ff-leauge-gothic fs-900 text-secondary">Add</h2>
+        </header>
+        <div class="wrapper mx-16 mb-16 mt-8 d-grid">
+          <!-- <section class="recommendation"> -->
+          <article class="card">
+            <header class="card__header one">
+              <img
+                src="/assets/images/activities/daily-exercise.svg"
+                alt=""
+                srcset=""
+              />
             </header>
-            <form action="" class="profile__change flow">
-              <h3 class="ff-expletus fs-700 fw-700 text-accent">
-                Change User Information Here
+            <div class="card__content">
+              <h3 class="card__title">Daily Exercise</h3>
+              <p class="card__text">Don't wish for a good body, work for it</p>
+              <button class="card__btn btn btn-s one">Start now</button>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card__header four">
+              <img
+                src="/assets/images/activities/stay-hydrated.svg"
+                alt="People driking water"
+              />
+            </header>
+            <div class="card__content">
+              <h3 class="card__title">Stay Hydrated</h3>
+              <p class="card__text">
+                Keep yourself refreshed throughout the day
+              </p>
+
+              <button class="card__btn btn btn-s four">Start now</button>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card__header three">
+              <img
+                src="/assets/images/activities/balanced-nutrition.svg"
+                alt=""
+              />
+            </header>
+            <div class="card__content">
+              <h3 class="card__title">Balanced Nutrition</h3>
+              <p class="card__text">
+                Nourish your body with healthy food choices
+              </p>
+
+              <button class="card__btn btn btn-s three">Start now</button>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card__header five">
+              <img
+                src="/assets/images/activities/quality-sleep.svg"
+                alt="Boy sleeping at night"
+              />
+            </header>
+            <div class="card__content">
+              <h3 class="card__title">Quality Sleep</h3>
+              <p class="card__text">
+                Refresh your body and mind with good sleep
+              </p>
+
+              <button class="card__btn btn btn-s five">Start now</button>
+            </div>
+          </article>
+          <!-- <article class="exercise card bg-yellow">
+              <h3 class="ff-expletus fs-600 fw-500 mb-3 text-accent">
+                Daily Exercises
+                <span class="fs-300">
+                  (Choose according to your needs and preferences)
+                </span>
               </h3>
-              <div class="name">
-                <div class="input-signup__container">
-                  <input
-                    type="text"
-                    id="fname"
-                    class="input-text input-signup"
-                    name="fname"
-                    value=""
-                    aria-labelledby="label-fname"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="fname"
-                    id="label-fname"
-                  >
-                    <span class="label__text text-dark-400">First Name</span>
-                  </label>
+              <div>
+                <div class="exercise__type">
+                  <header class="dropdown-toggler d-flex py-1.5">
+                    <h4 class="fw-500">Yoga (15-20 minutes)</h4>
+                    <ion-icon name="chevron-down"></ion-icon>
+                  </header>
+                  <ul class="dropdown-items mb-1.5 ms-5">
+                    <li>
+                      Practice sun salutations (Surya Namaskar) to awaken your
+                      body and mind.
+                    </li>
+                    <li>
+                      Incorporate poses like Downward Dog, Cobra, Child's Pose,
+                      and Tree Pose.
+                    </li>
+                    <li>Focus on deep breathing and mindfulness.</li>
+                  </ul>
+                  <button class="btn btn-s mb-2 ms-5 mb-2">Start Now</button>
                 </div>
-                <div class="input-signup__container">
-                  <input
-                    type="text"
-                    id="lname"
-                    class="input-text input-signup"
-                    name="lname"
-                    value=""
-                    aria-labelledby="label-lname"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="lname"
-                    id="label-lname"
+                <div class="exercise__type">
+                  <header class="dropdown-toggler d-flex py-1.5">
+                    <h4 class="fw-500">Cardio Workout (20-30 minutes)</h4>
+                    <ion-icon name="chevron-down"></ion-icon>
+                  </header>
+                  <ul class="dropdown-items mb-1.5 ms-5">
+                    <li>
+                      Go for a brisk walk, jog, or run in your neighborhood or a
+                      nearby park.
+                    </li>
+                    <li>
+                      If you have a stationary bike or jump rope, incorporate
+                      those into your routine.
+                    </li>
+                  </ul>
+                  <button class="btn btn-s mb-2 ms-5">Start Now</button>
+                </div>
+                <div class="exercise__type">
+                  <header
+                    id="dropdown-toggler"
+                    class="dropdown-toggler d-flex py-1.5"
                   >
-                    <span class="label__text text-dark-400">Last Name</span>
-                  </label>
+                    <h4 class="fw-500">Dance Workout (15-20 minutes)</h4>
+                    <ion-icon name="chevron-down"></ion-icon>
+                  </header>
+                  <ul class="dropdown-items mb-1.5 ms-5">
+                    <li>
+                      Put on your favorite music and engage in a dance workout
+                      to get your heart rate up and have fun.
+                    </li>
+                  </ul>
+                  <button class="btn btn-s mb-2 ms-5 mb-2">Start Now</button>
                 </div>
               </div>
-              <div class="input-signup__container">
-                <input
-                  type="text"
-                  id="username"
-                  class="input-text input-signup"
-                  name="username"
-                  value=""
-                  aria-labelledby="label-username"
-                />
-                <label
-                  class="label fs-300 fw-500 d-flex"
-                  for="username"
-                  id="label__username"
-                >
-                  <span class="label__text text-dark-400">Username</span>
-                </label>
+            </article>
+
+            <article class="hydration card bg-ash">
+              <h3 class="ff-expletus fs-600 fw-500 mb-3 text-accent">
+                Stay Hydrated
+                <span class="fs-300">
+                  (Keep yourself refreshed throughout the day)
+                </span>
+              </h3>
+              <div class="hydration__info">
+                <ul class="ms-5">
+                  <li>
+                    Drink water to maintain good health and stay energized.
+                  </li>
+                  <li>
+                    Aim for at least 8 glasses (about 2 liters) of water daily.
+                  </li>
+                  <li>
+                    Carry a reusable water bottle for easy hydration on-the-go.
+                  </li>
+                </ul>
               </div>
-              <div class="input-signup__container">
-                <input
-                  type="email"
-                  id="email"
-                  class="input-text input-signup"
-                  name="email"
-                  value=""
-                  aria-labelledby="label-email"
-                />
-                <label
-                  class="label fs-300 fw-500 d-flex"
-                  for="email"
-                  id="label-email"
-                >
-                  <span class="label__text text-dark-400">Email</span>
-                </label>
+              <button class="btn btn-s ms-5 mt-2">Stay Hydrated</button>
+            </article>
+
+            <article class="sleep card bg-dark-900">
+              <h3 class="ff-expletus fs-600 fw-500 mb-3 text-secondary">
+                Quality Sleep
+                <span class="fs-300">
+                  (Refresh your body and mind with good sleep)
+                </span>
+              </h3>
+              <div class="sleep__info">
+                <header class="dropdown-toggler d-flex text-yellow py-1.5">
+                  <h4 class="fw-500">Prioritize Sound Sleep (7-9 hours)</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Ensure quality sleep for overall well-being.</li>
+                  <li>Aim for 7-9 hours of sleep per night.</li>
+                  <li>Create a comfortable sleep environment.</li>
+                </ul>
               </div>
-              <div class="input-signup__container">
-                <input
-                  type="password"
-                  id="password"
-                  class="input-text input-signup"
-                  name="password"
-                  value=""
-                  aria-labelledby="label-password"
-                />
-                <label
-                  class="label fs-300 fw-500 d-flex"
-                  for="password"
-                  id="label-password"
-                >
-                  <span class="label__text text-dark-400">Password</span>
-                </label>
-                <ion-icon
-                  name="eye-outline"
-                  id="toggle-password"
-                  class="fs-600 text-dark-400 my-auto ms-auto me-6"
-                ></ion-icon>
+
+              <div class="sleep__info">
+                <header class="dropdown-toggler d-flex text-yellow py-1.5">
+                  <h4 class="fw-500">Establish a Bedtime Routine</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Develop consistent sleep and wake times.</li>
+                  <li>Wind down with calming activities before bed.</li>
+                  <li>Limit screen time and exposure to bright lights.</li>
+                </ul>
               </div>
-              <button class="btn btn-m btn__hover-effect text-light">
-                <span></span>
-                Update Info
-                <span></span>
-              </button>
-            </form>
-          </section>
+
+              <div class="sleep__info">
+                <header class="dropdown-toggler d-flex text-yellow py-1.5">
+                  <h4 class="fw-500">Healthy Sleep Habits</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Avoid heavy meals and caffeine close to bedtime.</li>
+                  <li>Engage in relaxation techniques like deep breathing.</li>
+                  <li>Invest in a supportive mattress and pillows.</li>
+                </ul>
+              </div>
+              <button class="btn btn-s mt-2 ms-5">Improve Sleep</button>
+            </article>
+
+            <article class="food-intake card bg-primary-800">
+              <h3 class="ff-expletus fs-600 fw-500 mb-3 text-dark">
+                Balanced Nutrition
+                <span class="fs-300">
+                  (Nourish your body with healthy food choices)
+                </span>
+              </h3>
+
+              <div class="food-intake__info">
+                <header class="dropdown-toggler d-flex text-accent py-1.5">
+                  <h4 class="fw-500">Choose Nutrient-Rich Foods</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>
+                    Prioritize whole grains, lean proteins, and fresh
+                    vegetables.
+                  </li>
+                  <li>
+                    Incorporate a variety of colors and textures into your
+                    meals.
+                  </li>
+                  <li>
+                    Include healthy fats and limit saturated and trans fats.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="food-intake__info">
+                <header class="dropdown-toggler d-flex text-accent py-1.5">
+                  <h4 class="fw-500">Portion Control</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Be mindful of portion sizes to avoid overeating.</li>
+                  <li>Listen to your body's hunger and fullness cues.</li>
+                  <li>Avoid eating in front of screens or distractions.</li>
+                </ul>
+              </div>
+
+              <div class="food-intake__info">
+                <header class="dropdown-toggler d-flex text-accent py-1.5">
+                  <h4 class="fw-500">Stay Hydrated</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Drink plenty of water throughout the day.</li>
+                  <li>
+                    Limit sugary drinks and opt for water, herbal tea, or
+                    infused water.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="food-intake__info">
+                <header class="dropdown-toggler d-flex text-accent py-1.5">
+                  <h4 class="fw-500">Time Period and Frequency</h4>
+                  <ion-icon name="chevron-down"></ion-icon>
+                </header>
+                <ul class="dropdown-items mb-1.5 ms-5">
+                  <li>Have balanced meals every 3-4 hours.</li>
+                  <li>Include a variety of nutrients in each meal.</li>
+                  <li>
+                    Snack on healthy options between meals to maintain energy
+                    levels.
+                  </li>
+                </ul>
+              </div>
+
+              <button class="btn btn-s mt-2 ms-5">Eat Well</button>
+            </article> -->
+          <!-- </section> -->
         </div>
       </div>
     </div>
