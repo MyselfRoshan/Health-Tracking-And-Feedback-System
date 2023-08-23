@@ -3,7 +3,7 @@
     text-transform: uppercase;
   }
   --color-text: #616161;
-  --color-text-btn: #ffffff;
+  --color-text-btn: var(--clr-light);
   --card1-gradient-color1: #f12711;
   --card1-gradient-color2: #f5af19;
   --card2-gradient-color1: #7f00ff;
@@ -13,7 +13,7 @@
   --card4-gradient-color1: #11998e;
   --card4-gradient-color2: #38ef7d;
 
-  .wrapper {
+  .cards {
     --grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
@@ -29,15 +29,11 @@
     color: var(--color-text);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     &:hover {
       background-color: var(--clr-ash);
       transform: scale(1.01);
-      // .card__btn {
-      //   opacity: 1;
-      //   height: unset;
-      // }
     }
     img {
       height: 80%;
@@ -128,7 +124,8 @@
 
       font-family: var(--ff-inter);
       font-size: var(--fs-300);
-      color: var(--clr-light);
+      font-weight: var(--fw-600);
+      color: var(--color-text-btn);
       margin-block-end: 1rem;
 
       &.one {

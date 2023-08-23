@@ -19,7 +19,8 @@ $opacity-duration: math.div($transition-duration, 2);
     box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
   }
 
-  a{
+  a {
+    color: inherit;
     text-decoration: none;
   }
 
