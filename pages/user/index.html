@@ -30,9 +30,13 @@
     <!-- End of IonIcons -->
 
     <!-- Scripts -->
-    <script defer src="/assets/scripts/dashboardSidebar.js"></script>
+    <script
+      defer
+      type="module"
+      src="/assets/scripts/dashboardSidebar.js"
+    ></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
-    <script defer src="/assets/scripts/timezone.js"></script>
+    <!-- <script defer src="/assets/scripts/timezone.js"></script> -->
     <!-- End of Scripts -->
   </head>
 
@@ -48,7 +52,7 @@
           </div> -->
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item active">
           <div class="menu-item__icon">
             <ion-icon name="add-outline"></ion-icon>
           </div>
@@ -74,7 +78,7 @@
           <span class="menu-item__desc" hidden>Goal</span>
         </div>
         <div class="profile">
-          <a href="#profile-section" class="profile__pic">
+          <a href="./profile.html" class="profile__pic">
             <!-- <ion-icon name="person-circle-outline" class="fs-700"></ion-icon> -->
             <img src="/assets/icons/profile.png" alt="" />
           </a>
@@ -90,74 +94,79 @@
         </div>
       </div>
       <div class="dashboard__content">
-        <header class="mx-16 mt-16">
-          <h2 class="ff-leauge-gothic fs-900 text-secondary">Add</h2>
-        </header>
-        <div class="wrapper mx-16 mb-16 mt-8 d-grid">
-          <!-- <section class="recommendation"> -->
-          <article class="card">
-            <header class="card__header one">
-              <img
-                src="/assets/images/activities/daily-exercise.svg"
-                alt=""
-                srcset=""
-              />
-            </header>
-            <div class="card__content">
-              <h3 class="card__title">Daily Exercise</h3>
-              <p class="card__text">Don't wish for a good body, work for it</p>
-              <button class="card__btn btn btn-s one">Start now</button>
-            </div>
-          </article>
-          <article class="card">
-            <header class="card__header four">
-              <img
-                src="/assets/images/activities/stay-hydrated.svg"
-                alt="People driking water"
-              />
-            </header>
-            <div class="card__content">
-              <h3 class="card__title">Stay Hydrated</h3>
-              <p class="card__text">
-                Keep yourself refreshed throughout the day
-              </p>
+        <div class="wrapper m-16">
+          <header>
+            <h2 class="ff-leauge-gothic fs-700 text-accent">Add</h2>
+          </header>
+          <div class="cards mt-8 d-grid">
+            <!-- <section class="recommendation"> -->
+            <article class="card">
+              <header class="card__header one">
+                <img
+                  src="/assets/images/activities/daily-exercise.svg"
+                  alt=""
+                  srcset=""
+                />
+              </header>
+              <div class="card__content">
+                <h3 class="card__title">Daily Exercise</h3>
+                <p class="card__text">
+                  Don't wish for a good body, work for it
+                </p>
+                <button class="card__btn btn btn-s one">
+                  <a href="../add/daily-exercise.html">Start now</a>
+                </button>
+              </div>
+            </article>
+            <article class="card">
+              <header class="card__header four">
+                <img
+                  src="/assets/images/activities/stay-hydrated.svg"
+                  alt="People driking water"
+                />
+              </header>
+              <div class="card__content">
+                <h3 class="card__title">Stay Hydrated</h3>
+                <p class="card__text">
+                  Keep yourself refreshed throughout the day
+                </p>
 
-              <button class="card__btn btn btn-s four">Start now</button>
-            </div>
-          </article>
-          <article class="card">
-            <header class="card__header three">
-              <img
-                src="/assets/images/activities/balanced-nutrition.svg"
-                alt=""
-              />
-            </header>
-            <div class="card__content">
-              <h3 class="card__title">Balanced Nutrition</h3>
-              <p class="card__text">
-                Nourish your body with healthy food choices
-              </p>
+                <button class="card__btn btn btn-s four">Start now</button>
+              </div>
+            </article>
+            <article class="card">
+              <header class="card__header three">
+                <img
+                  src="/assets/images/activities/balanced-nutrition.svg"
+                  alt=""
+                />
+              </header>
+              <div class="card__content">
+                <h3 class="card__title">Balanced Nutrition</h3>
+                <p class="card__text">
+                  Nourish your body with healthy food choices
+                </p>
 
-              <button class="card__btn btn btn-s three">Start now</button>
-            </div>
-          </article>
-          <article class="card">
-            <header class="card__header five">
-              <img
-                src="/assets/images/activities/quality-sleep.svg"
-                alt="Boy sleeping at night"
-              />
-            </header>
-            <div class="card__content">
-              <h3 class="card__title">Quality Sleep</h3>
-              <p class="card__text">
-                Refresh your body and mind with good sleep
-              </p>
+                <button class="card__btn btn btn-s three">Start now</button>
+              </div>
+            </article>
+            <article class="card">
+              <header class="card__header five">
+                <img
+                  src="/assets/images/activities/quality-sleep.svg"
+                  alt="Boy sleeping at night"
+                />
+              </header>
+              <div class="card__content">
+                <h3 class="card__title">Quality Sleep</h3>
+                <p class="card__text">
+                  Refresh your body and mind with good sleep
+                </p>
 
-              <button class="card__btn btn btn-s five">Start now</button>
-            </div>
-          </article>
-          <!-- <article class="exercise card bg-yellow">
+                <button class="card__btn btn btn-s five">Start now</button>
+              </div>
+            </article>
+            <!-- <article class="exercise card bg-yellow">
               <h3 class="ff-expletus fs-600 fw-500 mb-3 text-accent">
                 Daily Exercises
                 <span class="fs-300">
@@ -358,7 +367,8 @@
 
               <button class="btn btn-s mt-2 ms-5">Eat Well</button>
             </article> -->
-          <!-- </section> -->
+            <!-- </section> -->
+          </div>
         </div>
       </div>
     </div>

@@ -519,6 +519,10 @@ body {
   text-transform: uppercase;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .fs-mega {
   line-height: 1.1;
   letter-spacing: -0.24rem;
@@ -1828,6 +1832,7 @@ body {
   box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
 }
 .btn a {
+  color: inherit;
   text-decoration: none;
 }
 .btn-s {
@@ -1915,140 +1920,6 @@ body {
   font-weight: var(--fs-700);
   color: hsl(0, 100%, 40%);
   display: block;
-}
-
-.hero {
-  overflow: hidden;
-}
-.hero__icon {
-  grid-column: 2/5;
-  display: grid;
-  place-items: center;
-  width: 200px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-}
-.hero__heading {
-  grid-column: 4/10;
-  text-align: center;
-}
-.hero__txt {
-  grid-column: 2/12;
-  max-width: 55ch;
-  text-align: center;
-  margin: 2.5rem auto;
-}
-.hero .btn {
-  --bg: var(--clr-secondary);
-  --bs: var(--clr-dark-400);
-  --hbs: var(--clr-secondary-400);
-  grid-column: 6/8;
-}
-
-.register__article {
-  position: relative;
-  isolation: isolate;
-}
-.register__icon {
-  position: absolute;
-  left: -3.125rem;
-  top: 2.5rem;
-  z-index: -1;
-}
-.register__heading {
-  grid-column: 1/-1;
-}
-.register__txt {
-  grid-column: span 6;
-}
-
-.revolution__icon {
-  width: 6.25rem;
-  height: 6.25rem;
-  margin-block-end: 1.25rem;
-  background: linear-gradient(135deg, #000 0%, #073b4c 100%);
-}
-.revolution__heading {
-  grid-column: 1/-1;
-}
-.revolution__feature {
-  grid-column: span 4;
-}
-.revolution__feature:nth-of-type(1), .revolution__feature:nth-of-type(2), .revolution__feature:nth-of-type(3) {
-  margin-block-end: 40px;
-}
-
-.get-started {
-  --txt-align: center;
-}
-.get-started__icon {
-  grid-column: 6/8;
-  display: grid;
-  place-items: center;
-}
-.get-started__heading {
-  grid-column: 6/8;
-  text-align: var(--txt-align);
-}
-.get-started__txt {
-  grid-column: 4/10;
-  text-align: var(--txt-align);
-  margin-block-start: 1.5rem;
-  margin-block-end: 1.5rem;
-}
-.get-started__btn-container {
-  grid-column: 5/9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-}
-.get-started .btn:first-of-type {
-  --bg: var(--clr-secondary);
-  --bs: var(--clr-dark-400);
-  --hbs: var(--clr-secondary-400);
-}
-.get-started .btn:last-of-type {
-  --bg: var(--clr-ash);
-  --bs: var(--clr-dark-400);
-  --hbs: var(--clr-ash-400);
-}
-
-.sucess__heading {
-  grid-column: 1/-1;
-  margin-block-end: 4rem;
-}
-.sucess__image-container {
-  grid-column: span 4;
-}
-
-.inspiration__article {
-  --cpy: 12rem;
-}
-.inspiration__heading {
-  grid-column: 1/9;
-}
-.inspiration__txt {
-  margin-block: 2.5rem;
-  max-width: 48ch;
-}
-.inspiration__txt-container {
-  grid-column: 1/9;
-  grid-row: 2;
-}
-.inspiration__icon {
-  grid-column: 9/13;
-  grid-row: 1/3;
-}
-
-.footer__icon {
-  grid-column: 6/8;
-  display: grid;
-  place-items: center;
-}
-.footer__copyright, .footer__created-at {
-  grid-column: 5/9;
-  text-align: center;
 }
 
 .signin .container {
@@ -2298,6 +2169,77 @@ body {
   --flow-gap: 2rem;
 }
 
+.forgot-password .link-expired {
+  --flex-gap:0.75rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  font-weight: var(--fw-500);
+  color: hsl(45, 94%, 27%);
+  background-color: hsl(46, 100%, 90%);
+}
+.forgot-password ion-icon[name=alert-circle-outline] {
+  font-size: var(--fs-900);
+}
+.forgot-password ion-icon[name=key-outline] {
+  font-size: var(--fs-900);
+  color: var(--clr-primary);
+}
+.forgot-password ion-icon[name=mail-outline] {
+  font-size: var(--fs-1000);
+  color: var(--clr-primary);
+}
+.forgot-password .label-email,
+.forgot-password p {
+  margin-block: 0.75rem 2rem;
+  text-align: center;
+  width: 48ch;
+}
+.forgot-password .input__password-reset {
+  --foc: var(--clr-primary);
+}
+.forgot-password .input__password-reset__container {
+  max-width: 25rem;
+  position: relative;
+}
+.forgot-password .input__password-reset__container .validation-alerts {
+  --flow-gap:0.5rem;
+}
+.forgot-password .input__password-reset__container .label {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  pointer-events: none;
+}
+.forgot-password .input__password-reset__container .label__text {
+  transition: all 250ms ease-out;
+}
+.forgot-password .input__password-reset__container #toggle-password {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.forgot-password .input__password-reset__container:focus-within .label__text,
+.forgot-password .input__password-reset__container:focus-within #toggle-password {
+  color: var(--clr-primary);
+}
+.forgot-password .success-container {
+  text-align: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+.forgot-password .success-container p {
+  color: #555;
+}
+
+.input__password-reset__container:focus-within .label__text,
+.forgot-password :not(.input-text[value=""]) + .label .label__text {
+  font-size: 12px;
+  transform: translate(0, -150%);
+  background: var(--bg-label-focus, white);
+  padding-inline: 8px;
+}
+
 .dashboard {
   --menu-width: 80px;
   height: 100%;
@@ -2424,7 +2366,7 @@ body {
 
 .dashboard__content {
   --color-text: #616161;
-  --color-text-btn: #ffffff;
+  --color-text-btn: var(--clr-light);
   --card1-gradient-color1: #f12711;
   --card1-gradient-color2: #f5af19;
   --card2-gradient-color1: #7f00ff;
@@ -2437,7 +2379,7 @@ body {
 .dashboard__content header h2 {
   text-transform: uppercase;
 }
-.dashboard__content .wrapper {
+.dashboard__content .cards {
   --grid-gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
@@ -2452,7 +2394,7 @@ body {
   overflow: hidden;
   color: var(--color-text);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .dashboard__content .card:hover {
   background-color: var(--clr-ash);
@@ -2516,7 +2458,8 @@ body {
   --hbs: var(--color-text);
   font-family: var(--ff-inter);
   font-size: var(--fs-300);
-  color: var(--clr-light);
+  font-weight: var(--fw-600);
+  color: var(--color-text-btn);
   margin-block-end: 1rem;
 }
 .dashboard__content .card__btn.one {
@@ -2658,73 +2601,114 @@ body {
   justify-content: space-between;
 }
 
-.forgot-password .link-expired {
-  --flex-gap:0.75rem;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  font-weight: var(--fw-500);
-  color: hsl(45, 94%, 27%);
-  background-color: hsl(46, 100%, 90%);
-}
-.forgot-password ion-icon[name=alert-circle-outline] {
-  font-size: var(--fs-900);
-}
-.forgot-password ion-icon[name=key-outline] {
-  font-size: var(--fs-900);
-  color: var(--clr-primary);
-}
-.forgot-password ion-icon[name=mail-outline] {
-  font-size: var(--fs-1000);
-  color: var(--clr-primary);
-}
-.forgot-password .label-email,
-.forgot-password p {
-  margin-block: 0.75rem 2rem;
-  text-align: center;
-  width: 48ch;
-}
-.forgot-password .input__password-reset {
-  --foc: var(--clr-primary);
-}
-.forgot-password .input__password-reset__container {
-  max-width: 25rem;
-  position: relative;
-}
-.forgot-password .input__password-reset__container .validation-alerts {
-  --flow-gap:0.5rem;
-}
-.forgot-password .input__password-reset__container .label {
-  position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-start: 1rem;
-  pointer-events: none;
-}
-.forgot-password .input__password-reset__container .label__text {
-  transition: all 250ms ease-out;
-}
-.forgot-password .input__password-reset__container #toggle-password {
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  inset: 0;
-}
-.forgot-password .input__password-reset__container:focus-within .label__text,
-.forgot-password .input__password-reset__container:focus-within #toggle-password {
-  color: var(--clr-primary);
-}
-.forgot-password .success-container {
-  text-align: center;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 0.5rem;
-}
-.forgot-password .success-container p {
-  color: #555;
+/* Exercise form container */
+#exerciseForm {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.input__password-reset__container:focus-within .label__text,
-.forgot-password :not(.input-text[value=""]) + .label .label__text {
-  font-size: 12px;
-  transform: translate(0, -150%);
-  background: var(--bg-label-focus, white);
-  padding-inline: 8px;
+/* Exercise dropdown styling */
+#exercise {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Exercise steps styling */
+#exerciseSteps {
+  counter-reset: step-counter;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header for exercise steps */
+#exerciseSteps h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Step styling */
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+.step::before {
+  counter-increment: step-counter;
+  content: "Step" counter(step-counter) ". ";
+  margin-inline-end: 1rem;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 25px;
+  margin-right: 10px;
+}
+
+.step-instruction {
+  flex-grow: 1;
+}
+
+/* ... Rest of the styles ... */
+/* Videos container */
+#exerciseVideos {
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Input and select styling */
+input[type=datetime-local],
+input[type=number],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 600px) {
+  #exerciseForm {
+    padding: 10px;
+  }
 }/*# sourceMappingURL=main-dev.css.map */
