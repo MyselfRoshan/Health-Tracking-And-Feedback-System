@@ -14,7 +14,8 @@ $opacity-duration: math.div($transition-duration, 2);
   text-decoration: none;
   background: var(--bg, var(--clr-primary));
   box-shadow: 0 4px 4px var(--bs, var(--clr-primary-400));
-  transition: box-shadow 500ms ease-in-out;
+  transition: box-shadow 500ms ease-in-out, background 500ms ease;
+
   &:is(:hover, :focus-visible) {
     box-shadow: 0 4px 4px var(--hbs, var(--clr-tertiary-400));
   }

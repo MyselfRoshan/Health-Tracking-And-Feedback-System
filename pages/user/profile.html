@@ -30,7 +30,11 @@
     <!-- End of IonIcons -->
 
     <!-- Scripts -->
-    <script defer src="/assets/scripts/dashboardSidebar.js"></script>
+    <script
+      defer
+      type="module"
+      src="/assets/scripts/dashboardSidebar.js"
+    ></script>
     <script defer src="/assets/scripts/input.js"></script>
     <script defer src="/assets/scripts/profile.js"></script>
     <!-- End of Scripts -->
@@ -74,7 +78,7 @@
           <span class="menu-item__desc" hidden>Goal</span>
         </div>
         <div class="profile">
-          <a href="#profile-section" class="profile__pic">
+          <a href="./profile.html" class="profile__pic">
             <!-- <ion-icon name="person-circle-outline" class="fs-700"></ion-icon> -->
             <img src="/assets/icons/profile.png" alt="" />
           </a>
@@ -91,7 +95,7 @@
       </div>
       <div class="dashboard__content">
         <div class="wrapper m-16">
-          <section id="profile-section" class="profile__section">
+          <section class="profile__section">
             <header class="profile__header mb-14">
               <h2 class="mb-1 ff-expletus fw-600 fs-900 text-accent">
                 My Profile
