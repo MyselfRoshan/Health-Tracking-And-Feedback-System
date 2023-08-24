@@ -1,113 +1,127 @@
 /* Exercise form container */
-#exerciseForm {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-/* Exercise dropdown styling */
-#exercise {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  font-size: 16px;
-  color: #333;
-}
-
-/* Exercise steps styling */
-#exerciseSteps {
-  counter-reset: step-counter;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Header for exercise steps */
-#exerciseSteps h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* Step styling */
-.step {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #555;
-
-  &::before {
-    counter-increment: step-counter;
-    content: "Step" counter(step-counter) ". ";
-    margin-inline-end: 1rem;
-  }
-}
-
-.step-number {
-  flex-shrink: 0;
-  width: 25px;
-  height: 25px;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 25px;
-  margin-right: 10px;
-}
-
-.step-instruction {
-  flex-grow: 1;
-}
-
-/* ... Rest of the styles ... */
-
-/* Videos container */
-#exerciseVideos {
-  margin-bottom: 20px;
-}
-
-/* Button styling */
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Input and select styling */
-input[type="datetime-local"],
-input[type="number"],
-select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* Responsive layout adjustments */
-@media (max-width: 600px) {
+.daily-exercise {
+  padding: 4rem;
+  //   background: linear-gradient(
+  //     120deg,
+  //     var(--clr-primary) 0%,
+  //     var(--clr-tertiary) 100%
+  //   );
+  background-color: var(--clr-light);
+  //   border-radius: 10rem 1rem 10rem 1rem;
+  border-radius: 1rem;
+  // border-radius: 1rem 10rem 10rem 1rem;
+  // box-shadow: 3px 3px 13px var(--clr-dark-400),
+  //   -5px -5px 20px 3px var(--clr-yellow);
+  box-shadow: 0px 0px 13px var(--clr-dark-400);
   #exerciseForm {
+    margin-bottom: 20px;
+  }
+
+  /* Exercise dropdown styling */
+  #exercise {
+    width: 100%;
     padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    // background-color: #f9f9f9;
+    background-color: var(--clr-tertiary-800);
+    font-size: 16px;
+    color: #333;
+  }
+
+  /* Exercise steps styling */
+  #exerciseSteps {
+    display: none;
+    counter-reset: step-counter;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &.active {
+      display: block;
+    }
+  }
+
+  /* Header for exercise steps */
+  #exerciseSteps h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  /* Step styling */
+  .step {
+    //   display: flex;
+    --align-items: center;
+    --justify-items: start;
+    font-size: 16px;
+    color: #555;
+
+    &::before {
+      counter-increment: step-counter;
+      content: "Step" counter(step-counter) ". ";
+      display: inline-block;
+      width: 3.875rem;
+    }
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 10px;
+  }
+
+  .step-instruction {
+    flex-grow: 1;
+  }
+
+  /* ... Rest of the styles ... */
+
+  /* Videos container */
+  #exerciseVideos {
+    margin-bottom: 20px;
+  }
+
+  /* Button styling */
+  .btn {
+    --br: 5px;
+    padding: 0.625em 1em;
+    font-family: var(--ff-inter);
+    color: var(--clr-light);
+
+    &:hover {
+      --bg: var(--clr-tertiary);
+    }
+  }
+
+  /* Input and select styling */
+  input[type="datetime-local"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  /* Responsive layout adjustments */
+  @media (max-width: 600px) {
+    #exerciseForm {
+      padding: 10px;
+    }
   }
 }

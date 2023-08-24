@@ -109,12 +109,16 @@ document.getElementById("exercise").addEventListener("change", function () {
   const stepsList = document.createElement("ol");
   exerciseInstructions[selectedExercise].steps.forEach(instruction => {
     const stepItem = document.createElement("li");
-    stepItem.classList.add("step");
+    stepItem.classList.add("step", "flow");
     stepItem.textContent = instruction;
+    stepsList.style.listStyle = "none";
+    // stepsList.
     stepsList.appendChild(stepItem);
   });
 
-  exerciseStepsContainer.innerHTML = "<h2>How to Perform the Exercise:</h2>"; // Clear previous instructions
+  // Clear previous instructions
+  exerciseStepsContainer.innerHTML = "";
+  exerciseStepsContainer.classList.add("active");
   exerciseStepsContainer.appendChild(stepsList);
 
   const videosList = document.createElement("ul");

@@ -17,10 +17,11 @@
 @use "./block/validation-alerts";
 
 // pages
+@use "./pages/index";
 @use "./pages/signin";
 @use "./pages/signup";
 @use "./pages/forgot-password";
-@use "./pages/user/index";
+@use "./pages/user/user-index";
 @use "./pages/user/add";
 @use "./pages/user/profile";
 @use "./pages/daily-exercise";
