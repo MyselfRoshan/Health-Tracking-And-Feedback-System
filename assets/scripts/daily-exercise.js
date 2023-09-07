@@ -148,30 +148,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   startTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
 });
-
-//   document.addEventListener("DOMContentLoaded", ()=> {
-//     const startTimeInput = document.getElementById("startTime");
-
-//     const now = new Date();
-//     const year = now.getFullYear();
-//     const monthNames = [
-//       "January",
-//       "February",
-//       "March",
-//       "April",
-//       "May",
-//       "June",
-//       "July",
-//       "August",
-//       "September",
-//       "October",
-//       "November",
-//       "December",
-//     ];
-//     const month = monthNames[now.getMonth()];
-//     const day = now.getDate().toString().padStart(2, "0");
-//     const hours = now.getHours().toString().padStart(2, "0");
-//     const minutes = now.getMinutes().toString().padStart(2, "0");
-
-//     startTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
-//   });
