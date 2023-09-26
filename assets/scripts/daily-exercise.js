@@ -107,12 +107,15 @@ document.getElementById("exercise").addEventListener("change", function () {
   const exerciseVideosContainer = document.getElementById("exerciseVideos");
 
   const stepsList = document.createElement("ol");
+  const header = document.createElement("li");
+  header.textContent = "Instructions:";
+  header.classList.add("fs-500");
+  stepsList.appendChild(header);
   exerciseInstructions[selectedExercise].steps.forEach(instruction => {
     const stepItem = document.createElement("li");
     stepItem.classList.add("step", "flow");
     stepItem.textContent = instruction;
     stepsList.style.listStyle = "none";
-    // stepsList.
     stepsList.appendChild(stepItem);
   });
 
