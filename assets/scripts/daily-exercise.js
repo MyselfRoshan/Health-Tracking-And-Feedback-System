@@ -107,12 +107,15 @@ document.getElementById("exercise").addEventListener("change", function () {
   const exerciseVideosContainer = document.getElementById("exerciseVideos");
 
   const stepsList = document.createElement("ol");
+  const header = document.createElement("li");
+  header.textContent = "Instructions:";
+  header.classList.add("fs-500");
+  stepsList.appendChild(header);
   exerciseInstructions[selectedExercise].steps.forEach(instruction => {
     const stepItem = document.createElement("li");
     stepItem.classList.add("step", "flow");
     stepItem.textContent = instruction;
     stepsList.style.listStyle = "none";
-    // stepsList.
     stepsList.appendChild(stepItem);
   });
 
@@ -148,30 +151,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   startTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
 });
-
-//   document.addEventListener("DOMContentLoaded", ()=> {
-//     const startTimeInput = document.getElementById("startTime");
-
-//     const now = new Date();
-//     const year = now.getFullYear();
-//     const monthNames = [
-//       "January",
-//       "February",
-//       "March",
-//       "April",
-//       "May",
-//       "June",
-//       "July",
-//       "August",
-//       "September",
-//       "October",
-//       "November",
-//       "December",
-//     ];
-//     const month = monthNames[now.getMonth()];
-//     const day = now.getDate().toString().padStart(2, "0");
-//     const hours = now.getHours().toString().padStart(2, "0");
-//     const minutes = now.getMinutes().toString().padStart(2, "0");
-
-//     startTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
-//   });
