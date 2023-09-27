@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Trackr</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- End of Favicon -->
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!-- End of Css -->
+
+    <!-- IonIcons -->
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- End of IonIcons -->
+
+    <!-- Scripts -->
+    <script
+      defer
+      type="module"
+      src="/assets/scripts/dashboardSidebar.js"
+    ></script>
+    <script defer src="/assets/scripts/dropdown.js"></script>
+    <script defer src="/assets/scripts/stay-hydrated.js"></script>
+    <!-- End of Scripts -->
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <div class="dashboard__menu-list bg-primary-800 d-flex" role="menu">
+        <div class="menu-toggle" role="switch">
+          <div class="menu-item__icon">
+            <ion-icon name="menu"></ion-icon>
+          </div>
+          <!-- <div class="logo">
+            <img src="../assets/images/logo-only.png" alt="logo" srcset="" />
+          </div> -->
+        </div>
+
+        <div class="menu-item active">
+          <div class="menu-item__icon">
+            <ion-icon name="add-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden hidden>Add</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="grid-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Overview</span>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Reminder</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="flag-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Goal</span>
+        </div>
+        <div class="profile">
+          <a href="../user/profile.html" class="profile__pic">
+            <!-- <ion-icon name="person-circle-outline" class="fs-700"></ion-icon> -->
+            <img src="/assets/icons/profile.png" alt="" />
+          </a>
+          <span class="profile__desc d-flex"
+            ><span class="profile__username text-accent fs-200 fw-700" hidden
+              >Prabin</span
+            >
+            <span class="profile__role fs-200" hidden>Administrator</span></span
+          >
+          <a href="/index.html" class="profile__logout">
+            <ion-icon name="log-out-outline" hidden></ion-icon>
+          </a>
+        </div>
+      </div>
+      <div class="dashboard__content">
+        <div class="wrapper m-16">
+          <section class="daily-exercise">
+            <header>
+              <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
+                Stay Hydrated
+              </h1>
+            </header>
+            <div id="hydrationForm">
+              <label for="waterAmount">Amount of Water to Drink (ml):</label>
+              <input
+                type="number"
+                id="waterAmount"
+                name="waterAmount"
+                min="0"
+                max="5000"
+                step="250"
+                value="0"
+              />
+              <p><span id="glassesCount">0</span> Glasses</p>
+              <p><span id="remainder">2000</span> ml Remaining</p>
+              <button id="addGlass">Add a Glass</button>
+              <button id="removeGlass">Remove a Glass</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
