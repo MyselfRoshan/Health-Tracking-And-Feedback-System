@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const addGlassButton = document.getElementById("addGlass");
   const removeGlassButton = document.getElementById("removeGlass");
 
+  const glassOfWater = document.querySelector(".water");
+
   // Initial values
   let waterIntake = 0; // Current water intake in ml
-  const dailyGoal = 2000; // Daily goal in ml
+  const dailyGoal = 3000; // Daily goal in ml
   const glassSize = 250; // Size of one glass in ml
 
   // Update the display with initial values
@@ -27,10 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Event listener for the "Add a Glass" button
-  addGlassButton.addEventListener("click", function () {
+  addGlassButton.addEventListener("click", () => {
     waterIntake += glassSize;
     waterAmountInput.value = waterIntake;
+
     updateDisplay();
+    waterLevel("increase");
   });
 
   // Event listener for the "Remove a Glass" button
@@ -41,6 +45,39 @@ document.addEventListener("DOMContentLoaded", function () {
       waterIntake = 0;
     }
     waterAmountInput.value = waterIntake;
+
     updateDisplay();
+    waterLevel("decrease");
   });
+
+  // Water level controller
+  function waterLevel(controller) {
+    let waveHeight =
+      getComputedStyle(glassOfWater)
+        .getPropertyValue("--wave")
+        .replace("%", "") ?? "-94%";
+    console.log(waveHeight);
+
+    // Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
+    const emptyGlass = -94;
+    const filledGlass = -200;
+    const percentageToIncreaseOrDecrease = Math.floor(
+      Math.abs((filledGlass - emptyGlass) / (dailyGoal / glassSize)),
+    );
+    console.log(percentageToIncreaseOrDecrease);
+    if (
+      waveHeight <= emptyGlass &&
+      waveHeight >= filledGlass &&
+      dailyGoal - waterIntake > 0
+    ) {
+      let newHeight;
+      if (controller === "increase")
+        newHeight = Number(waveHeight) - percentageToIncreaseOrDecrease;
+      if (controller === "decrease")
+        newHeight = Number(waveHeight) + percentageToIncreaseOrDecrease;
+
+      if (newHeight <= emptyGlass && newHeight >= filledGlass)
+        glassOfWater.style.setProperty("--wave", `${newHeight}%`);
+    }
+  }
 });
