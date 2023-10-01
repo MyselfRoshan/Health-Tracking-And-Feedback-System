@@ -1922,6 +1922,59 @@ body {
   display: block;
 }
 
+.glass-water {
+  --wave: -100%;
+  --side: 206%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: #8ddbf5;
+  box-shadow: inset 0 0 50px #1c637a;
+  -webkit-clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+          clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+}
+.glass-water::before {
+  content: "";
+  position: absolute;
+  width: var(--side);
+  height: var(--side);
+  top: var(--wave);
+  left: -50%;
+  background-color: #ececec;
+  border-radius: 40%;
+  animation: wave 12s linear infinite;
+}
+.glass-water::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--side) + 5%);
+  height: calc(var(--side) + 5%);
+  top: var(--wave);
+  left: -52%;
+  background-color: rgba(236, 236, 236, 0.5019607843);
+  border-radius: 40%;
+  animation: wave 12s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.glass__controller {
+  --flex-gap: 1rem;
+}
+.glass-add, .glass-remove {
+  width: 4rem;
+  aspect-ratio: 1;
+  font-size: var(--fs-800);
+  border: none;
+  border-radius: 50%;
+}
+
 .hero {
   overflow: hidden;
 }
