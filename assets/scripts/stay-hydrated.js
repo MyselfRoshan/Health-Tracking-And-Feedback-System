@@ -1,83 +1,77 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Get elements
-  const waterAmountInput = document.getElementById("waterAmount");
-  const glassesCountElement = document.getElementById("glassesCount");
-  const remainderElement = document.getElementById("remainder");
-  const addGlassButton = document.getElementById("addGlass");
-  const removeGlassButton = document.getElementById("removeGlass");
+  // const waterAmountInput = document.getElementById("waterAmount");
+  const glassCountElement = document.querySelector(".glass-count");
+  const glassRemainingElement = document.querySelector(".glass-remaining");
+  const glassIntakedElement = document.querySelector(".glass-intaked");
+  const glassAddButton = document.querySelector(".glass-add");
+  const glassRemoveButton = document.querySelector(".glass-remove");
 
-  const glassOfWater = document.querySelector(".water");
-
+  const glassWater = document.querySelector(".glass-water");
   // Initial values
+  let empty = false;
+  let full = false;
   let waterIntake = 0; // Current water intake in ml
   const dailyGoal = 3000; // Daily goal in ml
   const glassSize = 250; // Size of one glass in ml
+  const glasstoIntake = Math.floor(dailyGoal / glassSize);
 
   // Update the display with initial values
   updateDisplay();
 
   // Function to update the display
   function updateDisplay() {
-    glassesCountElement.textContent = Math.floor(waterIntake / glassSize);
-    remainderElement.textContent = dailyGoal - waterIntake + " ml Remaining";
+    let glassCount = Math.floor(waterIntake / glassSize);
+    glassCountElement.textContent = glassCount;
+    glassRemainingElement.textContent = dailyGoal - waterIntake;
+    glassIntakedElement.textContent = waterIntake;
+    if (glassCount >= glasstoIntake) full = true;
+    if (waterIntake === 0) empty = true;
   }
 
-  // Event listener for the waterAmount input
-  waterAmountInput.addEventListener("change", function () {
-    waterIntake = parseInt(this.value);
-    updateDisplay();
-  });
-
   // Event listener for the "Add a Glass" button
-  addGlassButton.addEventListener("click", () => {
-    waterIntake += glassSize;
-    waterAmountInput.value = waterIntake;
-
-    updateDisplay();
-    waterLevel("increase");
+  glassAddButton.addEventListener("click", () => {
+    empty = false;
+    if (!full) {
+      waterIntake += glassSize;
+      updateDisplay();
+      waterLevel("increase");
+    }
   });
 
   // Event listener for the "Remove a Glass" button
-  removeGlassButton.addEventListener("click", function () {
-    if (waterIntake >= glassSize) {
-      waterIntake -= glassSize;
-    } else {
-      waterIntake = 0;
-    }
-    waterAmountInput.value = waterIntake;
-
+  glassRemoveButton.addEventListener("click", () => {
+    waterIntake -= glassSize;
     updateDisplay();
-    waterLevel("decrease");
+    if (glassCount < glasstoIntake) full = false;
+    if (!empty) {
+      waterLevel("decrease");
+    }
   });
 
   // Water level controller
-  function waterLevel(controller) {
-    let waveHeight =
-      getComputedStyle(glassOfWater)
-        .getPropertyValue("--wave")
-        .replace("%", "") ?? "-94%";
-    console.log(waveHeight);
+  // Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
+  const emptyGlass = -98;
+  const fullGlass = -206;
+  const percentageToIncreaseOrDecrease = Number(
+    (106 / (dailyGoal / glassSize)).toFixed(1),
+  );
 
-    // Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
-    const emptyGlass = -94;
-    const filledGlass = -200;
-    const percentageToIncreaseOrDecrease = Math.floor(
-      Math.abs((filledGlass - emptyGlass) / (dailyGoal / glassSize)),
+  function waterLevel(controller) {
+    let waveHeight = Number(
+      getComputedStyle(glassWater).getPropertyValue("--wave").replace("%", ""),
     );
-    console.log(percentageToIncreaseOrDecrease);
-    if (
-      waveHeight <= emptyGlass &&
-      waveHeight >= filledGlass &&
-      dailyGoal - waterIntake > 0
-    ) {
+
+    // if (waveHeight <= emptyGlass && waveHeight >= filledGlass) {
+    if (waveHeight <= emptyGlass && waveHeight >= fullGlass) {
       let newHeight;
       if (controller === "increase")
-        newHeight = Number(waveHeight) - percentageToIncreaseOrDecrease;
+        newHeight = waveHeight - percentageToIncreaseOrDecrease;
       if (controller === "decrease")
-        newHeight = Number(waveHeight) + percentageToIncreaseOrDecrease;
-
-      if (newHeight <= emptyGlass && newHeight >= filledGlass)
-        glassOfWater.style.setProperty("--wave", `${newHeight}%`);
+        newHeight = waveHeight + percentageToIncreaseOrDecrease;
+      if (newHeight <= emptyGlass && newHeight >= fullGlass)
+        glassWater.style.setProperty("--wave", `${newHeight}%`);
+      console.table(percentageToIncreaseOrDecrease, waveHeight, newHeight);
     }
   }
 });
