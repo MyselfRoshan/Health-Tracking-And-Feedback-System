@@ -1,13 +1,13 @@
 // Function that doesn't revert back the value of inputfield after losing focus
 const inputTxtFields = document.querySelectorAll(".input-signup");
-inputTxtFields.forEach((inputTxtField) => {
+inputTxtFields.forEach(inputTxtField => {
   inputTxtField.addEventListener("input", () => {
     inputTxtField.setAttribute("value", inputTxtField.value);
     localStorage.setItem(`${inputTxtField.id}`, inputTxtField.value);
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  inputTxtFields.forEach((inputTxtField) => {
+  inputTxtFields.forEach(inputTxtField => {
     let getInputTxtFieldValue = "";
     // If null and "" return else set local storage value to input value
     if (!localStorage.getItem(`${inputTxtField.id}`)) return;
@@ -28,3 +28,15 @@ togglePassword.addEventListener("click", () => {
   password.setAttribute("type", pskType);
   togglePassword.setAttribute("name", iconType);
 });
+
+// Only letters numbers allowed
+function onlyAlphabets(e) {
+  let ASCIICode = e.which ?? e.keyCode;
+  console.log(ASCIICode);
+  if (
+    (ASCIICode >= 65 && ASCIICode <= 90) ||
+    (ASCIICode >= 97 && ASCIICode <= 122)
+  )
+    return true;
+  return false;
+}

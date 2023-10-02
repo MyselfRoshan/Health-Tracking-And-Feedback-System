@@ -1,77 +1,100 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Get elements
-  // const waterAmountInput = document.getElementById("waterAmount");
-  const glassCountElement = document.querySelector(".glass-count");
-  const glassRemainingElement = document.querySelector(".glass-remaining");
-  const glassIntakedElement = document.querySelector(".glass-intaked");
-  const glassAddButton = document.querySelector(".glass-add");
-  const glassRemoveButton = document.querySelector(".glass-remove");
+const glassWater = document.querySelector(".glass-water");
+const glassAdd = document.querySelector(".glass-add");
+const glassRemove = document.querySelector(".glass-remove");
+const setGlassTarget = document.querySelector("#set-glass-target");
+const glassTarget = document.querySelector(".glass-target");
+const glassToIntake = document.querySelector(".glass-to-intake");
+const waterToIntake = document.querySelector(".water-to-intake");
 
-  const glassWater = document.querySelector(".glass-water");
-  // Initial values
-  let empty = false;
-  let full = false;
-  let waterIntake = 0; // Current water intake in ml
-  const dailyGoal = 3000; // Daily goal in ml
-  const glassSize = 250; // Size of one glass in ml
-  const glasstoIntake = Math.floor(dailyGoal / glassSize);
+const maximumGlassTarget = parseInt(setGlassTarget.getAttribute("max"));
+const minimumGlassTarget = parseInt(setGlassTarget.getAttribute("min"));
+const waterPerGlass = 250; //250ml
 
-  // Update the display with initial values
-  updateDisplay();
+setGlassTarget.addEventListener("input", e => {
+  let inputValue = e.target.value;
+  // Only allow numbers [0-9]
+  inputValue = inputValue.replace(/\D/g, "");
+  // Ensure the value is within the specified range
+  if (inputValue < 1) inputValue = 1;
+  else if (inputValue > 50) inputValue = 50;
+  e.target.value = inputValue;
 
-  // Function to update the display
-  function updateDisplay() {
-    let glassCount = Math.floor(waterIntake / glassSize);
-    glassCountElement.textContent = glassCount;
-    glassRemainingElement.textContent = dailyGoal - waterIntake;
-    glassIntakedElement.textContent = waterIntake;
-    if (glassCount >= glasstoIntake) full = true;
-    if (waterIntake === 0) empty = true;
-  }
+  if (Number(inputValue) == 1) glassTarget.textContent = `${inputValue} Glass`;
+  else glassTarget.textContent = `${inputValue} Glasses`;
 
-  // Event listener for the "Add a Glass" button
-  glassAddButton.addEventListener("click", () => {
-    empty = false;
-    if (!full) {
-      waterIntake += glassSize;
-      updateDisplay();
-      waterLevel("increase");
-    }
-  });
+  waterLevel("new-target");
+});
+setGlassTarget.addEventListener("change", () => {});
 
-  // Event listener for the "Remove a Glass" button
-  glassRemoveButton.addEventListener("click", () => {
-    waterIntake -= glassSize;
-    updateDisplay();
-    if (glassCount < glasstoIntake) full = false;
-    if (!empty) {
-      waterLevel("decrease");
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  let glassToIntakeValue = Number(glassToIntake.textContent);
+  if (glassToIntakeValue == minimumGlassTarget - 1)
+    glassRemove.setAttribute("disabled", "true");
+  if (glassToIntakeValue == maximumGlassTarget - 1)
+    glassAdd.setAttribute("disabled", "true");
+  // waterLevel("new-target");
+});
 
-  // Water level controller
-  // Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
-  const emptyGlass = -98;
-  const fullGlass = -206;
-  const percentageToIncreaseOrDecrease = Number(
-    (106 / (dailyGoal / glassSize)).toFixed(1),
+glassAdd.addEventListener("click", () => {
+  let glassToIntakeValue = Number(glassToIntake.textContent);
+  glassToIntake.textContent = glassToIntakeValue + 1;
+  waterToIntake.textContent = `(${
+    parseInt(glassToIntake.textContent) * waterPerGlass
+  } ml)`;
+  waterLevel("increase");
+
+  if (glassToIntakeValue < maximumGlassTarget)
+    glassRemove.removeAttribute("disabled");
+
+  if (glassToIntakeValue == maximumGlassTarget - 1)
+    glassAdd.setAttribute("disabled", "true");
+});
+
+glassRemove.addEventListener("click", () => {
+  let glassToIntakeValue = Number(glassToIntake.textContent);
+  glassToIntake.textContent = glassToIntakeValue - 1;
+  waterToIntake.textContent = `(${
+    parseInt(glassToIntake.textContent) * waterPerGlass
+  } ml)`;
+  waterLevel("decrease");
+
+  if (glassToIntakeValue > minimumGlassTarget)
+    glassAdd.removeAttribute("disabled");
+
+  if (glassToIntakeValue == minimumGlassTarget)
+    glassRemove.setAttribute("disabled", "true");
+});
+
+// Water level controller
+// Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
+const emptyGlass = -98;
+const fullGlass = -206;
+
+function waterLevel(controller) {
+  let noOfGlassTarget = parseInt(setGlassTarget.value);
+  let noOfGlassToIntake = parseInt(glassToIntake.textContent);
+
+  // Calculate the percentage change
+  let percentageChange = 106 / noOfGlassTarget;
+
+  // Get the current wave height
+  let waveHeight = parseFloat(
+    getComputedStyle(glassWater).getPropertyValue("--wave"),
   );
 
-  function waterLevel(controller) {
-    let waveHeight = Number(
-      getComputedStyle(glassWater).getPropertyValue("--wave").replace("%", ""),
-    );
-
-    // if (waveHeight <= emptyGlass && waveHeight >= filledGlass) {
-    if (waveHeight <= emptyGlass && waveHeight >= fullGlass) {
-      let newHeight;
-      if (controller === "increase")
-        newHeight = waveHeight - percentageToIncreaseOrDecrease;
-      if (controller === "decrease")
-        newHeight = waveHeight + percentageToIncreaseOrDecrease;
-      if (newHeight <= emptyGlass && newHeight >= fullGlass)
-        glassWater.style.setProperty("--wave", `${newHeight}%`);
-      console.table(percentageToIncreaseOrDecrease, waveHeight, newHeight);
-    }
+  // Calculate the new wave height based on the controller
+  let newHeight = waveHeight;
+  if (controller === "increase" && noOfGlassToIntake <= noOfGlassTarget) {
+    newHeight -= percentageChange;
+  } else if (controller === "decrease" && noOfGlassTarget > noOfGlassToIntake) {
+    newHeight += percentageChange;
+  } else if (controller === "new-target") {
+    newHeight = -((noOfGlassToIntake / noOfGlassTarget) * 106 + 100);
   }
-});
+
+  // Ensure the new height is within the bounds
+  newHeight = Math.max(-206, Math.min(-100, newHeight));
+
+  // Update the wave height
+  glassWater.style.setProperty("--wave", `${newHeight}%`);
+}
