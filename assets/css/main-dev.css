@@ -1922,6 +1922,15 @@ body {
   display: block;
 }
 
+.glass-input-containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+.glass-quote {
+  width: 50ch;
+  text-align: center;
+}
 .glass-water {
   --wave: -100%;
   --side: 206%;
@@ -1964,6 +1973,11 @@ body {
     transform: rotate(360deg);
   }
 }
+.glass-info {
+  --flex-gap: 0;
+  --flex-direction: column;
+  width: 9.375rem;
+}
 .glass__controller {
   --flex-gap: 1rem;
 }
@@ -1973,6 +1987,12 @@ body {
   font-size: var(--fs-800);
   border: none;
   border-radius: 50%;
+  background-color: hsl(195, 84%, 76%);
+  box-shadow: inset 0 0 20px hsl(195, 63%, 29%);
+}
+.glass-add:disabled, .glass-remove:disabled {
+  background-color: hsl(192, 13.8%, 78.6%);
+  box-shadow: none;
 }
 
 .hero {
@@ -2315,7 +2335,7 @@ body {
   position: relative;
 }
 .input-signup__container .validation-alerts {
-  --flow-gap:0.5rem;
+  --flow-gap: 0.5rem;
 }
 .input-signup__container .label {
   position: absolute;
@@ -2338,7 +2358,8 @@ body {
 }
 
 .input-signup__container:focus-within .label__text,
-.signup :not(.input-signup[value=""]) + .label .label__text {
+.signup :not(.input-signup[value=""]) + .label .label__text,
+#hydrationForm :not(.input-signup[value=""]) + .label .label__text {
   font-size: 12px;
   transform: translate(0, -150%);
   background: var(--bg-label-focus, white);
