@@ -33,6 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (glassToIntakeValue == maximumGlassTarget - 1)
     glassAdd.setAttribute("disabled", "true");
   // waterLevel("new-target");
+
+  const inputTxtFields = document.querySelectorAll(".input-signup");
+  console.log(inputTxtFields);
+  inputTxtFields.forEach(inputTxtField => {
+    // inputTxtField.
+    inputTxtField.addEventListener("input", () => {
+      inputTxtField.setAttribute("value", inputTxtField.value);
+      localStorage.setItem(`${inputTxtField.id}`, inputTxtField.value);
+    });
+  });
 });
 
 glassAdd.addEventListener("click", () => {
@@ -65,12 +75,9 @@ glassRemove.addEventListener("click", () => {
     glassRemove.setAttribute("disabled", "true");
 });
 
-// Water level controller
-// Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
-const emptyGlass = -98;
-const fullGlass = -206;
-
 function waterLevel(controller) {
+  // Water level controller
+  // Here -94% and -200% is top property of ::before and ::after pseudo element of water when empty and full
   let noOfGlassTarget = parseInt(setGlassTarget.value);
   let noOfGlassToIntake = parseInt(glassToIntake.textContent);
 
@@ -98,3 +105,15 @@ function waterLevel(controller) {
   // Update the wave height
   glassWater.style.setProperty("--wave", `${newHeight}%`);
 }
+
+// Function that doesn't revert back the value of inputfield after losing focus
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   inputTxtFields.forEach(inputTxtField => {
+//     let getInputTxtFieldValue = "";
+//     // If null and "" return else set local storage value to input value
+//     if (!localStorage.getItem(`${inputTxtField.id}`)) return;
+//     getInputTxtFieldValue = localStorage.getItem(`${inputTxtField.id}`);
+//     inputTxtField.setAttribute("value", getInputTxtFieldValue);
+//   });
+// });

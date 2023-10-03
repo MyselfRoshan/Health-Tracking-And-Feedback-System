@@ -1,6 +1,15 @@
 // start: -94%  end: -200%
 
 .glass {
+  &-input-containers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  &-quote {
+    width: 50ch;
+    text-align: center;
+  }
   &-water {
     --wave: -100%;
     --side: 206%;
@@ -45,6 +54,13 @@
       }
     }
   }
+
+  &-info {
+    --flex-gap: 0;
+    --flex-direction: column;
+    width: 9.375rem;
+  }
+
   &__controller {
     --flex-gap: 1rem;
   }
@@ -55,5 +71,12 @@
     font-size: var(--fs-800);
     border: none;
     border-radius: 50%;
+    background-color: hsl(195, 84%, 76%);
+    box-shadow: inset 0 0 20px hsl(195, 63%, 29%);
+
+    &:disabled {
+      background-color: hsl(192, 13.8%, 78.6%);
+      box-shadow: none;
+    }
   }
 }
