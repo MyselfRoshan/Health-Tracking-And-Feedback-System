@@ -105,15 +105,3 @@ function waterLevel(controller) {
   // Update the wave height
   glassWater.style.setProperty("--wave", `${newHeight}%`);
 }
-
-// Function that doesn't revert back the value of inputfield after losing focus
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   inputTxtFields.forEach(inputTxtField => {
-//     let getInputTxtFieldValue = "";
-//     // If null and "" return else set local storage value to input value
-//     if (!localStorage.getItem(`${inputTxtField.id}`)) return;
-//     getInputTxtFieldValue = localStorage.getItem(`${inputTxtField.id}`);
-//     inputTxtField.setAttribute("value", getInputTxtFieldValue);
-//   });
-// });

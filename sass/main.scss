@@ -15,7 +15,6 @@
 @use "./block/inputfield";
 @use "./block/button";
 @use "./block/validation-alerts";
-@use "./block/water-effect";
 
 // pages
 @use "./pages/index";
@@ -26,3 +25,4 @@
 @use "./pages/user/add";
 @use "./pages/user/profile";
 @use "./pages/daily-exercise";
+@use "./pages/stay-hydrate";

@@ -1922,79 +1922,6 @@ body {
   display: block;
 }
 
-.glass-input-containers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}
-.glass-quote {
-  width: 50ch;
-  text-align: center;
-}
-.glass-water {
-  --wave: -100%;
-  --side: 206%;
-  width: 200px;
-  height: 200px;
-  position: relative;
-  background-color: #8ddbf5;
-  box-shadow: inset 0 0 50px #1c637a;
-  -webkit-clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-          clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-}
-.glass-water::before {
-  content: "";
-  position: absolute;
-  width: var(--side);
-  height: var(--side);
-  top: var(--wave);
-  left: -50%;
-  background-color: #ececec;
-  border-radius: 40%;
-  animation: wave 12s linear infinite;
-}
-.glass-water::after {
-  content: "";
-  position: absolute;
-  width: calc(var(--side) + 5%);
-  height: calc(var(--side) + 5%);
-  top: var(--wave);
-  left: -52%;
-  background-color: rgba(236, 236, 236, 0.5019607843);
-  border-radius: 40%;
-  animation: wave 12s linear infinite;
-  animation-delay: 0.5s;
-}
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.glass-info {
-  --flex-gap: 0;
-  --flex-direction: column;
-  width: 9.375rem;
-}
-.glass__controller {
-  --flex-gap: 1rem;
-}
-.glass-add, .glass-remove {
-  padding: 0.3em;
-  display: flex;
-  font-size: var(--fs-800);
-  border: none;
-  border-radius: 50%;
-  background-color: hsl(195, 84%, 76%);
-  box-shadow: inset 0 0 20px hsl(195, 63%, 29%);
-}
-.glass-add:disabled, .glass-remove:disabled {
-  background-color: hsl(192, 13.8%, 78.6%);
-  box-shadow: none;
-}
-
 .hero {
   overflow: hidden;
 }
@@ -2910,4 +2837,77 @@ body {
   .daily-exercise #exerciseForm {
     padding: 10px;
   }
+}
+
+.glass-input-containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+.glass-quote {
+  width: 50ch;
+  text-align: center;
+}
+.glass-water {
+  --wave: -100%;
+  --side: 206%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: #8ddbf5;
+  box-shadow: inset 0 0 50px #1c637a;
+  -webkit-clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+          clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+}
+.glass-water::before {
+  content: "";
+  position: absolute;
+  width: var(--side);
+  height: var(--side);
+  top: var(--wave);
+  left: -50%;
+  background-color: #ececec;
+  border-radius: 40%;
+  animation: wave 12s linear infinite;
+}
+.glass-water::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--side) + 5%);
+  height: calc(var(--side) + 5%);
+  top: var(--wave);
+  left: -52%;
+  background-color: rgba(236, 236, 236, 0.5019607843);
+  border-radius: 40%;
+  animation: wave 12s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.glass-info {
+  --flex-gap: 0;
+  --flex-direction: column;
+  width: 9.375rem;
+}
+.glass__controller {
+  --flex-gap: 1rem;
+}
+.glass-add, .glass-remove {
+  padding: 0.3em;
+  display: flex;
+  font-size: var(--fs-800);
+  border: none;
+  border-radius: 50%;
+  background-color: hsl(195, 84%, 76%);
+  box-shadow: inset 0 0 20px hsl(195, 63%, 29%);
+}
+.glass-add:disabled, .glass-remove:disabled {
+  background-color: hsl(192, 13.8%, 78.6%);
+  box-shadow: none;
 }/*# sourceMappingURL=main-dev.css.map */
