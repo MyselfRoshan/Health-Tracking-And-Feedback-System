@@ -95,10 +95,10 @@
       </div>
       <div class="dashboard__content">
         <div class="wrapper m-16">
-          <section class="daily-exercise">
+          <section class="quality-sleep">
             <header>
               <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
-                Stay Hydrated
+                Quality Sleep
               </h1>
             </header>
             <form id="hydrationForm">
@@ -109,7 +109,7 @@
               <div class="glass-input-containers py-4">
                 <div class="input-signup__container">
                   <input
-                    type="number"
+                    type="time"
                     class="input-text input-signup"
                     id="set-glass-target"
                     name="set-glass-target"
@@ -123,14 +123,12 @@
                     for="set-glass-target"
                     id="label__set-glass-target"
                   >
-                    <span class="label__text text-dark-400"
-                      >Set Target (1 glass = 250ml)</span
-                    >
+                    <span class="label__text text-dark-400">Start Time</span>
                   </label>
                 </div>
                 <div class="input-signup__container">
                   <input
-                    type="date"
+                    type="time"
                     class="input-text input-signup"
                     id="set-glass-target"
                     name="set-glass-target"
@@ -144,32 +142,16 @@
                     for="set-glass-target"
                     id="label__set-glass-target"
                   >
-                    <span class="label__text text-dark-400">Choose Date</span>
+                    <span class="label__text text-dark-400">End Time</span>
                   </label>
                 </div>
-              </div>
-              <div class="glass-water mx-auto my-8"></div>
-              <div class="glass__controller d-flex">
-                <button type="button" class="glass-add">
-                  <ion-icon name="add"></ion-icon>
-                </button>
-                <div class="glass-info d-flex">
-                  <p>
-                    <span class="glass-to-intake fs-1000 fw-500">0</span>
-                    /
-                    <span class="glass-target">8 Glasses</span>
-                  </p>
-                  <p class="water-to-intake d-flex fw-500">(0 ml)</p>
-                </div>
-                <button type="button" class="glass-remove">
-                  <ion-icon name="remove"></ion-icon>
-                </button>
               </div>
               <button type="submit" class="btn btn-m mt-4 mx-auto">
                 Send Remainder
               </button>
             </form>
           </section>
+          >
         </div>
       </div>
     </div>

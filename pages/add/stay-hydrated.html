@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Trackr</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- End of Favicon -->
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!-- End of Css -->
+
+    <!-- IonIcons -->
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- End of IonIcons -->
+
+    <!-- Scripts -->
+    <script
+      defer
+      type="module"
+      src="/assets/scripts/dashboardSidebar.js"
+    ></script>
+    <script defer src="/assets/scripts/dropdown.js"></script>
+    <script defer src="/assets/scripts/stay-hydrated.js"></script>
+    <!-- End of Scripts -->
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <div class="dashboard__menu-list bg-primary-800 d-flex" role="menu">
+        <div class="menu-toggle" role="switch">
+          <div class="menu-item__icon">
+            <ion-icon name="menu"></ion-icon>
+          </div>
+          <!-- <div class="logo">
+            <img src="../assets/images/logo-only.png" alt="logo" srcset="" />
+          </div> -->
+        </div>
+
+        <div class="menu-item active">
+          <div class="menu-item__icon">
+            <ion-icon name="add-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden hidden>Add</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="grid-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Overview</span>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Reminder</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item__icon">
+            <ion-icon name="flag-outline"></ion-icon>
+          </div>
+          <span class="menu-item__desc" hidden>Goal</span>
+        </div>
+        <div class="profile">
+          <a href="../user/profile.html" class="profile__pic">
+            <!-- <ion-icon name="person-circle-outline" class="fs-700"></ion-icon> -->
+            <img src="/assets/icons/profile.png" alt="" />
+          </a>
+          <span class="profile__desc d-flex"
+            ><span class="profile__username text-accent fs-200 fw-700" hidden
+              >Prabin</span
+            >
+            <span class="profile__role fs-200" hidden>Administrator</span></span
+          >
+          <a href="/index.html" class="profile__logout">
+            <ion-icon name="log-out-outline" hidden></ion-icon>
+          </a>
+        </div>
+      </div>
+      <div class="dashboard__content">
+        <div class="wrapper m-16">
+          <section class="stay-hydrated">
+            <header>
+              <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
+                Stay Hydrated
+              </h1>
+            </header>
+            <form id="hydrationForm">
+              <p class="glass-quote mx-auto">
+                Good health starts with staying hydrated! Set a daily water
+                intake target to stay on track. 1 glass is 250ml.
+              </p>
+              <div class="glass-input-containers py-4">
+                <div class="input-signup__container">
+                  <input
+                    type="number"
+                    class="input-text input-signup"
+                    id="set-glass-target"
+                    name="set-glass-target"
+                    min="1"
+                    max="50"
+                    value="8"
+                    aria-labelledby="label__set-glass-target"
+                  />
+                  <label
+                    class="label fs-300 fw-500 d-flex"
+                    for="set-glass-target"
+                    id="label__set-glass-target"
+                  >
+                    <span class="label__text text-dark-400"
+                      >Set Target (1 glass = 250ml)</span
+                    >
+                  </label>
+                </div>
+                <div class="input-signup__container">
+                  <input
+                    type="date"
+                    class="input-text input-signup"
+                    id="set-glass-target"
+                    name="set-glass-target"
+                    min="1"
+                    max="50"
+                    value="8"
+                    aria-labelledby="label__set-glass-target"
+                  />
+                  <label
+                    class="label fs-300 fw-500 d-flex"
+                    for="set-glass-target"
+                    id="label__set-glass-target"
+                  >
+                    <span class="label__text text-dark-400">Choose Date</span>
+                  </label>
+                </div>
+              </div>
+              <div class="glass-water mx-auto my-8"></div>
+              <div class="glass__controller d-flex">
+                <button type="button" class="glass-add">
+                  <ion-icon name="add"></ion-icon>
+                </button>
+                <div class="glass-info d-flex">
+                  <p>
+                    <span class="glass-to-intake fs-1000 fw-500">0</span>
+                    /
+                    <span class="glass-target">8 Glasses</span>
+                  </p>
+                  <p class="water-to-intake d-flex fw-500">(0 ml)</p>
+                </div>
+                <button type="button" class="glass-remove">
+                  <ion-icon name="remove"></ion-icon>
+                </button>
+              </div>
+              <button type="submit" class="btn btn-m mt-4 mx-auto">
+                Send Remainder
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
