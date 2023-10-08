@@ -35,6 +35,7 @@
       type="module"
       src="/assets/scripts/dashboardSidebar.js"
     ></script>
+    <script defer src="/assets/scripts/nepali-datepicker.min.js"></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
     <script defer src="/assets/scripts/daily-exercise.js"></script>
     <!-- End of Scripts -->
@@ -95,7 +96,7 @@
       </div>
       <div class="dashboard__content">
         <div class="wrapper m-16">
-          <section class="daily-exercise">
+          <section class="daily-exercise add-wrapper">
             <header>
               <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
                 Daily Exercise
@@ -103,6 +104,9 @@
             </header>
             <!-- Get inspiration from samsung health -->
             <form id="exerciseForm">
+              <label for="selectDate">Select Date:</label>
+              <input type="text" id="selectDate" name="selectDate" />
+
               <label for="exercise">Select Exercise:</label>
               <select id="exercise" name="exercise">
                 <option value="" selected aria-selected="true" disabled>
@@ -120,28 +124,25 @@
                 <!-- Exercise instructions will be populated here -->
               </div>
 
-              <label for="startTime">Start Time:</label>
-              <input
-                type="datetime-local"
-                id="startTime"
-                name="startTime"
-                min="<?= date('Y-m-d\TH:i'); ?>"
-                step="60"
-                required
-              /><br />
-
-              <label for="duration">Duration (minutes):</label>
+              <label for="targetExerciseDuration"
+                >Set Target (Min: 10 minutes):</label
+              >
               <input
                 type="number"
-                id="duration"
-                name="duration"
+                id="targetExerciseDuration"
+                name="targetExerciseDuration"
                 value="30"
-                min="10"
-                max="120"
-                required
-              /><br />
+              />
 
-              <button type="submit" class="btn btn-m">Start Exercise</button>
+              <label for="actualExerciseDuration">Duration (minutes):</label>
+              <input
+                type="number"
+                id="actualExerciseDuration"
+                name="actualExerciseDuration"
+                value="30"
+              />
+
+              <button type="submit" class="btn btn-m">Save Exercise</button>
             </form>
 
             <div id="exerciseVideos">

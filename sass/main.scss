@@ -15,6 +15,7 @@
 @use "./block/inputfield";
 @use "./block/button";
 @use "./block/validation-alerts";
+@use "./block/nepali-date-picker";
 
 // pages
 @use "./pages/index";
@@ -24,5 +25,5 @@
 @use "./pages/user/user-index";
 @use "./pages/user/add";
 @use "./pages/user/profile";
-@use "./pages/daily-exercise";
-@use "./pages/stay-hydrate";
+@use "./pages/user/daily-exercise";
+@use "./pages/user/stay-hydrate";
