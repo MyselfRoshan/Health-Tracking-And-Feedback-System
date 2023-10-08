@@ -30,13 +30,14 @@
     <!-- End of IonIcons -->
 
     <!-- Scripts -->
+
     <script
       defer
       type="module"
       src="/assets/scripts/dashboardSidebar.js"
     ></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
-    <script defer src="/assets/scripts/stay-hydrated.js"></script>
+    <script defer src="/assets/scripts/quality-sleep.js"></script>
     <!-- End of Scripts -->
   </head>
 
@@ -95,63 +96,27 @@
       </div>
       <div class="dashboard__content">
         <div class="wrapper m-16">
-          <section class="quality-sleep">
+          <section class="quality-sleep add-wrapper">
             <header>
               <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
                 Quality Sleep
               </h1>
             </header>
             <form id="hydrationForm">
-              <p class="glass-quote mx-auto">
-                Good health starts with staying hydrated! Set a daily water
-                intake target to stay on track. 1 glass is 250ml.
-              </p>
-              <div class="glass-input-containers py-4">
-                <div class="input-signup__container">
-                  <input
-                    type="time"
-                    class="input-text input-signup"
-                    id="set-glass-target"
-                    name="set-glass-target"
-                    min="1"
-                    max="50"
-                    value="8"
-                    aria-labelledby="label__set-glass-target"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="set-glass-target"
-                    id="label__set-glass-target"
-                  >
-                    <span class="label__text text-dark-400">Start Time</span>
-                  </label>
-                </div>
-                <div class="input-signup__container">
-                  <input
-                    type="time"
-                    class="input-text input-signup"
-                    id="set-glass-target"
-                    name="set-glass-target"
-                    min="1"
-                    max="50"
-                    value="8"
-                    aria-labelledby="label__set-glass-target"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="set-glass-target"
-                    id="label__set-glass-target"
-                  >
-                    <span class="label__text text-dark-400">End Time</span>
-                  </label>
-                </div>
+              <p class="">Select sleep time</p>
+              <div class="glass-input-containers mio-wrapper py-4">
+                <label for="sleep-start-time">Start Time:</label>
+                <input
+                  type="time"
+                  id="sleep-start-time"
+                  name="sleepStartTime"
+                />
+                <label for="sleep-end-time">End Time:</label>
+                <input type="time" id="sleep-end-time" name="sleepEndTime" />
               </div>
-              <button type="submit" class="btn btn-m mt-4 mx-auto">
-                Send Remainder
-              </button>
+              <button type="submit" class="btn btn-m mt-4">Save</button>
             </form>
           </section>
-          >
         </div>
       </div>
     </div>

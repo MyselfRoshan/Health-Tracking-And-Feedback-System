@@ -1,11 +1,6 @@
 // start: -94%  end: -200%
 
 .glass {
-  &-input-containers {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
   &-quote {
     width: 50ch;
     text-align: center;
@@ -58,7 +53,7 @@
   &-info {
     --flex-gap: 0;
     --flex-direction: column;
-    width: 9.375rem;
+    width: 10.02rem;
   }
 
   &__controller {
@@ -74,9 +69,26 @@
     background-color: hsl(195, 84%, 76%);
     box-shadow: inset 0 0 20px hsl(195, 63%, 29%);
 
-    &:disabled {
+    &:hover {
+      box-shadow: inset 0 0 13px hsl(195, 63%, 29%),
+        0 0 10px 2px hsl(195, 84%, 76%);
+    }
+    &:is(disabled:hover, :disabled) {
       background-color: hsl(192, 13.8%, 78.6%);
       box-shadow: none;
+    }
+  }
+
+  &-water__form {
+    .btn-m {
+      --bg: hsl(195, 84%, 76%);
+      color: var(--clr-black);
+      box-shadow: inset 0 0 25px hsl(195, 63%, 29%);
+
+      &:is(:hover, :focus-within) {
+        box-shadow: inset 0 0 15px hsl(195, 63%, 29%),
+          0 0 10px 2px hsl(195, 84%, 76%);
+      }
     }
   }
 }

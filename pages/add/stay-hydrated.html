@@ -35,6 +35,7 @@
       type="module"
       src="/assets/scripts/dashboardSidebar.js"
     ></script>
+    <script defer src="/assets/scripts/nepali-datepicker.min.js"></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
     <script defer src="/assets/scripts/stay-hydrated.js"></script>
     <!-- End of Scripts -->
@@ -95,58 +96,27 @@
       </div>
       <div class="dashboard__content">
         <div class="wrapper m-16">
-          <section class="stay-hydrated">
+          <section class="stay-hydrated add-wrapper">
             <header>
               <h1 class="ff-leauge-gothic fs-700 text-accent text-center">
                 Stay Hydrated
               </h1>
             </header>
-            <form id="hydrationForm">
-              <p class="glass-quote mx-auto">
-                Good health starts with staying hydrated! Set a daily water
-                intake target to stay on track. 1 glass is 250ml.
-              </p>
-              <div class="glass-input-containers py-4">
-                <div class="input-signup__container">
-                  <input
-                    type="number"
-                    class="input-text input-signup"
-                    id="set-glass-target"
-                    name="set-glass-target"
-                    min="1"
-                    max="50"
-                    value="8"
-                    aria-labelledby="label__set-glass-target"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="set-glass-target"
-                    id="label__set-glass-target"
-                  >
-                    <span class="label__text text-dark-400"
-                      >Set Target (1 glass = 250ml)</span
-                    >
-                  </label>
-                </div>
-                <div class="input-signup__container">
-                  <input
-                    type="date"
-                    class="input-text input-signup"
-                    id="set-glass-target"
-                    name="set-glass-target"
-                    min="1"
-                    max="50"
-                    value="8"
-                    aria-labelledby="label__set-glass-target"
-                  />
-                  <label
-                    class="label fs-300 fw-500 d-flex"
-                    for="set-glass-target"
-                    id="label__set-glass-target"
-                  >
-                    <span class="label__text text-dark-400">Choose Date</span>
-                  </label>
-                </div>
+            <form class="glass-water__form">
+              <div class="glass-inputs-container py-4">
+                <label for="select-date">Choose Date:</label>
+                <input type="text" id="select-date" name="selectDate" />
+
+                <label for="duration">Set Target (1 glass = 250ml):</label>
+                <input
+                  type="number"
+                  id="set-glass-target"
+                  name="setGlassTarget"
+                  min="1"
+                  max="50"
+                  value="8"
+                  aria-labelledby="label__set-glass-target"
+                />
               </div>
               <div class="glass-water mx-auto my-8"></div>
               <div class="glass__controller d-flex">
@@ -165,13 +135,14 @@
                   <ion-icon name="remove"></ion-icon>
                 </button>
               </div>
-              <button type="submit" class="btn btn-m mt-4 mx-auto">
-                Send Remainder
-              </button>
+              <button type="submit" class="btn btn-m mt-4 mx-auto">Save</button>
             </form>
           </section>
         </div>
       </div>
     </div>
   </body>
+  <script>
+    // document.querySelector("#date-to-record").nepaliDatePicker();
+  </script>
 </html>
