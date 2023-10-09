@@ -14,6 +14,15 @@
 
     <!-- Css -->
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/timepicker.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/css/materialize.clockpicker.css"
+    /> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"
+    /> -->
     <!-- End of Css -->
 
     <!-- IonIcons -->
@@ -30,14 +39,16 @@
     <!-- End of IonIcons -->
 
     <!-- Scripts -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="/assets/scripts/timepicker.min.js"></script>
+    <script src="/assets/scripts/nepali-datepicker.min.js"></script>
     <script
       defer
       type="module"
       src="/assets/scripts/dashboardSidebar.js"
     ></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
-    <script defer src="/assets/scripts/quality-sleep.js"></script>
+    <script defer type="module" src="/assets/scripts/quality-sleep.js"></script>
     <!-- End of Scripts -->
   </head>
 
@@ -102,19 +113,38 @@
                 Quality Sleep
               </h1>
             </header>
-            <form id="hydrationForm">
-              <p class="">Select sleep time</p>
-              <div class="glass-input-containers mio-wrapper py-4">
-                <label for="sleep-start-time">Start Time:</label>
+            <form id="qualitySleepForm">
+              <div class="glass-input-containers py-4">
+                <label for="select-date">Choose Date:</label>
+                <input
+                  type="text"
+                  id="select-date"
+                  name="selectDate"
+                  readonly
+                />
+
+                <label for="bed-time">Bed Time:</label>
+                <input
+                  id="bed-time"
+                  name="bedTime"
+                  class="timepicker"
+                  data-default="22:00:00"
+                  readonly
+                />
+                <label for="wakeup-time">Wakeup Time:</label>
                 <input
                   type="time"
-                  id="sleep-start-time"
-                  name="sleepStartTime"
+                  id="wakeup-time"
+                  name="wakeupTime"
+                  class="timepicker"
+                  data-default="6:00:00"
+                  readonly
                 />
-                <label for="sleep-end-time">End Time:</label>
-                <input type="time" id="sleep-end-time" name="sleepEndTime" />
               </div>
-              <button type="submit" class="btn btn-m mt-4">Save</button>
+              <p>Sleep time: <span class="sleep-time"></span></p>
+              <button id="save-button" type="submit" class="btn btn-m mt-4">
+                Save
+              </button>
             </form>
           </section>
         </div>
