@@ -48,7 +48,8 @@
       src="/assets/scripts/dashboardSidebar.js"
     ></script>
     <script defer src="/assets/scripts/dropdown.js"></script>
-    <script defer type="module" src="/assets/scripts/quality-sleep.js"></script>
+    <!-- <script defer type="module" src="/assets/scripts/quality-sleep.js"></script> -->
+    <script defer src="/assets/scripts/quality-sleep.js"></script>
     <!-- End of Scripts -->
   </head>
 
@@ -128,18 +129,17 @@
                   id="bed-time"
                   name="bedTime"
                   class="timepicker"
-                  data-default="22:00:00"
                   readonly
                 />
+                <!-- data-default="22:00:00" -->
                 <label for="wakeup-time">Wakeup Time:</label>
                 <input
-                  type="time"
                   id="wakeup-time"
                   name="wakeupTime"
                   class="timepicker"
-                  data-default="6:00:00"
                   readonly
                 />
+                <!-- data-default="06:00:00" -->
               </div>
               <p>Sleep time: <span class="sleep-time"></span></p>
               <button id="save-button" type="submit" class="btn btn-m mt-4">
