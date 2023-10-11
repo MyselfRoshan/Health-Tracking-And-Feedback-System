@@ -6,7 +6,7 @@ const setGlassTarget = document.querySelector("#set-glass-target");
 const glassTarget = document.querySelector(".glass-target");
 const glassToIntake = document.querySelector(".glass-to-intake");
 const waterToIntake = document.querySelector(".water-to-intake");
-const dateToRecord = document.querySelector("#date-to-record");
+const selectDate = document.querySelector("#select-date");
 
 const maximumGlassTarget = parseInt(setGlassTarget.getAttribute("max"));
 const minimumGlassTarget = parseInt(setGlassTarget.getAttribute("min"));
@@ -18,7 +18,7 @@ glassWaterForm.addEventListener("submit", e => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const currentDate = dateToRecord.value;
+  const currentDate = selectDate.value;
   if (currentDate in Water) {
     // If there is data for the current date, update the relevant elements
     console.log(Water[currentDate].target);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setGlassTarget.addEventListener("change", e => {
     let inputValue = e.target.value;
-    Water[dateToRecord.value] = {
+    Water[selectDate.value] = {
       target: inputValue,
       intaked: glassToIntake.textContent,
     };
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Date picker element that lets user insert date in nepali format
   // User can insert data upto current day in previous year
-  dateToRecord.value = NepaliFunctions.GetCurrentBsDate("YYYY-MM-DD");
-  dateToRecord.nepaliDatePicker({
+  selectDate.value = NepaliFunctions.GetCurrentBsDate("YYYY-MM-DD");
+  selectDate.nepaliDatePicker({
     language: "english",
     dateFormat: "YYYY-MM-DD",
     ndpYear: true,
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     disableDaysAfter: 0,
     onChange: () => {
       localStorage.setItem("Water", JSON.stringify(Water));
-      const currentDate = dateToRecord.value;
+      const currentDate = selectDate.value;
       if (currentDate in Water) {
         // If there is data for the current date, update the relevant elements
         console.log(Water[currentDate].target);
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } ml)`;
         waterLevel("new-target");
       } else {
-        Water[dateToRecord.value] = {
+        Water[selectDate.value] = {
           target: setGlassTarget.value,
           intaked: glassToIntake.textContent,
         };
@@ -123,7 +123,7 @@ glassAdd.addEventListener("click", () => {
   if (glassToIntakeValue == maximumGlassTarget - 1)
     glassAdd.setAttribute("disabled", "true");
 
-  Water[dateToRecord.value] = {
+  Water[selectDate.value] = {
     target: setGlassTarget.value,
     intaked: glassToIntake.textContent,
   };
@@ -145,7 +145,7 @@ glassRemove.addEventListener("click", () => {
   if (glassToIntakeValue == minimumGlassTarget)
     glassRemove.setAttribute("disabled", "true");
 
-  Water[dateToRecord.value] = {
+  Water[selectDate.value] = {
     target: setGlassTarget.value,
     intaked: glassToIntake.textContent,
   };
