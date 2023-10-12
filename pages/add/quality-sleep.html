@@ -129,19 +129,22 @@
                   id="bed-time"
                   name="bedTime"
                   class="timepicker"
+                  data-default="22:00:00"
                   readonly
                 />
-                <!-- data-default="22:00:00" -->
                 <label for="wakeup-time">Wakeup Time:</label>
                 <input
                   id="wakeup-time"
                   name="wakeupTime"
                   class="timepicker"
+                  data-default="06:00:00"
                   readonly
                 />
-                <!-- data-default="06:00:00" -->
               </div>
-              <p>Sleep time: <span class="sleep-time"></span></p>
+              <p>
+                Sleep time:
+                <span class="sleep-time">8 hours and 0 minutes</span>
+              </p>
               <button id="save-button" type="submit" class="btn btn-m mt-4">
                 Save
               </button>
