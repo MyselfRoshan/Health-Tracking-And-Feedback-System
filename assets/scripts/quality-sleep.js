@@ -39,8 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to convert time to 24-hour format
   function to24HourTime(timeString) {
-    let [hr, min, ap] = timeString.toLowerCase().match(/\d+|[a-z]+/g) || [];
-    return { hour: (hr % 12) + (ap == "am" ? 0 : 12), minute: parseInt(min) };
+    // let [hr, min, ap] = timeString.toLowerCase().match(/\d+|[a-z]+/g) || [];
+    // return { hour: (hr % 12) + (ap == "am" ? 0 : 12), minute: parseInt(min) };
+    const [hourStr, minuteStr] = timeString.split(":");
+    let [hours, minutes] = [parseInt(hourStr), parseInt(minuteStr.slice(0, 2))];
+
+    if (timeString.includes("PM") && hours !== 12) {
+      hours += 12;
+    } else if (timeString.includes("AM") && hours === 12) {
+      hours = 0;
+    }
+
+    return { hour: hours, minute: minutes };
   }
 
   // Function to update sleep data
@@ -50,11 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
         Sleep[date].bed.hour,
         Sleep[date].bed.minute,
       );
-
-      wakeupTime.setAttribute(
-        "data-default",
-        to12HourTime(Sleep[date].wakeup.hour, Sleep[date].wakeup.minute),
+      wakeupTime.value = to12HourTime(
+        Sleep[date].wakeup.hour,
+        Sleep[date].wakeup.minute,
       );
+
       sleepDuration.textContent = `${Sleep[date].duration.hour} hours and ${Sleep[date].duration.minute} minutes`;
     }
   }
