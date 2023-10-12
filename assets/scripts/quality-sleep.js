@@ -8,16 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Load data from localStorage
   let Sleep = JSON.parse(localStorage.getItem("Sleep")) || {};
   // Function to format time with AM/PM
-  function formatTimeWithPeriod(hours, minutes) {
+  function to12HourTime(hours, minutes) {
     const period = hours < 12 ? "AM" : "PM";
-    hours = hours % 12 || 12;
+    hours = (hours % 12 || 12).toString().padStart(2, "0");
+    minutes = minutes.toString().padStart(2, "0");
     return `${hours}:${minutes}${period}`;
   }
 
   // Function to calculate sleep duration
-  function calculateSleepDuration(bedTimeValue, wakeupTimeValue) {
-    const bedTime24Hr = convertTo24HourFormat(bedTimeValue);
-    const wakeupTime24Hr = convertTo24HourFormat(
+  function getSleepDuration(bedTimeValue, wakeupTimeValue) {
+    const bedTime24Hr = to24HourTime(bedTimeValue);
+    const wakeupTime24Hr = to24HourTime(
       wakeupTimeValue || wakeupTime.dataset.default,
     );
 
@@ -32,34 +33,27 @@ document.addEventListener("DOMContentLoaded", function () {
       hours--;
       minutes += 60;
     }
-
+    sleepDuration.textContent = `${hours} hours and ${minutes} minutes`;
     return { hour: hours, minute: minutes };
   }
 
   // Function to convert time to 24-hour format
-  function convertTo24HourFormat(timeString) {
-    const [hourStr, minuteStr] = timeString.split(":");
-    let [hours, minutes] = [parseInt(hourStr), parseInt(minuteStr.slice(0, 2))];
-
-    if (timeString.includes("PM") && hours !== 12) {
-      hours += 12;
-    } else if (timeString.includes("AM") && hours === 12) {
-      hours = 0;
-    }
-
-    return { hour: hours, minute: minutes };
+  function to24HourTime(timeString) {
+    let [hr, min, ap] = timeString.toLowerCase().match(/\d+|[a-z]+/g) || [];
+    return { hour: (hr % 12) + (ap == "am" ? 0 : 12), minute: parseInt(min) };
   }
 
   // Function to update sleep data
   function updateSleepData(date) {
     if (date in Sleep) {
-      bedTime.value = formatTimeWithPeriod(
+      bedTime.value = to12HourTime(
         Sleep[date].bed.hour,
         Sleep[date].bed.minute,
       );
-      wakeupTime.value = formatTimeWithPeriod(
-        Sleep[date].wakeup.hour,
-        Sleep[date].wakeup.minute,
+
+      wakeupTime.setAttribute(
+        "data-default",
+        to12HourTime(Sleep[date].wakeup.hour, Sleep[date].wakeup.minute),
       );
       sleepDuration.textContent = `${Sleep[date].duration.hour} hours and ${Sleep[date].duration.minute} minutes`;
     }
@@ -78,16 +72,12 @@ document.addEventListener("DOMContentLoaded", function () {
     onChange: e => {
       if (e.bs in Sleep) {
         updateSleepData(e.bs);
+        console.log("stored", Sleep);
       } else {
-        const bedTimeValue = bedTime.value;
-        const wakeupTimeValue = wakeupTime.value;
-
-        const duration = calculateSleepDuration(bedTimeValue, wakeupTimeValue);
-
         Sleep[e.bs] = {
-          bed: convertTo24HourFormat(bedTimeValue),
-          wakeup: convertTo24HourFormat(wakeupTimeValue),
-          duration: duration,
+          bed: to24HourTime(bedTime.value),
+          wakeup: to24HourTime(wakeupTime.value),
+          duration: getSleepDuration(bedTime.value, wakeupTime.value),
         };
 
         localStorage.setItem("Sleep", JSON.stringify(Sleep));
@@ -106,13 +96,19 @@ document.addEventListener("DOMContentLoaded", function () {
     donetext: "OK",
     afterDone: (Element, Time) => {
       if (Element[0].name === "bedTime") {
-        Sleep[selectDate.value].bed = convertTo24HourFormat(Time);
+        Sleep[selectDate.value] = {
+          bed: to24HourTime(Time),
+          wakeup: to24HourTime(wakeupTime.value),
+          duration: getSleepDuration(bedTime.value, wakeupTime.value),
+        };
       } else if (Element[0].name === "wakeupTime") {
-        Sleep[selectDate.value].wakeup = convertTo24HourFormat(Time);
+        Sleep[selectDate.value] = {
+          bed: to24HourTime(bedTime.value),
+          wakeup: to24HourTime(Time),
+          duration: getSleepDuration(bedTime.value, wakeupTime.value),
+        };
       }
-
-      const duration = calculateSleepDuration(bedTime.value, wakeupTime.value);
-      Sleep[selectDate.value].duration = duration;
+      console.log(Sleep);
 
       localStorage.setItem("Sleep", JSON.stringify(Sleep));
     },
