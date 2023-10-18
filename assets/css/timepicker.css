@@ -145,15 +145,17 @@
   background-color: rgba(0, 150, 136, 0);
 }
 .btn-floating.btn-flat.active,
+.btn-floating.btn-flat:hover.active,
 .clockpicker-tick.active,
 .clockpicker-tick:hover {
-  background-color: rgba(0, 150, 136, 0.25);
+  background-color: var(--clr-primary-700);
 }
-.btn-floating.btn-flat:focus,
-.btn-floating.btn-flat:hover,
-.btn-floating.btn-flat:visited {
+
+/* .btn-floating.btn-flat:focus, */
+/* .btn-floating.btn-flat:hover, */
+/* .btn-floating.btn-flat:visited {
   background-color: transparent;
-}
+} */
 .clockpicker-dial {
   -webkit-transition: -webkit-transform 350ms, opacity 350ms;
   -moz-transition: -moz-transform 350ms, opacity 350ms;
@@ -235,6 +237,7 @@ button {
 }
 .btn-floating.btn-flat:hover {
   box-shadow: none;
+  background-color: rgba(0, 150, 136, 0.25);
 }
 .btn-floating.btn-flat:active {
   background-color: rgba(0, 150, 136, 0.5);
@@ -307,11 +310,7 @@ button {
   }
   .picker__box {
     display: block;
-    border: 1px solid #777;
-    border-top-color: #898989;
     border-bottom-width: 0;
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
   }
 }
 .picker--opened .picker__holder {
@@ -577,7 +576,8 @@ button {
   color: rgba(255, 255, 255, 0.4);
 }
 .picker__box {
-  border-radius: 2px;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.3);
   overflow: hidden;
   padding: 0;
 }

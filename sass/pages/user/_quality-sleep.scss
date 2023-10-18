@@ -1,0 +1,13 @@
+.quality-sleep {
+  .btn {
+    --br: 5px;
+    padding: 0.625em 1em;
+    width: 130px;
+    font-family: var(--ff-inter);
+    color: var(--clr-light);
+
+    &:hover {
+      --bg: var(--clr-tertiary);
+    }
+  }
+}

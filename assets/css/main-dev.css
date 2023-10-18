@@ -133,6 +133,7 @@ body {
   --clr-primary-100: hsla(170, 100%, 32%, 0.1);
   --clr-primary-150: hsla(170, 100%, 32%, 0.15);
   --clr-primary-400: hsla(170, 100%, 32%, 0.4);
+  --clr-primary-700: hsla(170, 100%, 32%, 0.7);
   --clr-primary-800: hsla(170, 100%, 32%, 0.8);
   --clr-primary: hsl(170, 100%, 32%);
   --clr-secondary-100: hsla(36, 88%, 53%, 0.1);
@@ -206,6 +207,14 @@ body {
 
 .text-primary-400 {
   color: hsla(170, 100%, 32%, 0.4);
+}
+
+.bg-primary-700 {
+  background-color: hsla(170, 100%, 32%, 0.7);
+}
+
+.text-primary-700 {
+  color: hsla(170, 100%, 32%, 0.7);
 }
 
 .bg-primary-800 {
@@ -3159,4 +3168,15 @@ div.ndp-nepali-box a {
 }
 .glass-water__form .btn-m:is(:hover, :focus-within) {
   box-shadow: inset 0 0 15px hsl(195, 63%, 29%), 0 0 10px 2px hsl(195, 84%, 76%);
+}
+
+.quality-sleep .btn {
+  --br: 5px;
+  padding: 0.625em 1em;
+  width: 130px;
+  font-family: var(--ff-inter);
+  color: var(--clr-light);
+}
+.quality-sleep .btn:hover {
+  --bg: var(--clr-tertiary);
 }/*# sourceMappingURL=main-dev.css.map */
