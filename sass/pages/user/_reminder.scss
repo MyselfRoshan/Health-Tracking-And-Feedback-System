@@ -1,0 +1,71 @@
+.notification {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-left: 3px solid var(--clr-border);
+  background: var(--clr-body);
+  box-shadow: 4px 4px 10px 4px var(--clr-ash);
+  margin-bottom: 0.5rem;
+  transition: height 500ms ease-in-out, scale 500ms ease-in-out;
+
+  &.exercise {
+    --clr-body: linear-gradient(
+      to left,
+      var(--card1-gradient-color1),
+      var(--card1-gradient-color2)
+    );
+    --clr-border: var(--card1-gradient-color1);
+    &:hover {
+      --clr-border: var(--card1-gradient-color2);
+    }
+  }
+  &.hydrated {
+    --clr-body: linear-gradient(
+      to left,
+      var(--card3-gradient-color1),
+      var(--card3-gradient-color2)
+    );
+    --clr-border: var(--card3-gradient-color1);
+    &:hover {
+      --clr-border: var(--card3-gradient-color2);
+    }
+  }
+  &.nutrition {
+    --clr-body: linear-gradient(
+      to left,
+      var(--card2-gradient-color1),
+      var(--card2-gradient-color2)
+    );
+    --clr-border: var(--card2-gradient-color1);
+    &:hover {
+      --clr-border: var(--card2-gradient-color2);
+    }
+  }
+  &.sleep {
+    --clr-body: linear-gradient(to left, var(--clr-dark), var(--clr-dark-100));
+    --clr-border: var(--clr-dark);
+    &:hover {
+      --clr-border: hsla(0, 0%, 100%, 0.839);
+    }
+  }
+
+  &__heading {
+    --justify-content: space-between;
+  }
+  &__close-btn {
+    border: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: pink;
+    ion-icon {
+      color: var(--clr-light);
+      font-size: var(--fs-500);
+    }
+  }
+
+  &.closed {
+    scale: 0;
+    height: 0;
+  }
+}
