@@ -26,16 +26,16 @@ menuToggle.addEventListener("click", () => {
   profileUsername.toggleAttribute("hidden");
   profileRole.toggleAttribute("hidden");
   profileLogout.toggleAttribute("hidden");
-  menuItemsDesc.forEach(menuItemDesc => {
+  menuItemsDesc.forEach((menuItemDesc) => {
     menuItemDesc.toggleAttribute("hidden");
   });
 });
 // window.addEventListener()
 // Document.onload = fetchData("/pages/user/add.html");
 
-menuItems.forEach(menuItem => {
+menuItems.forEach((menuItem) => {
   menuItem.addEventListener("click", () => {
-    menuItems.forEach(menuItem => {
+    menuItems.forEach((menuItem) => {
       menuItem.classList.remove("active");
       const menuItemIcon = menuItem.firstElementChild.firstElementChild;
       const iconType = menuItemIcon.getAttribute("name");
@@ -50,10 +50,11 @@ menuItems.forEach(menuItem => {
     const iconOutlined = iconType.concat("-outline");
     const iconFilled = iconType.replace("-outline", "");
 
+    fetchData(`/pages/user/reminder.html`);
     if (Object.keys(pages).includes(iconFilled)) {
       fetchData(`/pages/user/${pages[`${iconFilled}`]["value"]}.html`);
       // Remove active status from all pages and add active to current page
-      Object.values(pages).forEach(page => (page.active = false));
+      Object.values(pages).forEach((page) => (page.active = false));
       pages[`${iconFilled}`]["active"] = true;
       console.log(pages);
     }

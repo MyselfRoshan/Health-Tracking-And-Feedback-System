@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Load data from localStorage
   let Sleep = JSON.parse(localStorage.getItem("Sleep")) || {};
   // Function to format time with AM/PM
-  function to12HourTime(hours, minutes) {
+  function to12HourFormat(hours, minutes) {
     const period = hours < 12 ? "AM" : "PM";
     hours = (hours % 12 || 12).toString().padStart(2, "0");
     minutes = minutes.toString().padStart(2, "0");
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to calculate sleep duration
-  function getSleepDuration(bedTimeValue, wakeupTimeValue) {
-    const bedTime24Hr = to24HourTime(bedTimeValue);
-    const wakeupTime24Hr = to24HourTime(
-      wakeupTimeValue || wakeupTime.dataset.default,
+  function calculateSleepDuration(bedTimeValue, wakeupTimeValue) {
+    const bedTime24Hr = to24HourFormat(bedTimeValue);
+    const wakeupTime24Hr = to24HourFormat(
+      wakeupTimeValue ?? wakeupTime.dataset.default,
     );
 
     let hours =
@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to convert time to 24-hour format
-  function to24HourTime(timeString) {
-    // let [hr, min, ap] = timeString.toLowerCase().match(/\d+|[a-z]+/g) || [];
-    // return { hour: (hr % 12) + (ap == "am" ? 0 : 12), minute: parseInt(min) };
+  function to24HourFormat(timeString) {
     const [hourStr, minuteStr] = timeString.split(":");
     let [hours, minutes] = [parseInt(hourStr), parseInt(minuteStr.slice(0, 2))];
 
@@ -56,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to update sleep data
   function updateSleepData(date) {
     if (date in Sleep) {
-      bedTime.value = to12HourTime(
+      bedTime.value = to12HourFormat(
         Sleep[date].bed.hour,
         Sleep[date].bed.minute,
       );
-      wakeupTime.value = to12HourTime(
+      wakeupTime.value = to12HourFormat(
         Sleep[date].wakeup.hour,
         Sleep[date].wakeup.minute,
       );
@@ -82,12 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
     onChange: e => {
       if (e.bs in Sleep) {
         updateSleepData(e.bs);
-        console.log("stored", Sleep);
       } else {
         Sleep[e.bs] = {
-          bed: to24HourTime(bedTime.value),
-          wakeup: to24HourTime(wakeupTime.value),
-          duration: getSleepDuration(bedTime.value, wakeupTime.value),
+          bed: to24HourFormat(bedTime.value),
+          wakeup: to24HourFormat(wakeupTime.value),
+          duration: calculateSleepDuration(bedTime.value, wakeupTime.value),
         };
 
         localStorage.setItem("Sleep", JSON.stringify(Sleep));
@@ -105,20 +102,22 @@ document.addEventListener("DOMContentLoaded", function () {
     vibrate: true,
     donetext: "OK",
     afterDone: (Element, Time) => {
+      const selectedDate = selectDate.value;
       if (Element[0].name === "bedTime") {
-        Sleep[selectDate.value] = {
-          bed: to24HourTime(Time),
-          wakeup: to24HourTime(wakeupTime.value),
-          duration: getSleepDuration(bedTime.value, wakeupTime.value),
+        const bedTimeValue = !Time ? bedTime.value : Time;
+        Sleep[selectedDate] = {
+          bed: to24HourFormat(bedTimeValue),
+          wakeup: to24HourFormat(wakeupTime.value),
+          duration: calculateSleepDuration(bedTimeValue, wakeupTime.value),
         };
       } else if (Element[0].name === "wakeupTime") {
-        Sleep[selectDate.value] = {
-          bed: to24HourTime(bedTime.value),
-          wakeup: to24HourTime(Time),
-          duration: getSleepDuration(bedTime.value, wakeupTime.value),
+        const wakeupTimeValue = !Time ? wakeupTime.value : Time;
+        Sleep[selectedDate] = {
+          bed: to24HourFormat(bedTime.value),
+          wakeup: to24HourFormat(wakeupTimeValue),
+          duration: calculateSleepDuration(bedTime.value, wakeupTimeValue),
         };
       }
-      console.log(Sleep);
 
       localStorage.setItem("Sleep", JSON.stringify(Sleep));
     },

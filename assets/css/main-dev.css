@@ -133,6 +133,7 @@ body {
   --clr-primary-100: hsla(170, 100%, 32%, 0.1);
   --clr-primary-150: hsla(170, 100%, 32%, 0.15);
   --clr-primary-400: hsla(170, 100%, 32%, 0.4);
+  --clr-primary-700: hsla(170, 100%, 32%, 0.7);
   --clr-primary-800: hsla(170, 100%, 32%, 0.8);
   --clr-primary: hsl(170, 100%, 32%);
   --clr-secondary-100: hsla(36, 88%, 53%, 0.1);
@@ -206,6 +207,14 @@ body {
 
 .text-primary-400 {
   color: hsla(170, 100%, 32%, 0.4);
+}
+
+.bg-primary-700 {
+  background-color: hsla(170, 100%, 32%, 0.7);
+}
+
+.text-primary-700 {
+  color: hsla(170, 100%, 32%, 0.7);
 }
 
 .bg-primary-800 {
@@ -3159,4 +3168,84 @@ div.ndp-nepali-box a {
 }
 .glass-water__form .btn-m:is(:hover, :focus-within) {
   box-shadow: inset 0 0 15px hsl(195, 63%, 29%), 0 0 10px 2px hsl(195, 84%, 76%);
+}
+
+.quality-sleep .btn {
+  --br: 5px;
+  padding: 0.625em 1em;
+  width: 130px;
+  font-family: var(--ff-inter);
+  color: var(--clr-light);
+}
+.quality-sleep .btn:hover {
+  --bg: var(--clr-tertiary);
+}
+
+.notification {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-left: 3px solid var(--clr-border);
+  background: var(--clr-body);
+  box-shadow: 4px 4px 10px 4px var(--clr-ash);
+  margin-bottom: 0.5rem;
+  transition: height 500ms ease-in-out, scale 500ms ease-in-out;
+}
+.notification.exercise {
+  --clr-body: linear-gradient(
+    to left,
+    var(--card1-gradient-color1),
+    var(--card1-gradient-color2)
+  );
+  --clr-border: var(--card1-gradient-color1);
+}
+.notification.exercise:hover {
+  --clr-border: var(--card1-gradient-color2);
+}
+.notification.hydrated {
+  --clr-body: linear-gradient(
+    to left,
+    var(--card3-gradient-color1),
+    var(--card3-gradient-color2)
+  );
+  --clr-border: var(--card3-gradient-color1);
+}
+.notification.hydrated:hover {
+  --clr-border: var(--card3-gradient-color2);
+}
+.notification.nutrition {
+  --clr-body: linear-gradient(
+    to left,
+    var(--card2-gradient-color1),
+    var(--card2-gradient-color2)
+  );
+  --clr-border: var(--card2-gradient-color1);
+}
+.notification.nutrition:hover {
+  --clr-border: var(--card2-gradient-color2);
+}
+.notification.sleep {
+  --clr-body: linear-gradient(to left, var(--clr-dark), var(--clr-dark-100));
+  --clr-border: var(--clr-dark);
+}
+.notification.sleep:hover {
+  --clr-border: hsla(0, 0%, 100%, 0.839);
+}
+.notification__heading {
+  --justify-content: space-between;
+}
+.notification__close-btn {
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: pink;
+}
+.notification__close-btn ion-icon {
+  color: var(--clr-light);
+  font-size: var(--fs-500);
+}
+.notification.closed {
+  scale: 0;
+  height: 0;
 }/*# sourceMappingURL=main-dev.css.map */
