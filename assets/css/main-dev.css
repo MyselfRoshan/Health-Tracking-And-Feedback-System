@@ -2488,12 +2488,6 @@ div.ndp-nepali-box a {
 .signup__form .name > :nth-child(n) {
   width: 11.25rem;
 }
-.signup__form .name {
-  --flow-gap: 2rem;
-  display: flex;
-  justify-content: space-between;
-  min-width: var(--iw);
-}
 .signup__form .btn {
   --flow-gap: 3rem;
   --bg: var(--clr-primary);
@@ -2550,8 +2544,7 @@ div.ndp-nepali-box a {
 }
 
 .label,
-.input-signup__container:has(#lname),
-#toggle-password {
+.name .input-signup__container {
   --flow-gap: none;
 }
 
@@ -2909,16 +2902,20 @@ div.ndp-nepali-box a {
   border-bottom: 0.125rem solid var(--clr-light);
 }
 
-.profile__section {
-  --bg-label-focus: linear-gradient(
-    120deg,
-    var(--clr-secondary) -90%,
-    var(--clr-yellow) 450%
-  );
-  padding: 6rem;
+.profile__header {
+  align-self: start;
+  border-radius: 8px;
+  border: 2px solid var(--clr-primary);
+  grid-column: span 3;
+  width: 100%;
   background: linear-gradient(120deg, var(--clr-secondary) 0%, var(--clr-yellow) 100%);
-  border-radius: 10rem 1rem 10rem 1rem;
-  box-shadow: 0px 0px 15px 5px var(--clr-yellow);
+}
+.profile__section {
+  --grid-gap: 1.5rem;
+  grid-template-columns: repeat(8, 1fr);
+}
+.profile__section .details {
+  --justify-content: space-between;
 }
 .profile__pic {
   width: -moz-fit-content;
@@ -2945,7 +2942,8 @@ div.ndp-nepali-box a {
   scale: 1.05;
 }
 .profile__pic .round-right ion-icon {
-  color: var(--clr-accent);
+  --ionicon-stroke-width: 48px;
+  color: var(--clr-light);
 }
 .profile__pic .round-left,
 .profile__pic .round-right {
@@ -2981,19 +2979,59 @@ div.ndp-nepali-box a {
 .profile__pic > img {
   border: 3px solid var(--clr-light);
   border-radius: 50%;
-  width: 10rem;
+  width: 12rem;
   aspect-ratio: 1;
 }
 .profile__change {
-  max-width: 25rem;
+  grid-column: 4/-1;
+  border-radius: 0.5rem;
+  border: 2px solid var(--clr-primary);
+  width: 100%;
+  background: radial-gradient(var(--clr-yellow) 0%, var(--clr-secondary) 100%);
 }
 .profile__change .name {
   display: flex;
   justify-content: space-between;
 }
+.profile__change .input-text {
+  --flow-gap: 0.25rem;
+  --oc: var(--clr-light-400);
+  --foc: var(--clr-light);
+  --c: var(--clr-dark-900);
+  --fc: var(--clr-light);
+  --iw: 20rem;
+}
+.profile__change .input-text:is(focus-visible, :focus) + ion-icon {
+  color: var(--clr-light);
+}
+.profile__change .label {
+  display: block;
+}
+.profile__change .label:has(+ .input-text:focus) {
+  color: var(--clr-light);
+}
+.profile__change .form-container {
+  --flow-gap: none;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.profile__change .input-container {
+  position: relative;
+}
+.profile__change #toggle-password {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.profile__change .btn {
+  --hew: 20rem;
+}
 
 /* Exercise form container */
 .daily-exercise {
+  position: relative;
   /* Exercise dropdown styling */
   /* Exercise steps styling */
   /* Header for exercise steps */

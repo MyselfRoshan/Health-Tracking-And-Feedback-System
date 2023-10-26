@@ -52,13 +52,6 @@
       width: min(25rem, 100%);
     }
 
-    .name {
-      --flow-gap: 2rem;
-      display: flex;
-      justify-content: space-between;
-      min-width: var(--iw);
-    }
-
     .btn {
       --flow-gap: 3rem;
 
@@ -94,20 +87,19 @@
       .validation-alerts {
         --flow-gap: 0.5rem;
       }
-
+      
       .label {
         position: absolute;
         inset-block-start: 1rem;
         inset-inline-start: 1rem;
         pointer-events: none;
-
+        
         &__text {
           transition: all 250ms ease-out;
         }
       }
 
       #toggle-password {
-        // --icon-clr: var(--clr-dark-400);
         cursor: pointer;
         display: block;
         position: absolute;
@@ -133,8 +125,7 @@
 }
 
 .label,
-.input-signup__container:has(#lname),
-#toggle-password {
+ .name .input-signup__container{
   --flow-gap: none;
 }
 
