@@ -50,7 +50,7 @@ menuItems.forEach((menuItem) => {
     const iconOutlined = iconType.concat("-outline");
     const iconFilled = iconType.replace("-outline", "");
 
-    fetchData(`/pages/user/reminder.html`);
+    // fetchData(`/pages/user/reminder.html`);
     if (Object.keys(pages).includes(iconFilled)) {
       fetchData(`/pages/user/${pages[`${iconFilled}`]["value"]}.html`);
       // Remove active status from all pages and add active to current page
