@@ -1,6 +1,5 @@
 .profile {
   &__header {
-    align-self: start;
     border-radius: 8px;
     border: 2px solid var(--clr-primary);
     grid-column: span 3;
@@ -41,9 +40,12 @@
     // display: grid;
     --grid-gap: 1.5rem;
     grid-template-columns: repeat(8, 1fr);
+    align-items: start;
 
     .details {
       --justify-content: space-between;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px double var(--clr-secondary);
     }
   }
 
@@ -134,10 +136,8 @@
     //   var(--clr-secondary) 0%,
     //   var(--clr-yellow) 100%
     // );
-    background: radial-gradient(
-      var(--clr-yellow) 0%,
-      var(--clr-secondary) 100%
-    );
+    background: radial-gradient(var(--clr-yellow) 0%, var(--clr-secondary) 100%)
+      cover;
     .name {
       display: flex;
       justify-content: space-between;
@@ -149,7 +149,7 @@
       --foc: var(--clr-light);
       --c: var(--clr-dark-900);
       --fc: var(--clr-light);
-      --iw: 20rem;
+      --iw: 100%;
 
       &:is(focus-visible, :focus) + ion-icon {
         color: var(--clr-light);
@@ -167,6 +167,7 @@
       display: grid;
       gap: 1.5rem;
       grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
     .input-container {
       position: relative;
@@ -179,7 +180,7 @@
     }
 
     .btn {
-      --hew: 20rem;
+      --hew: 9rem;
     }
   }
 }

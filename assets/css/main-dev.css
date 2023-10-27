@@ -2903,7 +2903,6 @@ div.ndp-nepali-box a {
 }
 
 .profile__header {
-  align-self: start;
   border-radius: 8px;
   border: 2px solid var(--clr-primary);
   grid-column: span 3;
@@ -2913,9 +2912,12 @@ div.ndp-nepali-box a {
 .profile__section {
   --grid-gap: 1.5rem;
   grid-template-columns: repeat(8, 1fr);
+  align-items: start;
 }
 .profile__section .details {
   --justify-content: space-between;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px double var(--clr-secondary);
 }
 .profile__pic {
   width: -moz-fit-content;
@@ -2987,7 +2989,7 @@ div.ndp-nepali-box a {
   border-radius: 0.5rem;
   border: 2px solid var(--clr-primary);
   width: 100%;
-  background: radial-gradient(var(--clr-yellow) 0%, var(--clr-secondary) 100%);
+  background: radial-gradient(var(--clr-yellow) 0%, var(--clr-secondary) 100%) cover;
 }
 .profile__change .name {
   display: flex;
@@ -2999,7 +3001,7 @@ div.ndp-nepali-box a {
   --foc: var(--clr-light);
   --c: var(--clr-dark-900);
   --fc: var(--clr-light);
-  --iw: 20rem;
+  --iw: 100%;
 }
 .profile__change .input-text:is(focus-visible, :focus) + ion-icon {
   color: var(--clr-light);
@@ -3015,6 +3017,7 @@ div.ndp-nepali-box a {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 .profile__change .input-container {
   position: relative;
@@ -3026,7 +3029,7 @@ div.ndp-nepali-box a {
   inset: 0;
 }
 .profile__change .btn {
-  --hew: 20rem;
+  --hew: 9rem;
 }
 
 /* Exercise form container */
