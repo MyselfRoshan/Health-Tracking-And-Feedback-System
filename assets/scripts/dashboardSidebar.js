@@ -1,11 +1,6 @@
 import { fetchData } from "./fetch.js";
 
-// const pages = {
-//   add: "add",
-//   grid: "overview",
-//   "calendar-clear": "reminder",
-//   flag: "goal",
-// };
+// visit this link for better routing https://dev.to/thedevdrawer/single-page-application-routing-using-hash-or-url-9jh
 
 const pages = {
   add: { value: "add", active: true },
@@ -30,7 +25,7 @@ menuToggle.addEventListener("click", () => {
     menuItemDesc.toggleAttribute("hidden");
   });
 });
-// window.addEventListener()
+
 // Document.onload = fetchData("/pages/user/add.html");
 
 menuItems.forEach((menuItem) => {
@@ -52,7 +47,10 @@ menuItems.forEach((menuItem) => {
 
     // fetchData(`/pages/user/reminder.html`);
     if (Object.keys(pages).includes(iconFilled)) {
-      fetchData(`/pages/user/${pages[`${iconFilled}`]["value"]}.html`);
+      fetchData(
+        `/pages/user/${pages[`${iconFilled}`]["value"]}.html`,
+        pages[`${iconFilled}`]["value"]
+      );
       // Remove active status from all pages and add active to current page
       Object.values(pages).forEach((page) => (page.active = false));
       pages[`${iconFilled}`]["active"] = true;
