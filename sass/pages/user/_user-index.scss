@@ -102,6 +102,7 @@ $menu-margin-inline: math.div(($menu-width - 48px), 2);
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
+  text-decoration: none;
 
   &.active {
     // change icon custom properties when active
