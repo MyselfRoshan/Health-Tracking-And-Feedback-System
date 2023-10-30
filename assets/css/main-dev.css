@@ -2706,6 +2706,7 @@ div.ndp-nepali-box a {
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 60px 1fr;
+  text-decoration: none;
 }
 .menu-item.active {
   --ibr: 0.75rem;
@@ -2989,7 +2990,7 @@ div.ndp-nepali-box a {
   border-radius: 0.5rem;
   border: 2px solid var(--clr-primary);
   width: 100%;
-  background: radial-gradient(var(--clr-yellow) 0%, var(--clr-secondary) 100%) cover;
+  background: radial-gradient(circle at center, var(--clr-yellow) 0%, var(--clr-secondary) 100%);
 }
 .profile__change .name {
   display: flex;
